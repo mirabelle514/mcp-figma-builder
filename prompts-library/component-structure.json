@@ -1,0 +1,62 @@
+{
+  "category": "component-structure",
+  "description": "Prompts for React component architecture and code organization",
+  "prompts": [
+    {
+      "id": "typescript-strict",
+      "name": "TypeScript Strict Mode",
+      "content": "Generate the component using TypeScript with strict type checking enabled. Define explicit types for all props, state, and function returns. Use interfaces for complex prop types. Avoid using 'any' type. Export all type definitions for reusability.",
+      "tags": ["typescript", "types", "strict"],
+      "recommendedFor": ["forms", "data-tables", "complex-components"]
+    },
+    {
+      "id": "functional-hooks",
+      "name": "Functional Components with Hooks",
+      "content": "Use functional components exclusively with React hooks (useState, useEffect, useCallback, useMemo). Organize hooks logically at the top of the component. Extract custom hooks for reusable logic. Follow the Rules of Hooks.",
+      "tags": ["hooks", "functional", "modern-react"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "compound-components",
+      "name": "Compound Component Pattern",
+      "content": "Structure the component using the compound component pattern for flexibility. Create sub-components that work together through shared context. Export both the main component and sub-components. Example: Card.Header, Card.Body, Card.Footer.",
+      "tags": ["patterns", "composition", "flexible"],
+      "recommendedFor": ["cards", "modals", "layouts"]
+    },
+    {
+      "id": "controlled-uncontrolled",
+      "name": "Support Both Controlled and Uncontrolled",
+      "content": "Implement the component to work in both controlled and uncontrolled modes. Use value/onChange props for controlled mode and defaultValue for uncontrolled. Internally manage state when not controlled. Follow React form element patterns.",
+      "tags": ["forms", "flexibility", "state-management"],
+      "recommendedFor": ["inputs", "forms", "interactive"]
+    },
+    {
+      "id": "small-focused-components",
+      "name": "Small, Single-Responsibility Components",
+      "content": "Break down the design into small, focused components that each have a single responsibility. Extract sub-components for reusable parts. Keep each component file under 200 lines. Follow the Single Responsibility Principle.",
+      "tags": ["organization", "maintainability", "clean-code"],
+      "recommendedFor": ["complex-ui", "pages", "features"]
+    },
+    {
+      "id": "prop-forwarding",
+      "name": "Proper Prop Forwarding and Ref",
+      "content": "Use forwardRef to properly pass refs to underlying DOM elements. Spread remaining props to the root element to support className, id, data attributes, etc. Use TypeScript generics for type-safe prop forwarding.",
+      "tags": ["refs", "props", "flexibility"],
+      "recommendedFor": ["base-components", "wrappers", "library-components"]
+    },
+    {
+      "id": "render-props-pattern",
+      "name": "Render Props for Flexibility",
+      "content": "Provide render prop functions for customizable parts of the component. Allow consumers to override rendering while maintaining component logic. Use TypeScript to type render prop parameters.",
+      "tags": ["patterns", "customization", "advanced"],
+      "recommendedFor": ["tables", "lists", "complex-interactions"]
+    },
+    {
+      "id": "barrel-exports",
+      "name": "Organized Barrel Exports",
+      "content": "Create an index file that exports all components, types, and utilities. Use named exports for better tree-shaking. Group related components in subdirectories with their own barrel exports.",
+      "tags": ["exports", "organization", "modules"],
+      "recommendedFor": ["component-libraries", "shared-components"]
+    }
+  ]
+}

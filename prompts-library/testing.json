@@ -1,0 +1,90 @@
+{
+  "category": "testing",
+  "description": "Prompts for test coverage and quality assurance",
+  "prompts": [
+    {
+      "id": "unit-tests",
+      "name": "Comprehensive Unit Tests",
+      "content": "Generate unit tests using React Testing Library and Jest. Test component rendering, user interactions, prop variations, and edge cases. Use screen queries (getByRole, getByLabelText). Follow testing-library best practices. Aim for 80%+ coverage.",
+      "tags": ["testing", "unit", "jest"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "user-interaction-tests",
+      "name": "User Interaction Testing",
+      "content": "Test components from user perspective. Simulate clicks, typing, form submissions. Use userEvent instead of fireEvent. Test keyboard navigation. Verify visual feedback for interactions. Test async behavior with waitFor.",
+      "tags": ["testing", "interactions", "user-centric"],
+      "recommendedFor": ["interactive", "forms", "buttons"]
+    },
+    {
+      "id": "accessibility-tests",
+      "name": "Automated Accessibility Testing",
+      "content": "Include accessibility tests using jest-axe. Test for ARIA violations. Verify keyboard navigation. Check focus management. Test with screen reader queries (getByRole, getByLabelText). Catch a11y issues early.",
+      "tags": ["testing", "accessibility", "a11y"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "error-state-tests",
+      "name": "Error State Testing",
+      "content": "Test error states and error handling. Mock failed API calls. Test validation error display. Verify error recovery flows. Test error boundaries. Ensure user-friendly error messages.",
+      "tags": ["testing", "errors", "edge-cases"],
+      "recommendedFor": ["forms", "api-integration", "async"]
+    },
+    {
+      "id": "loading-state-tests",
+      "name": "Loading State Testing",
+      "content": "Test loading states for async operations. Verify loading indicators appear and disappear correctly. Test component behavior during loading. Mock async operations with delays. Test loading state timeouts.",
+      "tags": ["testing", "loading", "async"],
+      "recommendedFor": ["async", "data-fetching", "forms"]
+    },
+    {
+      "id": "snapshot-tests",
+      "name": "Visual Regression with Snapshots",
+      "content": "Create snapshot tests for stable components. Update snapshots intentionally. Review snapshot changes carefully. Use snapshots for complex output verification. Complement with behavioral tests.",
+      "tags": ["testing", "snapshots", "regression"],
+      "recommendedFor": ["stable-components", "complex-output"]
+    },
+    {
+      "id": "mock-api-calls",
+      "name": "Proper API Mocking",
+      "content": "Mock API calls using MSW (Mock Service Worker) or jest mocks. Test success and error responses. Mock different response scenarios. Verify correct request parameters. Test loading and error states.",
+      "tags": ["testing", "mocking", "api"],
+      "recommendedFor": ["api-integration", "data-fetching"]
+    },
+    {
+      "id": "custom-hooks-tests",
+      "name": "Custom Hooks Testing",
+      "content": "Test custom hooks using @testing-library/react-hooks. Test hook return values and updates. Test hook dependencies and re-renders. Verify cleanup functions. Test error cases.",
+      "tags": ["testing", "hooks", "custom"],
+      "recommendedFor": ["custom-hooks", "logic"]
+    },
+    {
+      "id": "form-validation-tests",
+      "name": "Form Validation Testing",
+      "content": "Test all validation rules. Test error message display. Test validation timing (onBlur, onSubmit). Test valid and invalid inputs. Test field dependencies. Verify form can't submit with errors.",
+      "tags": ["testing", "forms", "validation"],
+      "recommendedFor": ["forms", "inputs"]
+    },
+    {
+      "id": "component-integration-tests",
+      "name": "Component Integration Tests",
+      "content": "Test components together as they're used in the app. Test parent-child component interactions. Test context providers with consumers. Test full user flows. Verify data flows correctly.",
+      "tags": ["testing", "integration", "flows"],
+      "recommendedFor": ["features", "pages", "flows"]
+    },
+    {
+      "id": "edge-case-tests",
+      "name": "Edge Case Coverage",
+      "content": "Test edge cases: empty states, maximum values, long text, special characters, disabled states, permission variations. Test boundary conditions. Think adversarially about what could break.",
+      "tags": ["testing", "edge-cases", "robustness"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "performance-tests",
+      "name": "Performance Testing",
+      "content": "Test for performance regressions. Measure render times. Test with large datasets. Profile memory usage. Use React DevTools Profiler. Set performance budgets.",
+      "tags": ["testing", "performance", "profiling"],
+      "recommendedFor": ["lists", "complex-components", "data-heavy"]
+    }
+  ]
+}
