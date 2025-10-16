@@ -14,7 +14,7 @@ import { createClient } from '@supabase/supabase-js';
 // ============================================
 // TODO: ADD YOUR FIGMA TOKEN HERE (Required)
 // ============================================
-const FIGMA_ACCESS_TOKEN = "figd_YOUR_TOKEN_HERE";
+const FIGMA_ACCESS_TOKEN = "figd__qTPrcGmrCnpzQRGU5dXGrpbj8gG5sk_XSFF1GIJ";
 
 // These are pre-configured and ready to use
 const SUPABASE_URL = "https://oejykyovgwfaxyirtyxv.supabase.co";
