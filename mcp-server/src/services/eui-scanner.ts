@@ -1,9 +1,9 @@
 /**
- * Lumiere Component Scanner
- * Scans the Lumiere Design System repository and extracts component metadata
+ * EUI Component Scanner
+ * Scans the EUI Design System repository and extracts component metadata
  */
 
-interface LumiereComponent {
+interface EuiComponent {
   component_name: string;
   component_path: string;
   description: string;
@@ -23,22 +23,23 @@ interface GitHubFileContent {
   type: 'file' | 'dir';
 }
 
-export class LumiereScanner {
-  private repoOwner = 'your-org';
-  private repoName = 'lumiere-design-system';
+export class EuiScanner {
+  private repoOwner: string;
+  private repoName: string;
   private githubToken?: string;
 
-  constructor(githubToken?: string) {
+  constructor(repoOwner: string, repoName: string, githubToken?: string) {
+    this.repoOwner = repoOwner;
+    this.repoName = repoName;
     this.githubToken = githubToken;
   }
 
   /**
-   * Scan the Lumiere repository and extract all components
+   * Scan the EUI repository and extract all components
    */
-  async scanRepository(): Promise<LumiereComponent[]> {
-    const components: LumiereComponent[] = [];
+  async scanRepository(): Promise<EuiComponent[]> {
+    const components: EuiComponent[] = [];
 
-    // Get all component files from the repo
     const componentFiles = await this.getComponentFiles();
 
     for (const file of componentFiles) {
@@ -63,7 +64,6 @@ export class LumiereScanner {
       headers['Authorization'] = `Bearer ${this.githubToken}`;
     }
 
-    // Scan common component directories
     const directories = ['src/components', 'components', 'lib/components'];
     const files: GitHubFileContent[] = [];
 
@@ -77,7 +77,7 @@ export class LumiereScanner {
         if (response.ok) {
           const contents = await response.json();
           files.push(...contents);
-          break; // Found the components directory
+          break;
         }
       } catch (error) {
         console.warn(`Directory ${dir} not found, trying next...`);
@@ -90,7 +90,7 @@ export class LumiereScanner {
   /**
    * Parse a component file and extract metadata
    */
-  private async parseComponent(file: GitHubFileContent): Promise<LumiereComponent | null> {
+  private async parseComponent(file: GitHubFileContent): Promise<EuiComponent | null> {
     if (file.type !== 'file' || !file.name.match(/\.(tsx|jsx)$/)) {
       return null;
     }
@@ -142,44 +142,29 @@ export class LumiereScanner {
     return null;
   }
 
-  /**
-   * Extract component name from filename
-   */
   private extractComponentName(filename: string): string {
     return filename.replace(/\.(tsx|jsx)$/, '');
   }
 
-  /**
-   * Generate import path
-   */
   private generateImportPath(filePath: string): string {
-    // Convert file path to import path
-    // Example: src/components/Button/Button.tsx -> @lumiere/components/Button
     const match = filePath.match(/components\/(.+)\.(tsx|jsx)$/);
     if (match) {
-      const componentPath = match[1].replace(/\/\w+$/, ''); // Remove filename if in subfolder
-      return `@lumiere/components/${componentPath}`;
+      const componentPath = match[1].replace(/\/\w+$/, '');
+      return `@elastic/eui/${componentPath}`;
     }
     return filePath;
   }
 
-  /**
-   * Extract component description from JSDoc comments
-   */
   private extractDescription(content: string): string {
     const jsdocMatch = content.match(/\/\*\*\s*\n\s*\*\s*(.+?)\n/);
     if (jsdocMatch) {
       return jsdocMatch[1].trim();
     }
 
-    // Fallback: extract from component comments
     const commentMatch = content.match(/\/\/\s*(.+?component.+)/i);
     return commentMatch ? commentMatch[1].trim() : '';
   }
 
-  /**
-   * Categorize component based on name and content
-   */
   private categorizeComponent(name: string, content: string): string {
     const categories = {
       navigation: ['navbar', 'nav', 'menu', 'sidebar', 'breadcrumb', 'tabs'],
@@ -201,20 +186,15 @@ export class LumiereScanner {
     return 'other';
   }
 
-  /**
-   * Extract props interface from TypeScript
-   */
   private extractProps(content: string): Record<string, any> {
     const props: Record<string, any> = {};
 
-    // Match interface or type definitions
     const interfaceMatch = content.match(/interface\s+\w+Props\s*{([^}]+)}/);
     const typeMatch = content.match(/type\s+\w+Props\s*=\s*{([^}]+)}/);
 
     const propsContent = interfaceMatch?.[1] || typeMatch?.[1];
     if (!propsContent) return props;
 
-    // Parse prop definitions
     const propLines = propsContent.split('\n');
     for (const line of propLines) {
       const propMatch = line.match(/(\w+)(\?)?:\s*(.+?)(;|$)/);
@@ -230,13 +210,9 @@ export class LumiereScanner {
     return props;
   }
 
-  /**
-   * Extract component variants
-   */
   private extractVariants(content: string): Record<string, string[]> {
     const variants: Record<string, string[]> = {};
 
-    // Look for variant prop definitions
     const variantMatch = content.match(/variant\??:\s*['"](\w+)['"]\s*\|\s*['"](\w+)['"]/);
     if (variantMatch) {
       const variantValues = content.match(/['"](\w+)['"]/g);
@@ -245,7 +221,6 @@ export class LumiereScanner {
       }
     }
 
-    // Look for size prop
     const sizeMatch = content.match(/size\??:\s*['"](\w+)['"]\s*\|\s*['"](\w+)['"]/);
     if (sizeMatch) {
       const sizeValues = content.match(/size.*?['"](\w+)['"]/g);
@@ -257,14 +232,10 @@ export class LumiereScanner {
     return variants;
   }
 
-  /**
-   * Detect visual patterns this component represents
-   */
   private detectVisualPatterns(name: string, content: string): string[] {
     const patterns: string[] = [];
     const lowerName = name.toLowerCase();
 
-    // Pattern detection based on component name
     if (lowerName.includes('button')) {
       patterns.push('clickable', 'call-to-action', 'interactive');
     }
@@ -281,7 +252,6 @@ export class LumiereScanner {
       patterns.push('text-field', 'form-control', 'user-input');
     }
 
-    // Detect patterns from content
     if (content.includes('grid') || content.includes('Grid')) {
       patterns.push('grid-layout');
     }
@@ -292,32 +262,23 @@ export class LumiereScanner {
     return patterns;
   }
 
-  /**
-   * Generate Figma keywords for matching
-   */
   private generateFigmaKeywords(name: string): string[] {
     const keywords: string[] = [name.toLowerCase()];
 
-    // Add common variations
     keywords.push(
-      name.replace(/([A-Z])/g, ' $1').trim().toLowerCase(), // CamelCase to spaces
-      name.replace(/([A-Z])/g, '-$1').toLowerCase(), // CamelCase to kebab-case
+      name.replace(/([A-Z])/g, ' $1').trim().toLowerCase(),
+      name.replace(/([A-Z])/g, '-$1').toLowerCase(),
     );
 
-    return [...new Set(keywords)]; // Remove duplicates
+    return [...new Set(keywords)];
   }
 
-  /**
-   * Extract usage example from component file
-   */
   private extractUsageExample(content: string, componentName: string): string {
-    // Look for example in comments
     const exampleMatch = content.match(/\/\*\*.*?@example\s*\n\s*\*\s*```(tsx?|jsx?)?\n([\s\S]*?)```/);
     if (exampleMatch) {
       return exampleMatch[2].trim();
     }
 
-    // Generate basic example
-    return `import { ${componentName} } from '@lumiere/components';\n\n<${componentName} />`;
+    return `import { ${componentName} } from '@elastic/eui';\n\n<${componentName} />`;
   }
 }

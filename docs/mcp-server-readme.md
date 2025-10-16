@@ -1,6 +1,6 @@
 # Figma-to-Lumiere Implementation Guide MCP Server
 
-A Model Context Protocol (MCP) server that helps developers implement Figma designs using existing Lumiere Design System components.
+A Model Context Protocol (MCP) server that helps developers implement Figma designs using existing EUI Design System components.
 
 ## Table of Contents
 
@@ -19,10 +19,10 @@ A Model Context Protocol (MCP) server that helps developers implement Figma desi
 
 ## Overview
 
-This MCP server bridges the gap between Figma designs and your existing Lumiere Design System components. Instead of generating new components from scratch, it:
+This MCP server bridges the gap between Figma designs and your existing EUI Design System components. Instead of generating new components from scratch, it:
 
 1. **Analyzes Figma designs** to understand visual patterns and structure
-2. **Maps designs to existing Lumiere components** with confidence scores
+2. **Maps designs to existing EUI components** with confidence scores
 3. **Generates implementation guides** with code examples using your components
 4. **Provides fast customization prompts** to help developers adapt the components
 
@@ -98,7 +98,7 @@ Developer customizes with fast prompts:
       └─────────────┘   └─────────────────┘
               │
       ┌───────▼─────────────────────┐
-      │  Lumiere Design System      │
+      │  EUI Design System      │
       │  GitHub Repository          │
       │  (existing components)      │
       └─────────────────────────────┘
@@ -110,7 +110,7 @@ Developer customizes with fast prompts:
 - **Figma API Token**: Personal access token from Figma
 - **Supabase Account**: For component mapping storage (provided)
 - **MCP-Compatible Client**: Claude Desktop or other MCP clients
-- **Lumiere Design System**: Access to the GitHub repository
+- **EUI Design System**: Access to the GitHub repository
 
 ## Installation
 
@@ -172,9 +172,9 @@ FIGMA_ACCESS_TOKEN=figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2
 SUPABASE_URL=https://oejykyovgwfaxyirtyxv.supabase.co
 SUPABASE_ANON_KEY=your_supabase_anon_key
 
-# Lumiere Design System Repository
-LUMIERE_REPO_OWNER=mirabelle514
-LUMIERE_REPO_NAME=Lumiere-Design-System
+# EUI Design System Repository
+EUI_REPO_OWNER=mirabelle514
+EUI_REPO_NAME=Lumiere-Design-System
 GITHUB_TOKEN=your_github_token_for_private_repos (optional)
 ```
 
@@ -192,8 +192,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_key",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -208,7 +208,7 @@ First time setup - scan the Lumiere repository:
 
 ```
 In Claude Desktop:
-"Scan the Lumiere Design System repository and load all available components"
+"Scan the EUI Design System repository and load all available components"
 ```
 
 This will:
@@ -232,7 +232,7 @@ https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=4-38"
 
 ## Matched Components
 
-Found 3 Lumiere components that match your design:
+Found 3 EUI components that match your design:
 
 ### Hero Component (95% match)
 - Figma node: "Hero Section"
@@ -346,15 +346,15 @@ const guide = generator.generateGuide(matches, figmaData);
 
 ## MCP Tools Reference
 
-### `scan_lumiere_repository`
-Scans Lumiere Design System and stores component metadata.
+### `scan_eui_repository`
+Scans EUI Design System and stores component metadata.
 
 **Parameters:** None
 
 **Returns:** List of discovered components
 
 ### `analyze_figma_design`
-Analyzes Figma design and matches to Lumiere components.
+Analyzes Figma design and matches to EUI components.
 
 **Parameters:**
 - `figmaUrl` (string): Full Figma URL with node-id
@@ -380,18 +380,18 @@ Applies customization to generated implementation.
 **Returns:** Updated code with customizations applied
 
 ### `get_component_details`
-Get detailed info about a Lumiere component.
+Get detailed info about a EUI component.
 
 **Parameters:**
-- `componentName` (string): Name of Lumiere component
+- `componentName` (string): Name of EUI component
 
 **Returns:** Component props, variants, usage examples
 
 ## Database Schema
 
 See the migration file for complete schema:
-- `lumiere_components` - Stores Lumiere component metadata
-- `figma_component_mappings` - Maps Figma patterns to Lumiere components
+- `lumiere_components` - Stores EUI component metadata
+- `figma_component_mappings` - Maps Figma patterns to EUI components
 - `implementation_guides` - Stores generated guides for users
 - `implementation_prompts` - Fast customization prompts
 
@@ -413,7 +413,7 @@ echo '{"jsonrpc":"2.0","method":"tools/list","id":1}' | node dist/index.js
 // src/tools/analyze-figma.ts
 export const analyzeFigmaTool = {
   name: 'analyze_figma_design',
-  description: 'Analyze a Figma design and match to Lumiere components',
+  description: 'Analyze a Figma design and match to EUI components',
   inputSchema: {
     type: 'object',
     properties: {
@@ -431,7 +431,7 @@ export const analyzeFigmaTool = {
     // 2. Fetch Figma data
     const figmaData = await figmaService.getNode(fileKey, nodeId);
 
-    // 3. Load Lumiere components from database
+    // 3. Load EUI components from database
     const components = await dbService.getLumiereComponents();
 
     // 4. Match design to components
@@ -450,7 +450,7 @@ export const analyzeFigmaTool = {
 ### "No components found in Lumiere repository"
 
 **Solution:**
-- Verify `LUMIERE_REPO_OWNER` and `LUMIERE_REPO_NAME` are correct
+- Verify `EUI_REPO_OWNER` and `EUI_REPO_NAME` are correct
 - Check if repo is private (need GitHub token)
 - Ensure component files are in standard locations (src/components, components, lib/components)
 

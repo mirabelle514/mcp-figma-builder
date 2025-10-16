@@ -1,4 +1,4 @@
-# Implementation Summary: Figma to React MCP Server
+# Implementation Summary: EUI MCP Server
 
 ## What Was Built
 
@@ -270,8 +270,8 @@ FIGMA_ACCESS_TOKEN=figd_xxx      # Get from Figma
 ANTHROPIC_API_KEY=sk-ant-xxx     # Get from Anthropic
 SUPABASE_URL=https://xxx         # Already configured
 SUPABASE_ANON_KEY=xxx            # Already configured
-LUMIERE_REPO_OWNER=xxx           # For component matching
-LUMIERE_REPO_NAME=xxx            # For component matching
+EUI_REPO_OWNER=xxx           # For component matching
+EUI_REPO_NAME=xxx            # For component matching
 ```
 
 ### Claude Desktop Config

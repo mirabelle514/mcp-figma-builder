@@ -53,8 +53,8 @@ Edit: `~/Library/Application Support/Claude/claude_desktop_config.json`
         "FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN",
         "SUPABASE_URL": "https://your-project.supabase.co",
         "SUPABASE_ANON_KEY": "YOUR_KEY",
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui"
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui"
       }
     }
   }

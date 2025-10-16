@@ -70,8 +70,8 @@ Edit your Claude Desktop config:
         "FIGMA_ACCESS_TOKEN": "figd_...",
         "SUPABASE_URL": "https://...",
         "SUPABASE_ANON_KEY": "eyJ...",
-        "LUMIERE_REPO_OWNER": "your-org",
-        "LUMIERE_REPO_NAME": "your-repo",
+        "EUI_REPO_OWNER": "your-org",
+        "EUI_REPO_NAME": "your-repo",
 
         "CUSTOM_AI_PROVIDER": "true",
         "CUSTOM_AI_URL": "https://liberty-ai.yourcompany.com/v1/chat/completions",
@@ -380,8 +380,8 @@ Model: gpt-4
         "FIGMA_ACCESS_TOKEN": "figd_...",
         "SUPABASE_URL": "https://...",
         "SUPABASE_ANON_KEY": "eyJ...",
-        "LUMIERE_REPO_OWNER": "your-company",
-        "LUMIERE_REPO_NAME": "design-system",
+        "EUI_REPO_OWNER": "your-company",
+        "EUI_REPO_NAME": "design-system",
 
         "CUSTOM_AI_PROVIDER": "true",
         "CUSTOM_AI_URL": "https://liberty-ai.yourcompany.com/v1/chat/completions",

@@ -1,4 +1,4 @@
-# Figma to React MCP Server
+# EUI MCP Server
 
 An MCP (Model Context Protocol) server that transforms Figma designs into production-ready React components **using YOUR actual component library**. Works with Claude Desktop, VS Code Continue, and other MCP-compatible AI tools.
 
@@ -114,8 +114,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_supabase_anon_key",
         "ANTHROPIC_API_KEY": "your_anthropic_api_key_optional",
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui",
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui",
         "GITHUB_TOKEN": "optional_github_token"
       }
     }
@@ -127,8 +127,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 Change these two lines:
 ```json
-"LUMIERE_REPO_OWNER": "your-org",
-"LUMIERE_REPO_NAME": "your-design-system"
+"EUI_REPO_OWNER": "your-org",
+"EUI_REPO_NAME": "your-design-system"
 ```
 
 Examples:
@@ -158,10 +158,10 @@ Claude: [Generates complete React component using EUI/your component library]
 
 **Or match to existing components:**
 ```
-User: Scan the Lumiere repository, then analyze this design:
+User: Scan the EUI repository, then analyze this design:
 https://www.figma.com/design/ABC123/Design?node-id=4-38
 
-Claude: [Matches design to existing Lumiere components]
+Claude: [Matches design to existing EUI components]
 ```
 
 ## Available MCP Tools
@@ -183,23 +183,23 @@ Generate a complete React component from Figma design.
 - Design tokens
 - Usage examples
 
-### `scan_lumiere_repository`
-Scan Lumiere Design System and load components into database.
+### `scan_eui_repository`
+Scan EUI Design System and load components into database.
 
 ### `analyze_figma_design`
-Analyze Figma design and match to existing Lumiere components.
+Analyze Figma design and match to existing EUI components.
 
 **Parameters:**
 - `figmaUrl`: Full Figma URL
 
 ### `generate_implementation_guide`
-Generate implementation guide using Lumiere components.
+Generate implementation guide using EUI components.
 
 **Parameters:**
 - `figmaUrl`: Full Figma URL
 
 ### `get_component_details`
-Get details about a specific Lumiere component.
+Get details about a specific EUI component.
 
 **Parameters:**
 - `componentName`: Component name
@@ -238,7 +238,7 @@ Output (Production-ready React component)
 1. **figma_designs**: Stores Figma design data
 2. **generated_components**: Stores generated React components
 3. **generation_history**: Tracks all generation requests
-4. **lumiere_components**: Lumiere Design System components
+4. **eui_components**: EUI Design System components
 5. **figma_component_mappings**: Component matching rules
 
 ## Development
@@ -367,7 +367,7 @@ Add to your Continue config:
 ```json
 {
   "mcpServers": {
-    "lumiere-figma": {
+    "eui-mcp-server": {
       "command": "node",
       "args": ["/absolute/path/to/mcp-server/dist/index.js"],
       "env": {

@@ -34,8 +34,8 @@
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los",
         "ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_KEY",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -365,7 +365,7 @@ Summary
 1. Updated MCP Server README
 
 Added your actual Figma token: figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2
-Added your Lumiere Design System repo: https://github.com/mirabelle514/Lumiere-Design-System
+Added your EUI Design System repo: https://github.com/mirabelle514/Lumiere-Design-System
 Updated all example Figma URLs to your actual design file
 2. Analyzed Your Figma Design
 Successfully fetched and analyzed your MB-test Figma file containing:
@@ -633,18 +633,18 @@ Next Steps
 Set up the actual MCP server implementation (the README provides the architecture)
 Populate the prompt_templates table in Bolt Database
 Start generating components from your Figma designs
-Build your component library in the Lumiere Design System repo
+Build your component library in the EUI Design System repo
 The key advantage is that you get AI-generated components that follow your team's engineering standards through the curated prompt library, rather than generic AI-generated code.
 
 im confuse - i dont want to build NEW components. I want the user to take a figma url and be walk thru (fast with prompts) for the dev build using the already existing repo components. Does this make sense?
 
-Ah! Now I understand. You want to map Figma designs to your existing Lumiere Design System components, not generate new components from scratch.
+Ah! Now I understand. You want to map Figma designs to your existing EUI Design System components, not generate new components from scratch.
 
 So the workflow should be:
 
 User provides Figma URL
 MCP server analyzes the Figma design
-MCP server identifies which existing components from Lumiere Design System match the design
+MCP server identifies which existing components from EUI Design System match the design
 Walks the developer through implementing the design using those existing components
 Provides fast prompts to customize/configure those components
 Let me clarify - is this what you want?
@@ -675,24 +675,24 @@ import { Button, Hero, Navbar, FeatureCard } from '@lumiere/components';
   <Button variant="secondary">Contact us</Button>
 </Hero>
 So the MCP Server needs to:
-Know your existing Lumiere components (from the GitHub repo)
+Know your existing EUI components (from the GitHub repo)
 Match Figma elements to those components
 Generate implementation code using your existing components
 Provide customization prompts (colors, spacing, content) based on the Figma design
 Is this correct? Should I rebuild the system to:
 
-Scan the Lumiere Design System repo for available components
-Create a mapping system between Figma patterns and Lumiere components
+Scan the EUI Design System repo for available components
+Create a mapping system between Figma patterns and EUI components
 Generate implementation guides instead of new component code?
 YES , redo this system to:
-Scan the Lumiere Design System repo for available components
-Create a mapping system between Figma patterns and Lumiere components
+Scan the EUI Design System repo for available components
+Create a mapping system between Figma patterns and EUI components
 Generate implementation guides instead of new component code.
 
 Plan
 Redesign database schema for component mapping system
 Create implementation for scanning Lumiere repo components
-Build Figma-to-Lumiere component matcher
+Build Figma-to-EUI component matcher
 Create implementation guide generator
 Update MCP server documentation
 Plan completed
@@ -700,19 +700,19 @@ Open details
 
 0123456789
  commands executed
-Perfect! I've completely redesigned the system to map Figma designs to your existing Lumiere Design System components instead of generating new ones.
+Perfect! I've completely redesigned the system to map Figma designs to your existing EUI Design System components instead of generating new ones.
 
 What Changed
 New Database Schema:
 
-lumiere_components - Stores all your Lumiere component metadata
-figma_component_mappings - Maps Figma patterns to Lumiere components
+lumiere_components - Stores all your EUI component metadata
+figma_component_mappings - Maps Figma patterns to EUI components
 implementation_guides - Saves generated implementation guides
 implementation_prompts - Fast customization questions
 Three Core Services:
 
 LumiereScanner - Scans your GitHub repo, extracts component info (props, variants, patterns)
-FigmaMatcher - Analyzes Figma designs, matches to Lumiere components with confidence scores
+FigmaMatcher - Analyzes Figma designs, matches to EUI components with confidence scores
 ImplementationGenerator - Creates implementation guides with ready-to-use code
 The New Workflow
 
@@ -771,7 +771,7 @@ npm init -y
 npm install @modelcontextprotocol/sdk @supabase/Bolt Database-js zod
 Then copy the service files from this project and create the MCP server entry point that registers tools like:
 
-scan_lumiere_repository
+scan_eui_repository
 analyze_figma_design
 generate_implementation_guide
 Step 2: User Setup (After you publish the MCP server)
@@ -796,8 +796,8 @@ Edit ~/Library/Application Support/Claude/claude_desktop_config.json:
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
         "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Bolt Database_ANON_KEY": "their_key",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -808,10 +808,10 @@ Edit ~/Library/Application Support/Claude/claude_desktop_config.json:
 
 
 User in Claude Desktop:
-"Scan the Lumiere Design System repository"
+"Scan the EUI Design System repository"
 
 Claude (via MCP):
-[Calls scan_lumiere_repository tool]
+[Calls scan_eui_repository tool]
 "Found 25 components: Button, Hero, Card, Navbar..."
 
 User:
@@ -848,7 +848,7 @@ Plan
 Create MCP server entry point (index.ts)
 Create database service for Bolt Database operations
 Create Figma API service
-Create MCP tool: scan_lumiere_repository
+Create MCP tool: scan_eui_repository
 Create MCP tool: analyze_figma_design
 Create MCP tool: generate_implementation_guide
 Create MCP tool: get_component_details
@@ -872,7 +872,7 @@ mcp-server/
 │   │   ├── figma-matcher.ts        # Matches Figma to components
 │   │   └── implementation-generator.ts # Generates guides
 │   └── tools/
-│       ├── scan-lumiere.ts         # scan_lumiere_repository tool
+│       ├── scan-lumiere.ts         # scan_eui_repository tool
 │       ├── analyze-figma.ts        # analyze_figma_design tool
 │       ├── generate-guide.ts       # generate_implementation_guide tool
 │       └── get-component.ts        # get_component_details tool
@@ -899,8 +899,8 @@ Edit ~/Library/Application Support/Claude/claude_desktop_config.json:
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
         "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Bolt Database_ANON_KEY": "your_key_here",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -909,7 +909,7 @@ Step 3: Use in Claude Desktop
 First time:
 
 
-User: Scan the Lumiere Design System repository
+User: Scan the EUI Design System repository
 
 Claude: Successfully scanned! Found 25 components: Button, Hero, Card...
 Every time:
@@ -931,11 +931,11 @@ import { Hero, Button } from '@lumiere/components';
   <Button variant="primary">Our projects</Button>
 </Hero>
 The 4 MCP Tools
-scan_lumiere_repository - Scans GitHub, stores components
+scan_eui_repository - Scans GitHub, stores components
 analyze_figma_design - Matches Figma to components
 generate_implementation_guide - Creates full code guide
 get_component_details - Shows component documentation
-All tools work together to provide a seamless Figma-to-code workflow using your existing Lumiere components!
+All tools work together to provide a seamless Figma-to-code workflow using your existing EUI components!
 
 
 Built the project
@@ -943,12 +943,12 @@ Open
 Perfect! The project builds successfully.
 
 Summary
-I've created a complete MCP server that maps Figma designs to your existing Lumiere Design System components. Here's what you got:
+I've created a complete MCP server that maps Figma designs to your existing EUI Design System components. Here's what you got:
 
 What Was Built
 Database Schema:
 
-Tables for storing Lumiere components, Figma mappings, and implementation guides
+Tables for storing EUI components, Figma mappings, and implementation guides
 Migration file ready to apply
 MCP Server (mcp-server/ folder):
 
@@ -1145,11 +1145,11 @@ Open
 is this a mcp-server that the user can use in vscode? I wanted to try providing a Figma URL and get the React build from the repo. Is this what this project does?
 
 Let me examine the project to understand what it does:
-Yes! This is exactly what this project does. It's an MCP (Model Context Protocol) server that you can use in VS Code (or Claude Desktop) to turn Figma designs into React code using your existing Lumiere Design System components.
+Yes! This is exactly what this project does. It's an MCP (Model Context Protocol) server that you can use in VS Code (or Claude Desktop) to turn Figma designs into React code using your existing EUI Design System components.
 
 What It Does:
 You provide a Figma URL → The server analyzes the design
-Matches Figma elements → To your existing Lumiere components
+Matches Figma elements → To your existing EUI components
 Generates React implementation → With actual code you can use
 How To Use It:
 Step 1: Build the MCP Server
@@ -1172,8 +1172,8 @@ Add to your MCP configuration (e.g., claude_desktop_config.json):
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
         "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Bolt Database_ANON_KEY": "your_key_from_.env",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -1182,10 +1182,10 @@ Step 3: Use It
 
 
 In Claude Desktop:
-"Scan the Lumiere Design System repository"
+"Scan the EUI Design System repository"
 Then:
 "Help me implement https://www.figma.com/design/YOUR_DESIGN_URL"
-It will give you React code using your actual Lumiere components!
+It will give you React code using your actual EUI components!
 
 
 0123456789
@@ -1310,9 +1310,9 @@ mcp-client-cli node /path/to/mcp-server/dist/index.js
 
 # In the interactive prompt:
 > list_tools
-# Shows: scan_lumiere_repository, analyze_figma_design, generate_implementation_guide, get_component_details
+# Shows: scan_eui_repository, analyze_figma_design, generate_implementation_guide, get_component_details
 
-> call_tool scan_lumiere_repository {}
+> call_tool scan_eui_repository {}
 # Returns: List of scanned components
 
 > call_tool analyze_figma_design {"figmaUrl": "https://www.figma.com/design/..."}
@@ -1439,7 +1439,7 @@ An MCP Server that:
 
  Takes a Figma URL as input
  Analyzes the Figma design
- Matches Figma components to existing Lumiere Design System components
+ Matches Figma components to existing EUI Design System components
  Generates implementation guides with code examples
  Works with AI clients (Claude Desktop, VS Code with Continue, etc.)
 What It Does NOT Do (Yet):
@@ -1453,7 +1453,7 @@ How It Actually Works:
    ↓
 2. MCP Server analyzes design
    ↓
-3. Finds matching components in Lumiere Design System
+3. Finds matching components in EUI Design System
    ↓
 4. Provides AI with:
    - Component matches (e.g., "Use Lumiere Button component")
@@ -1516,7 +1516,7 @@ Locofy - Generates production code
 Hybrid Approach:
 
 1. Use Anima/Locofy → Get base React code
-2. Use YOUR MCP server → Refine with Lumiere components
+2. Use YOUR MCP server → Refine with EUI components
 3. AI helps merge/improve the code
 Option 3: Build a Complete Solution
 Create a full Figma → React converter from scratch:
@@ -1543,7 +1543,7 @@ Use Claude API to generate React components
 Provide Figma data as context
 Generate clean, production-ready code
 Phase 3: Smart Hybrid
-First, try to match Lumiere components (your current feature)
+First, try to match EUI components (your current feature)
 If no match, generate NEW component from scratch
 AI blends both approaches
 Quick Reality Check
@@ -1715,7 +1715,7 @@ Perfect! Everything is compiled. Let me create one final verification checklist:
 
 Perfect! Let me create one final summary of what was accomplished:
 
- Complete Figma to React MCP Server Built Successfully!
+ Complete EUI MCP Server Built Successfully!
 I've built a complete system that automatically converts Figma designs into production-ready React components using AI. Here's what you now have:
 
  Core Functionality
@@ -2161,8 +2161,8 @@ Add this configuration:
         "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Bolt Database_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc",
         "ANTHROPIC_API_KEY": "sk-ant-YOUR_KEY_HERE",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -2233,8 +2233,8 @@ Open that file and add this configuration (replace YOUR_TOKEN_HERE with your act
         "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Bolt Database_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc",
         "ANTHROPIC_API_KEY": "sk-ant-YOUR_KEY_HERE",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -2416,8 +2416,8 @@ Add this configuration:
         "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN",
         "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Bolt Database_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -2434,7 +2434,7 @@ Scan the Lumiere repository and show me available components
 Then try:
 
 
-Analyze this Figma design and match it to Lumiere components:
+Analyze this Figma design and match it to EUI components:
 https://www.figma.com/design/YOUR_FILE/Design?node-id=1-2
  Benefits
 Integrated into your IDE

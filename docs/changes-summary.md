@@ -45,7 +45,7 @@ const generator = new ReactGenerator(env.ANTHROPIC_API_KEY, db);
 **Purpose:** Complete guide for switching repositories and Figma libraries
 
 **Sections:**
-- How to change component repository (LUMIERE_REPO_OWNER/NAME)
+- How to change component repository (EUI_REPO_OWNER/NAME)
 - How to use different Figma libraries
 - Component repository structure requirements
 - Customizing the scanner for different frameworks
@@ -81,8 +81,8 @@ const generator = new ReactGenerator(env.ANTHROPIC_API_KEY, db);
   "mcpServers": {
     "component-figma": {
       "env": {
-        "LUMIERE_REPO_OWNER": "your-org",
-        "LUMIERE_REPO_NAME": "your-design-system"
+        "EUI_REPO_OWNER": "your-org",
+        "EUI_REPO_NAME": "your-design-system"
       }
     }
   }
@@ -239,7 +239,7 @@ export function LoginForm() {
 
 ### Test 2: Switch to Different Library
 
-1. Update `LUMIERE_REPO_OWNER` and `LUMIERE_REPO_NAME`
+1. Update `EUI_REPO_OWNER` and `EUI_REPO_NAME`
 2. Restart Claude Desktop
 3. Scan new repository
 4. Generate component
@@ -280,7 +280,7 @@ project/
 
 ### If You Want to Switch Libraries
 
-1. Update `LUMIERE_REPO_OWNER` and `LUMIERE_REPO_NAME` in config
+1. Update `EUI_REPO_OWNER` and `EUI_REPO_NAME` in config
 2. Restart Claude Desktop
 3. Run: "Scan the [your-repo-name] repository"
 4. Generate components - they'll use new library
@@ -299,7 +299,7 @@ project/
 ### Components from Wrong Library
 
 **Check:**
-- `LUMIERE_REPO_OWNER` and `LUMIERE_REPO_NAME` point to correct repo
+- `EUI_REPO_OWNER` and `EUI_REPO_NAME` point to correct repo
 - Restarted Claude Desktop after config change
 - Re-scanned repository after switching
 

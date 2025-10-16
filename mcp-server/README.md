@@ -35,8 +35,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
         "FIGMA_ACCESS_TOKEN": "figd_your_figma_token",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_supabase_anon_key",
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui",
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui",
         "GITHUB_TOKEN": "your_github_token_optional",
         "ANTHROPIC_API_KEY": "your_anthropic_api_key_optional"
       }
@@ -49,8 +49,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 
 Change these two lines to point to YOUR repository:
 ```json
-"LUMIERE_REPO_OWNER": "your-company",
-"LUMIERE_REPO_NAME": "your-design-system"
+"EUI_REPO_OWNER": "your-company",
+"EUI_REPO_NAME": "your-design-system"
 ```
 
 **Examples:**
@@ -66,14 +66,14 @@ Change these two lines to point to YOUR repository:
 
 **Approach 1: Match to Existing Components**
 ```
-User: Scan the Lumiere Design System repository
+User: Scan the EUI Design System repository
 
 Claude: [Scans repo, finds components]
 
 User: Help me implement this Figma design:
 https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=4-38
 
-Claude: [Provides implementation guide with existing Lumiere components]
+Claude: [Provides implementation guide with existing EUI components]
 ```
 
 **Approach 2: Generate New React Component** (Uses Your Actual Components!)
@@ -93,13 +93,13 @@ import { EuiButton, EuiFieldText, EuiForm } from '@elastic/eui';
 
 ## Available Tools
 
-### `scan_lumiere_repository`
+### `scan_eui_repository`
 Scans the Lumiere repository and loads all components into the database.
 
 **Usage:** Run once to initialize.
 
 ### `analyze_figma_design`
-Analyzes a Figma design and matches it to Lumiere components.
+Analyzes a Figma design and matches it to EUI components.
 
 **Parameters:**
 - `figmaUrl`: Full Figma URL
@@ -111,7 +111,7 @@ Generates complete implementation guide with code examples.
 - `figmaUrl`: Full Figma URL
 
 ### `get_component_details`
-Get details about a specific Lumiere component.
+Get details about a specific EUI component.
 
 **Parameters:**
 - `componentName`: Name of component (e.g., "Button")
@@ -151,8 +151,8 @@ Output:
 - `FIGMA_ACCESS_TOKEN`: Your Figma personal access token
 - `SUPABASE_URL`: Supabase project URL
 - `SUPABASE_ANON_KEY`: Supabase anonymous key
-- `LUMIERE_REPO_OWNER`: GitHub organization/user (e.g., "mirabelle514")
-- `LUMIERE_REPO_NAME`: GitHub repository name (e.g., "Lumiere-Design-System")
+- `EUI_REPO_OWNER`: GitHub organization/user (e.g., "mirabelle514")
+- `EUI_REPO_NAME`: GitHub repository name (e.g., "Lumiere-Design-System")
 
 ### Optional
 - `GITHUB_TOKEN`: GitHub token for private repos

@@ -1,6 +1,6 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-interface LumiereComponent {
+interface EuiComponent {
   id?: string;
   component_name: string;
   component_path: string;
@@ -65,9 +65,9 @@ export class DatabaseService {
     this.client = createClient(supabaseUrl, supabaseKey);
   }
 
-  async storeLumiereComponent(component: LumiereComponent): Promise<void> {
+  async storeEuiComponent(component: EuiComponent): Promise<void> {
     const { error } = await this.client
-      .from('lumiere_components')
+      .from('eui_components')
       .upsert(component, { onConflict: 'component_name' });
 
     if (error) {
@@ -75,9 +75,9 @@ export class DatabaseService {
     }
   }
 
-  async storeLumiereComponents(components: LumiereComponent[]): Promise<void> {
+  async storeEuiComponents(components: EuiComponent[]): Promise<void> {
     const { error } = await this.client
-      .from('lumiere_components')
+      .from('eui_components')
       .upsert(components, { onConflict: 'component_name' });
 
     if (error) {
@@ -85,9 +85,9 @@ export class DatabaseService {
     }
   }
 
-  async getLumiereComponents(): Promise<LumiereComponent[]> {
+  async getEuiComponents(): Promise<EuiComponent[]> {
     const { data, error } = await this.client
-      .from('lumiere_components')
+      .from('eui_components')
       .select('*')
       .order('component_name');
 
@@ -98,9 +98,9 @@ export class DatabaseService {
     return data || [];
   }
 
-  async getLumiereComponent(componentName: string): Promise<LumiereComponent | null> {
+  async getEuiComponent(componentName: string): Promise<EuiComponent | null> {
     const { data, error } = await this.client
-      .from('lumiere_components')
+      .from('eui_components')
       .select('*')
       .eq('component_name', componentName)
       .maybeSingle();
@@ -147,7 +147,7 @@ export class DatabaseService {
 
   async getComponentCount(): Promise<number> {
     const { count, error } = await this.client
-      .from('lumiere_components')
+      .from('eui_components')
       .select('*', { count: 'exact', head: true });
 
     if (error) {

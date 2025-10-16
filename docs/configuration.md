@@ -40,8 +40,8 @@ This is where you configure:
       "command": "node",
       "args": ["/absolute/path/to/mcp-server/dist/index.js"],
       "env": {
-        "LUMIERE_REPO_OWNER": "YOUR_GITHUB_ORG",
-        "LUMIERE_REPO_NAME": "YOUR_DESIGN_SYSTEM_REPO"
+        "EUI_REPO_OWNER": "YOUR_GITHUB_ORG",
+        "EUI_REPO_NAME": "YOUR_DESIGN_SYSTEM_REPO"
       }
     }
   }
@@ -52,20 +52,20 @@ This is where you configure:
 
 **Material-UI:**
 ```json
-"LUMIERE_REPO_OWNER": "mui",
-"LUMIERE_REPO_NAME": "material-ui"
+"EUI_REPO_OWNER": "mui",
+"EUI_REPO_NAME": "material-ui"
 ```
 
 **Ant Design:**
 ```json
-"LUMIERE_REPO_OWNER": "ant-design",
-"LUMIERE_REPO_NAME": "ant-design"
+"EUI_REPO_OWNER": "ant-design",
+"EUI_REPO_NAME": "ant-design"
 ```
 
 **Your Custom Repo:**
 ```json
-"LUMIERE_REPO_OWNER": "your-company",
-"LUMIERE_REPO_NAME": "your-design-system"
+"EUI_REPO_OWNER": "your-company",
+"EUI_REPO_NAME": "your-design-system"
 ```
 
 **Private Repos:** Add a GitHub token:
@@ -113,8 +113,8 @@ Here's a complete example for switching to Material-UI:
         "FIGMA_ACCESS_TOKEN": "figd_ABC123_your_token",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "eyJ...your_key",
-        "LUMIERE_REPO_OWNER": "mui",
-        "LUMIERE_REPO_NAME": "material-ui",
+        "EUI_REPO_OWNER": "mui",
+        "EUI_REPO_NAME": "material-ui",
         "GITHUB_TOKEN": "ghp_optional_if_private",
         "ANTHROPIC_API_KEY": "sk-ant-optional_for_ai"
       }
@@ -268,24 +268,24 @@ You can have multiple configurations for different projects:
       "command": "node",
       "args": ["/path/to/mcp-server/dist/index.js"],
       "env": {
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui"
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui"
       }
     },
     "material-ui-project": {
       "command": "node",
       "args": ["/path/to/mcp-server/dist/index.js"],
       "env": {
-        "LUMIERE_REPO_OWNER": "mui",
-        "LUMIERE_REPO_NAME": "material-ui"
+        "EUI_REPO_OWNER": "mui",
+        "EUI_REPO_NAME": "material-ui"
       }
     },
     "custom-project": {
       "command": "node",
       "args": ["/path/to/mcp-server/dist/index.js"],
       "env": {
-        "LUMIERE_REPO_OWNER": "your-company",
-        "LUMIERE_REPO_NAME": "design-system"
+        "EUI_REPO_OWNER": "your-company",
+        "EUI_REPO_NAME": "design-system"
       }
     }
   }
@@ -300,8 +300,8 @@ You can have multiple configurations for different projects:
 
 After changing configuration:
 
-- [ ] Updated `LUMIERE_REPO_OWNER` to your org/username
-- [ ] Updated `LUMIERE_REPO_NAME` to your repo name
+- [ ] Updated `EUI_REPO_OWNER` to your org/username
+- [ ] Updated `EUI_REPO_NAME` to your repo name
 - [ ] Added `GITHUB_TOKEN` if repo is private
 - [ ] Updated `FIGMA_ACCESS_TOKEN` if using different account
 - [ ] Saved Claude Desktop config file
@@ -404,8 +404,8 @@ Get details about the [ComponentName] component
 "FIGMA_ACCESS_TOKEN": "figd_...",        // Required
 "SUPABASE_URL": "https://...",           // Required
 "SUPABASE_ANON_KEY": "eyJ...",           // Required
-"LUMIERE_REPO_OWNER": "your-org",        // Required
-"LUMIERE_REPO_NAME": "your-repo",        // Required
+"EUI_REPO_OWNER": "your-org",        // Required
+"EUI_REPO_NAME": "your-repo",        // Required
 "GITHUB_TOKEN": "ghp_...",               // Optional (private repos)
 "ANTHROPIC_API_KEY": "sk-ant-...",       // Optional (AI Mode 2)
 "OPENAI_API_KEY": "sk-..."               // Optional (AI Mode 3)
@@ -443,8 +443,8 @@ Get details about the [ComponentName] component
 ### Material-UI
 
 ```json
-"LUMIERE_REPO_OWNER": "mui",
-"LUMIERE_REPO_NAME": "material-ui"
+"EUI_REPO_OWNER": "mui",
+"EUI_REPO_NAME": "material-ui"
 ```
 
 Components found: Button, TextField, Card, Dialog, etc.
@@ -452,8 +452,8 @@ Components found: Button, TextField, Card, Dialog, etc.
 ### Ant Design
 
 ```json
-"LUMIERE_REPO_OWNER": "ant-design",
-"LUMIERE_REPO_NAME": "ant-design"
+"EUI_REPO_OWNER": "ant-design",
+"EUI_REPO_NAME": "ant-design"
 ```
 
 Components found: Button, Input, Card, Modal, etc.
@@ -461,8 +461,8 @@ Components found: Button, Input, Card, Modal, etc.
 ### Chakra UI
 
 ```json
-"LUMIERE_REPO_OWNER": "chakra-ui",
-"LUMIERE_REPO_NAME": "chakra-ui"
+"EUI_REPO_OWNER": "chakra-ui",
+"EUI_REPO_NAME": "chakra-ui"
 ```
 
 Components found: Button, Input, Box, Flex, etc.
@@ -470,8 +470,8 @@ Components found: Button, Input, Box, Flex, etc.
 ### Your Custom System
 
 ```json
-"LUMIERE_REPO_OWNER": "your-company",
-"LUMIERE_REPO_NAME": "design-system"
+"EUI_REPO_OWNER": "your-company",
+"EUI_REPO_NAME": "design-system"
 ```
 
 Components found: Whatever you've built!

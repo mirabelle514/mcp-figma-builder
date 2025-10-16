@@ -1,26 +1,26 @@
 import { z } from 'zod';
-import { LumiereScanner } from '../services/lumiere-scanner.js';
+import { EuiScanner } from '../services/eui-scanner.js';
 import { DatabaseService } from '../services/db-service.js';
 
-const ScanLumiereInputSchema = z.object({});
+const ScanEuiInputSchema = z.object({});
 
-export const scanLumiereTool = {
-  name: 'scan_lumiere_repository',
-  description: 'Scan the Lumiere Design System repository and store all component metadata in the database. This should be run once to initialize the component library.',
+export const scanEuiTool = {
+  name: 'scan_eui_repository',
+  description: 'Scan the EUI Design System repository and store all component metadata in the database. This should be run once to initialize the component library.',
   inputSchema: {
     type: 'object' as const,
     properties: {},
   },
 };
 
-export async function handleScanLumiere(
-  _args: z.infer<typeof ScanLumiereInputSchema>,
-  env: { LUMIERE_REPO_OWNER: string; LUMIERE_REPO_NAME: string; GITHUB_TOKEN?: string; SUPABASE_URL: string; SUPABASE_ANON_KEY: string }
+export async function handleScanEui(
+  _args: z.infer<typeof ScanEuiInputSchema>,
+  env: { EUI_REPO_OWNER: string; EUI_REPO_NAME: string; GITHUB_TOKEN?: string; SUPABASE_URL: string; SUPABASE_ANON_KEY: string }
 ) {
   try {
-    const scanner = new LumiereScanner(
-      env.LUMIERE_REPO_OWNER,
-      env.LUMIERE_REPO_NAME,
+    const scanner = new EuiScanner(
+      env.EUI_REPO_OWNER,
+      env.EUI_REPO_NAME,
       env.GITHUB_TOKEN
     );
 
@@ -31,7 +31,7 @@ export async function handleScanLumiere(
         content: [
           {
             type: 'text' as const,
-            text: `No components found in the Lumiere repository at https://github.com/${env.LUMIERE_REPO_OWNER}/${env.LUMIERE_REPO_NAME}.
+            text: `No components found in the EUI repository at https://github.com/${env.EUI_REPO_OWNER}/${env.EUI_REPO_NAME}.
 
 Please verify:
 - The repository URL is correct
@@ -43,7 +43,7 @@ Please verify:
     }
 
     const db = new DatabaseService(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
-    await db.storeLumiereComponents(components);
+    await db.storeEuiComponents(components);
 
     const componentList = components
       .map(c => `  - ${c.component_name} (${c.category})`)
@@ -53,7 +53,7 @@ Please verify:
       content: [
         {
           type: 'text' as const,
-          text: `Successfully scanned Lumiere Design System repository!
+          text: `Successfully scanned EUI Design System repository!
 
 Found and stored ${components.length} components:
 
@@ -71,7 +71,7 @@ You can now analyze Figma designs and get implementation guides using these comp
       content: [
         {
           type: 'text' as const,
-          text: `Error scanning Lumiere repository: ${error instanceof Error ? error.message : String(error)}`,
+          text: `Error scanning EUI repository: ${error instanceof Error ? error.message : String(error)}`,
         },
       ],
       isError: true,

@@ -46,8 +46,8 @@ npm run dev
         "FIGMA_ACCESS_TOKEN": "figd_...",
         "SUPABASE_URL": "https://...",
         "SUPABASE_ANON_KEY": "eyJ...",
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui"
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui"
       }
     }
   }
@@ -56,8 +56,8 @@ npm run dev
 
 ### Change Repository (Your Own Component Library)
 ```json
-"LUMIERE_REPO_OWNER": "your-company",
-"LUMIERE_REPO_NAME": "your-design-system"
+"EUI_REPO_OWNER": "your-company",
+"EUI_REPO_NAME": "your-design-system"
 ```
 
 ---
@@ -134,7 +134,7 @@ export function LoginForm() {
 - **Chakra UI** (`chakra-ui` / `chakra-ui`)
 - **Your Custom Library** (any public/private repo)
 
-Just change `LUMIERE_REPO_OWNER` and `LUMIERE_REPO_NAME`!
+Just change `EUI_REPO_OWNER` and `EUI_REPO_NAME`!
 
 ---
 
@@ -203,8 +203,8 @@ npm run build
 
 1. Update config:
 ```json
-"LUMIERE_REPO_OWNER": "mui",
-"LUMIERE_REPO_NAME": "material-ui"
+"EUI_REPO_OWNER": "mui",
+"EUI_REPO_NAME": "material-ui"
 ```
 
 2. Restart Claude Desktop

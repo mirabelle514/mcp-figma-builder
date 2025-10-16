@@ -8,7 +8,7 @@ import {
   Tool,
 } from '@modelcontextprotocol/sdk/types.js';
 
-import { scanLumiereTool, handleScanLumiere } from './tools/scan-lumiere.js';
+import { scanEuiTool, handleScanEui } from './tools/scan-eui.js';
 import { analyzeFigmaTool, handleAnalyzeFigma } from './tools/analyze-figma.js';
 import { generateGuideTool, handleGenerateGuide } from './tools/generate-guide.js';
 import { getComponentTool, handleGetComponent } from './tools/get-component.js';
@@ -18,8 +18,8 @@ interface Environment {
   FIGMA_ACCESS_TOKEN: string;
   SUPABASE_URL: string;
   SUPABASE_ANON_KEY: string;
-  LUMIERE_REPO_OWNER: string;
-  LUMIERE_REPO_NAME: string;
+  EUI_REPO_OWNER: string;
+  EUI_REPO_NAME: string;
   GITHUB_TOKEN?: string;
   ANTHROPIC_API_KEY?: string;
 }
@@ -29,8 +29,8 @@ function getEnv(): Environment {
     'FIGMA_ACCESS_TOKEN',
     'SUPABASE_URL',
     'SUPABASE_ANON_KEY',
-    'LUMIERE_REPO_OWNER',
-    'LUMIERE_REPO_NAME',
+    'EUI_REPO_OWNER',
+    'EUI_REPO_NAME',
   ];
 
   const missing = required.filter(key => !process.env[key]);
@@ -42,8 +42,8 @@ function getEnv(): Environment {
     FIGMA_ACCESS_TOKEN: process.env.FIGMA_ACCESS_TOKEN!,
     SUPABASE_URL: process.env.SUPABASE_URL!,
     SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY!,
-    LUMIERE_REPO_OWNER: process.env.LUMIERE_REPO_OWNER!,
-    LUMIERE_REPO_NAME: process.env.LUMIERE_REPO_NAME!,
+    EUI_REPO_OWNER: process.env.EUI_REPO_OWNER!,
+    EUI_REPO_NAME: process.env.EUI_REPO_NAME!,
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
     ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
   };
@@ -51,7 +51,7 @@ function getEnv(): Environment {
 
 const server = new Server(
   {
-    name: 'lumiere-figma-mcp-server',
+    name: 'eui-mcp-server',
     version: '1.0.0',
   },
   {
@@ -62,7 +62,7 @@ const server = new Server(
 );
 
 const tools: Tool[] = [
-  scanLumiereTool as Tool,
+  scanEuiTool as Tool,
   analyzeFigmaTool as Tool,
   generateGuideTool as Tool,
   getComponentTool as Tool,
@@ -73,13 +73,13 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools,
 }));
 
-server.setRequestHandler(CallToolRequestSchema, async (request) => {
+server.setRequestHandler(CallToolRequestSchema, async (request: any) => {
   const env = getEnv();
 
   try {
     switch (request.params.name) {
-      case 'scan_lumiere_repository':
-        return await handleScanLumiere(request.params.arguments || {}, env);
+      case 'scan_eui_repository':
+        return await handleScanEui(request.params.arguments || {}, env);
 
       case 'analyze_figma_design':
         return await handleAnalyzeFigma(request.params.arguments as any, env);
@@ -120,16 +120,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   try {
     const env = getEnv();
-    console.error('Lumiere-Figma MCP Server starting...');
-    console.error(`Configured for repository: ${env.LUMIERE_REPO_OWNER}/${env.LUMIERE_REPO_NAME}`);
+    console.error('EUI MCP Server starting...');
+    console.error(`Configured for repository: ${env.EUI_REPO_OWNER}/${env.EUI_REPO_NAME}`);
     console.error(`Using Supabase at: ${env.SUPABASE_URL}`);
 
     const transport = new StdioServerTransport();
     await server.connect(transport);
 
-    console.error('Lumiere-Figma MCP Server running on stdio');
+    console.error('EUI MCP Server running on stdio');
     console.error('\nAvailable tools:');
-    console.error('  - scan_lumiere_repository: Scan and load Lumiere components');
+    console.error('  - scan_eui_repository: Scan and load EUI components');
     console.error('  - analyze_figma_design: Analyze Figma design and match components');
     console.error('  - generate_implementation_guide: Generate complete implementation guide');
     console.error('  - get_component_details: Get details about a specific component');

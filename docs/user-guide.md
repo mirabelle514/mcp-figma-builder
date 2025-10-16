@@ -501,8 +501,8 @@ From [URL], generate just the header section
 
 Edit config file:
 ```json
-"LUMIERE_REPO_OWNER": "mui",
-"LUMIERE_REPO_NAME": "material-ui"
+"EUI_REPO_OWNER": "mui",
+"EUI_REPO_NAME": "material-ui"
 ```
 
 Restart Claude Desktop, then:

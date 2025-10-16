@@ -1,11 +1,11 @@
 {
-  "name": "lumiere-figma-mcp-server",
+  "name": "eui-mcp-server",
   "version": "1.0.0",
-  "description": "MCP server for mapping Figma designs to Lumiere Design System components",
+  "description": "MCP server for mapping Figma designs to EUI Design System components",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "lumiere-figma-mcp": "dist/index.js"
+    "eui-mcp": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -16,7 +16,7 @@
     "mcp",
     "figma",
     "design-system",
-    "lumiere",
+    "eui",
     "react"
   ],
   "author": "",

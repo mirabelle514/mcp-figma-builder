@@ -54,7 +54,7 @@ export class ReactGenerator {
     const includeComments = options.includeComments ?? false;
 
     // Fetch available components from database
-    const availableComponents = this.dbService ? await this.dbService.getLumiereComponents() : [];
+    const availableComponents = this.dbService ? await this.dbService.getEuiComponents() : [];
 
     const prompt = this.buildGenerationPrompt(designData, componentName, {
       includeTypeScript,
@@ -177,14 +177,14 @@ export function ${componentName}({ ...props }: ${componentName}Props) {
 // Child components (if any)
 \`\`\`
 
-${availableComponents.length > 0 ? 'CRITICAL: You MUST use the component library components. Map each Figma element to the most appropriate component from the library above. For example:
+${availableComponents.length > 0 ? `CRITICAL: You MUST use the component library components. Map each Figma element to the most appropriate component from the library above. For example:
 - Figma button → Use the Button component from the library
 - Figma text input → Use the FieldText/Input component from the library
 - Figma card → Use the Card/Panel component from the library
 
 Do NOT create custom HTML buttons, inputs, or styled divs when library components exist for those purposes.
 
-' : ''}Generate the component now. Be creative but faithful to the design structure.`;
+` : ''}Generate the component now. Be creative but faithful to the design structure.`;
   }
 
   private describeComponents(componentTree: ComponentNode[]): string {

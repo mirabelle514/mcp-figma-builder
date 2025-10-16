@@ -9,7 +9,7 @@ const AnalyzeFigmaInputSchema = z.object({
 
 export const analyzeFigmaTool = {
   name: 'analyze_figma_design',
-  description: 'Analyze a Figma design and match it to existing Lumiere Design System components. Returns matched components with confidence scores and suggested props.',
+  description: 'Analyze a Figma design and match it to existing EUI Design System components. Returns matched components with confidence scores and suggested props.',
   inputSchema: {
     type: 'object' as const,
     properties: {
@@ -31,14 +31,14 @@ export async function handleAnalyzeFigma(
     const { fileKey, nodeId } = figmaService.parseFigmaUrl(args.figmaUrl);
 
     const db = new DatabaseService(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
-    const components = await db.getLumiereComponents();
+    const components = await db.getEuiComponents();
 
     if (components.length === 0) {
       return {
         content: [
           {
             type: 'text' as const,
-            text: `No Lumiere components found in database. Please run the 'scan_lumiere_repository' tool first to load the component library.`,
+            text: `No EUI components found in database. Please run the 'scan_eui_repository' tool first to load the component library.`,
           },
         ],
       };

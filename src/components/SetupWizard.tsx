@@ -78,8 +78,8 @@ export function SetupWizard() {
       FIGMA_ACCESS_TOKEN: config.figmaToken,
       SUPABASE_URL: config.supabaseUrl,
       SUPABASE_ANON_KEY: config.supabaseKey,
-      LUMIERE_REPO_OWNER: config.repoOwner,
-      LUMIERE_REPO_NAME: config.repoName,
+      EUI_REPO_OWNER: config.repoOwner,
+      EUI_REPO_NAME: config.repoName,
     };
 
     if (config.githubToken) {

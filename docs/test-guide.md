@@ -45,8 +45,8 @@ This is the **easiest way** to test:
            "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
            "SUPABASE_ANON_KEY": "YOUR_SUPABASE_KEY",
            "ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_KEY",
-           "LUMIERE_REPO_OWNER": "mirabelle514",
-           "LUMIERE_REPO_NAME": "Lumiere-Design-System"
+           "EUI_REPO_OWNER": "mirabelle514",
+           "EUI_REPO_NAME": "Lumiere-Design-System"
          }
        }
      }

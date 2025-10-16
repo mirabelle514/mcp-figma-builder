@@ -119,7 +119,7 @@ Based on this design, here are the React components to build:
 5. Build Hero section component
 6. Build Feature card component
 7. Build About section layout
-8. Integrate with Lumiere Design System repository
+8. Integrate with EUI Design System repository
 
 ## Prompts to Use
 

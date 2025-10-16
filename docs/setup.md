@@ -1,4 +1,4 @@
-# Setup Guide: Figma to React MCP Server
+# Setup Guide: EUI MCP Server
 
 Complete setup instructions for getting your MCP server running.
 
@@ -84,8 +84,8 @@ This installs:
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "YOUR_SUPABASE_ANON_KEY",
         "ANTHROPIC_API_KEY": "sk-ant-YOUR_KEY_HERE",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System",
+        "EUI_REPO_OWNER": "mirabelle514",
+        "EUI_REPO_NAME": "Lumiere-Design-System",
         "GITHUB_TOKEN": ""
       }
     }
@@ -105,7 +105,7 @@ This installs:
 2. Open a new conversation
 3. Type: "What MCP tools do you have available?"
 4. You should see:
-   - `scan_lumiere_repository`
+   - `scan_eui_repository`
    - `analyze_figma_design`
    - `generate_implementation_guide`
    - `get_component_details`
@@ -155,14 +155,14 @@ If you use VS Code with Continue extension:
 ### Approach 1: Match to Existing Components
 
 ```
-User: Scan the Lumiere Design System repository
+User: Scan the EUI Design System repository
 
 Claude: [Scans and loads components]
 
-User: Analyze this Figma design and match to Lumiere components:
+User: Analyze this Figma design and match to EUI components:
 https://www.figma.com/design/ABC/Design?node-id=1-2
 
-Claude: [Provides matching Lumiere components with implementation guide]
+Claude: [Provides matching EUI components with implementation guide]
 ```
 
 ### Approach 2: Generate New Components (AI)

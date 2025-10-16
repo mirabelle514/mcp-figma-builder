@@ -51,8 +51,8 @@ Edit your Claude Desktop config:
         "FIGMA_ACCESS_TOKEN": "figd_your_actual_token",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_actual_supabase_key",
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui",
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui",
         "GITHUB_TOKEN": "your_github_token_if_needed"
       }
     }
@@ -184,8 +184,8 @@ Get your key from: https://console.anthropic.com/
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_key",
         "ANTHROPIC_API_KEY": "sk-ant-your-key",
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui"
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui"
       }
     }
   }
@@ -310,8 +310,8 @@ Get your key from: https://platform.openai.com/api-keys
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_key",
         "OPENAI_API_KEY": "sk-your-key",
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui"
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui"
       }
     }
   }
@@ -402,8 +402,8 @@ Should output help text or error messages.
 - FIGMA_ACCESS_TOKEN
 - SUPABASE_URL
 - SUPABASE_ANON_KEY
-- LUMIERE_REPO_OWNER
-- LUMIERE_REPO_NAME
+- EUI_REPO_OWNER
+- EUI_REPO_NAME
 
 ### "Figma API error"
 
@@ -420,7 +420,7 @@ https://www.figma.com/design/[FILE_ID]/[FILE_NAME]?node-id=[NODE_ID]
 ### "No components found"
 
 **Check:**
-1. LUMIERE_REPO_OWNER and LUMIERE_REPO_NAME are correct
+1. EUI_REPO_OWNER and EUI_REPO_NAME are correct
 2. Repository exists and is accessible
 3. Add GITHUB_TOKEN if repository is private
 

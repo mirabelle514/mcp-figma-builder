@@ -53,8 +53,8 @@ npm run build
         "FIGMA_ACCESS_TOKEN": "figd_your_token",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_key",
-        "LUMIERE_REPO_OWNER": "elastic",
-        "LUMIERE_REPO_NAME": "eui"
+        "EUI_REPO_OWNER": "elastic",
+        "EUI_REPO_NAME": "eui"
       }
     }
   }
@@ -204,7 +204,7 @@ Mode 3 Tests (OpenAI):
 → Check FIGMA_ACCESS_TOKEN is valid and you have access to the file
 
 ### "No components found"
-→ Verify LUMIERE_REPO_OWNER and LUMIERE_REPO_NAME are correct
+→ Verify EUI_REPO_OWNER and EUI_REPO_NAME are correct
 
 ### Build errors
 → Run `cd mcp-server && npm install && npm run build`
