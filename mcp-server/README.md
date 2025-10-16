@@ -5,7 +5,7 @@ MCP server that helps developers implement Figma designs using their **actual co
 1. **Component Mapping**: Matches Figma designs to your existing component library (EUI, Material-UI, your custom design system, etc.)
 2. **AI Code Generation**: Generates React components using your **actual component library components** (not generic Tailwind)
 
-**🎯 Works with ANY component library!** Default is Elastic EUI, but easily configurable for your own repo.
+** Works with ANY component library!** Default is Elastic EUI, but easily configurable for your own repo.
 
 ## Quick Start
 
@@ -45,7 +45,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 }
 ```
 
-**🔧 Using Your Own Component Library?**
+** Using Your Own Component Library?**
 
 Change these two lines to point to YOUR repository:
 ```json
@@ -58,7 +58,7 @@ Change these two lines to point to YOUR repository:
 - Ant Design: `"ant-design"` / `"ant-design"`
 - Your custom: `"your-org"` / `"your-repo"`
 
-**📖 See [`docs/CONFIGURATION.md`](../docs/CONFIGURATION.md) for complete configuration guide!**
+** See [`docs/CONFIGURATION.md`](../docs/CONFIGURATION.md) for complete configuration guide!**
 
 ### 4. Restart Claude Desktop
 

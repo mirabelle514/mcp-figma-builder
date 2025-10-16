@@ -1,6 +1,6 @@
 # Custom AI Provider Guide (Mode 4)
 
-## 🎯 Overview
+##  Overview
 
 Mode 4 allows you to connect the tool to your company's **internal/private AI infrastructure** instead of using public AI services like Anthropic or OpenAI.
 
@@ -12,18 +12,18 @@ Mode 4 allows you to connect the tool to your company's **internal/private AI in
 
 ---
 
-## ✨ Features
+##  Features
 
-- ✅ Use your internal AI infrastructure
-- ✅ Full data privacy and control
-- ✅ OpenAI-compatible API format
-- ✅ Same features as Modes 2/3
-- ✅ Custom naming and branding
-- ✅ Flexible model selection
+-  Use your internal AI infrastructure
+-  Full data privacy and control
+-  OpenAI-compatible API format
+-  Same features as Modes 2/3
+-  Custom naming and branding
+-  Flexible model selection
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 ### Your AI Service Must:
 
@@ -42,7 +42,7 @@ Mode 4 allows you to connect the tool to your company's **internal/private AI in
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Step 1: Use the Setup Wizard
 
@@ -86,19 +86,19 @@ Edit your Claude Desktop config:
 
 ---
 
-## 🔑 Environment Variables
+##  Environment Variables
 
 | Variable | Required | Description | Example |
 |----------|----------|-------------|---------|
-| `CUSTOM_AI_PROVIDER` | ✅ Yes | Enable custom AI | `"true"` |
-| `CUSTOM_AI_URL` | ✅ Yes | API endpoint URL | `https://ai.company.com/v1/chat/completions` |
-| `CUSTOM_AI_KEY` | ✅ Yes | API authentication key | `your-api-key-here` |
-| `CUSTOM_AI_NAME` | ⚪ Optional | Display name for logs | `"LibertyGPT"` |
-| `CUSTOM_AI_MODEL` | ⚪ Optional | Default model name | `"gpt-4"` |
+| `CUSTOM_AI_PROVIDER` |  Yes | Enable custom AI | `"true"` |
+| `CUSTOM_AI_URL` |  Yes | API endpoint URL | `https://ai.company.com/v1/chat/completions` |
+| `CUSTOM_AI_KEY` |  Yes | API authentication key | `your-api-key-here` |
+| `CUSTOM_AI_NAME` |  Optional | Display name for logs | `"LibertyGPT"` |
+| `CUSTOM_AI_MODEL` |  Optional | Default model name | `"gpt-4"` |
 
 ---
 
-## 📡 API Format
+##  API Format
 
 ### Request Format (What We Send)
 
@@ -143,7 +143,7 @@ Edit your Claude Desktop config:
 
 ---
 
-## 🏗️ Common Setups
+##  Common Setups
 
 ### Setup 1: Internal ChatGPT Deployment
 
@@ -179,7 +179,7 @@ If using self-hosted models with OpenAI-compatible APIs:
 
 ---
 
-## 🔒 Security Best Practices
+##  Security Best Practices
 
 ### 1. Network Security
 - Use HTTPS in production
@@ -200,7 +200,7 @@ If using self-hosted models with OpenAI-compatible APIs:
 
 ---
 
-## 🧪 Testing Your Setup
+##  Testing Your Setup
 
 ### Test 1: Verify Configuration
 
@@ -282,7 +282,7 @@ headers: {
 
 ---
 
-## 🎨 Customization
+##  Customization
 
 If your API differs from OpenAI format, you can customize:
 
@@ -322,7 +322,7 @@ const content = data.your_custom_response_field;
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Start with public API first**
    - Test with Anthropic (Mode 2) or OpenAI (Mode 3) first
@@ -346,20 +346,20 @@ const content = data.your_custom_response_field;
 
 ---
 
-## 📊 Comparison: Custom AI vs Public AI
+##  Comparison: Custom AI vs Public AI
 
 | Aspect | Custom AI (Mode 4) | Anthropic (Mode 2) | OpenAI (Mode 3) |
 |--------|-------------------|-------------------|-----------------|
-| **Data Privacy** | ✅ Full control | ⚠️ Sent to Anthropic | ⚠️ Sent to OpenAI |
-| **Setup Complexity** | ⚠️ More complex | ✅ Simple | ✅ Simple |
-| **Cost** | 💰 Your pricing | 💰 ~$5-20/project | 💰 ~$10-30/project |
-| **Availability** | 🔄 Your uptime | ✅ High | ✅ High |
-| **Customization** | ✅ Full control | ⚠️ Limited | ⚠️ Limited |
-| **Compliance** | ✅ Your rules | ⚠️ Anthropic terms | ⚠️ OpenAI terms |
+| **Data Privacy** |  Full control |  Sent to Anthropic |  Sent to OpenAI |
+| **Setup Complexity** |  More complex |  Simple |  Simple |
+| **Cost** |  Your pricing |  ~$5-20/project |  ~$10-30/project |
+| **Availability** |  Your uptime |  High |  High |
+| **Customization** |  Full control |  Limited |  Limited |
+| **Compliance** |  Your rules |  Anthropic terms |  OpenAI terms |
 
 ---
 
-## 📝 Example: LibertyGPT Setup
+##  Example: LibertyGPT Setup
 
 ### Scenario
 Your company has an internal AI tool called "LibertyGPT" powered by ChatGPT:
@@ -403,7 +403,7 @@ Model: gpt-4
 
 ---
 
-## 🚀 Getting Started Checklist
+##  Getting Started Checklist
 
 - [ ] Contact your AI team for endpoint and credentials
 - [ ] Test API with curl/Postman
@@ -417,7 +417,7 @@ Model: gpt-4
 
 ---
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - **Setup Wizard**: `npm run dev` → http://localhost:5173
 - **Code**: `mcp-server/src/services/custom-ai-provider.ts`
@@ -426,7 +426,7 @@ Model: gpt-4
 
 ---
 
-## 🎓 FAQ
+##  FAQ
 
 **Q: Does my AI need to be ChatGPT/GPT-4?**
 A: No! Any model that accepts OpenAI-compatible requests works. Could be Llama, Mistral, Claude (via Bedrock), etc.
@@ -448,4 +448,4 @@ A: Absolutely! Works with vLLM, Text Generation WebUI, or any OpenAI-compatible 
 
 ---
 
-**Mode 4 gives you complete control over your AI infrastructure while maintaining all the benefits of automated component generation!** 🎉
+**Mode 4 gives you complete control over your AI infrastructure while maintaining all the benefits of automated component generation!** 

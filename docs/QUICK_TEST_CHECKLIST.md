@@ -14,7 +14,7 @@ npm install
 npm run build
 ```
 
-**Check:** `mcp-server/dist/index.js` exists ✅
+**Check:** `mcp-server/dist/index.js` exists 
 
 ### 2. Get Your API Keys
 
@@ -61,7 +61,7 @@ Edit: `~/Library/Application Support/Claude/claude_desktop_config.json`
 }
 ```
 
-**NO AI keys included** ✅
+**NO AI keys included** 
 
 ### Test Steps
 
@@ -75,9 +75,9 @@ Edit: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - [ ] 8. Should see error: "AI generation requires an API key"
 
 **Mode 1 Success Criteria:**
-- ✅ Repository scan works
-- ✅ Component matching works
-- ✅ AI generation shows clear error (expected!)
+-  Repository scan works
+-  Component matching works
+-  AI generation shows clear error (expected!)
 
 ---
 
@@ -102,10 +102,10 @@ Add this line to your config:
 - [ ] 7. Check metadata shows "Anthropic Claude"
 
 **Mode 2 Success Criteria:**
-- ✅ Component mapping still works
-- ✅ AI generation produces valid React/TypeScript code
-- ✅ Code uses Tailwind CSS
-- ✅ Metadata shows Claude model
+-  Component mapping still works
+-  AI generation produces valid React/TypeScript code
+-  Code uses Tailwind CSS
+-  Metadata shows Claude model
 
 ---
 
@@ -134,10 +134,10 @@ Add this line to your config:
 - [ ] 7. Check metadata shows "OpenAI"
 
 **Mode 3 Success Criteria:**
-- ✅ Component mapping still works
-- ✅ AI generation produces valid React/TypeScript code
-- ✅ Code uses Tailwind CSS
-- ✅ Metadata shows OpenAI model
+-  Component mapping still works
+-  AI generation produces valid React/TypeScript code
+-  Code uses Tailwind CSS
+-  Metadata shows OpenAI model
 
 ---
 
@@ -234,4 +234,4 @@ Overall Result: ☐ All Passed ☐ Some Issues
 - **Team guide:** `docs/TEAM_SETUP_GUIDE.md`
 - **Setup details:** `mcp-server/README.md`
 
-Happy testing! 🚀
+Happy testing! 

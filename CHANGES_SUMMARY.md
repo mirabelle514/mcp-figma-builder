@@ -1,6 +1,6 @@
 # Summary of Changes: Using Actual Component Libraries
 
-## 🎯 What Changed
+##  What Changed
 
 ### Before
 - AI generated generic React code with Tailwind CSS
@@ -14,7 +14,7 @@
 
 ---
 
-## 📝 Files Modified
+##  Files Modified
 
 ### 1. `mcp-server/src/services/react-generator.ts`
 **Changes:**
@@ -70,7 +70,7 @@ const generator = new ReactGenerator(env.ANTHROPIC_API_KEY, db);
 
 ---
 
-## 🔧 Configuration Changes Required
+##  Configuration Changes Required
 
 ### To Use Your Own Repository
 
@@ -101,7 +101,7 @@ Your `FIGMA_ACCESS_TOKEN` works with any Figma file you have access to. Just use
 
 ---
 
-## 🎨 How It Works
+##  How It Works
 
 ### Component Scanning
 1. Server scans your repository (e.g., elastic/eui)
@@ -123,7 +123,7 @@ Your `FIGMA_ACCESS_TOKEN` works with any Figma file you have access to. Just use
 
 ---
 
-## 💡 AI Prompt Changes
+##  AI Prompt Changes
 
 ### What Gets Sent to AI
 
@@ -167,7 +167,7 @@ when library components exist.
 
 ---
 
-## 📊 Expected Output Changes
+##  Expected Output Changes
 
 ### Before (Generic Tailwind)
 ```tsx
@@ -215,7 +215,7 @@ export function LoginForm() {
 
 ---
 
-## ✅ Benefits
+##  Benefits
 
 1. **No Manual Conversion** - Generated code uses your design system directly
 2. **Consistent Styling** - Automatically matches your component library patterns
@@ -226,7 +226,7 @@ export function LoginForm() {
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Test 1: Verify Component Library is Used
 
@@ -247,7 +247,7 @@ export function LoginForm() {
 
 ---
 
-## 📚 Documentation Structure
+##  Documentation Structure
 
 ```
 project/
@@ -265,7 +265,7 @@ project/
 
 ---
 
-## 🚀 Migration Path
+##  Migration Path
 
 ### If You're Currently Using This Tool
 
@@ -312,7 +312,7 @@ project/
 
 ---
 
-## 💻 Code Quality
+##  Code Quality
 
 ### TypeScript Compatibility
 - No TypeScript errors introduced
@@ -332,7 +332,7 @@ project/
 
 ---
 
-## 🎓 Next Steps
+##  Next Steps
 
 1. **Test it:** See `HOW_TO_TEST.md`
 2. **Configure for your repo:** See `docs/CONFIGURATION.md`
@@ -341,7 +341,7 @@ project/
 
 ---
 
-## 📞 Key Files to Read
+##  Key Files to Read
 
 1. **`docs/CONFIGURATION.md`** - How to switch repos/Figma
 2. **`HOW_TO_TEST.md`** - How to test all features

@@ -62,11 +62,11 @@ Generate a React component from this Figma design:
 
 ## Benefits
 
-- ✅ Works exactly like Claude Desktop
-- ✅ Integrated into your IDE
-- ✅ Can insert code directly into files
-- ✅ Full context of your project
-- ✅ Free to use
+-  Works exactly like Claude Desktop
+-  Integrated into your IDE
+-  Can insert code directly into files
+-  Full context of your project
+-  Free to use
 
 ## Usage
 
@@ -422,7 +422,7 @@ The supabase/migrations/ folder contains your database schema migration:
 20251015130358_create_prompts_library.sql - Creates all the tables for your prompts library (prompt_templates, prompt_categories, prompt_combinations, generation_history)
 What to keep when moving to your repo:
 
-✅ Keep:
+ Keep:
 
 supabase/ folder - Contains critical database migrations
 prompts-library/ folder - Your 68 engineering prompts
@@ -430,7 +430,7 @@ MCP_SERVER_README.md - Complete setup documentation
 figma-analysis.md - Analysis of your Figma design
 parse-figma.cjs - Utility for parsing Figma data
 store-figma-data.mjs - Script to populate database
-❌ Can remove/ignore:
+ Can remove/ignore:
 
 .bolt/ folder (doesn't exist)
 node_modules/ (add to .gitignore)
@@ -754,9 +754,9 @@ Great question! Let me break down the actual steps a user needs to take to use t
 Current Status
 Right now, you have:
 
-✅ Database schema (migrations)
-✅ Service logic (scanner, matcher, generator)
-✅ Documentation
+ Database schema (migrations)
+ Service logic (scanner, matcher, generator)
+ Documentation
 What's missing: The actual MCP server implementation that connects these pieces.
 
 What Users Need to Do
@@ -975,7 +975,7 @@ can you give me a clear list of places in all files where I would need to update
 
 Perfect! Here's the complete list of files and lines where you need to update tokens, repo links, and Figma links:
 
-📝 Configuration Checklist
+ Configuration Checklist
 1. Figma Access Token
 Replace: figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2
 
@@ -1033,7 +1033,7 @@ Files to update:
 ✏️ figma-analysis.md - Line 3 (just the file ID)
 Action: Optional - update with your own Figma URL for examples
 
-🎯 Quick Update Guide
+ Quick Update Guide
 Most Important (Required for MCP Server to work):
 
 mcp-server/README.md - Lines 30-34 (All tokens and repo info)
@@ -1345,7 +1345,7 @@ You need two parts working together:
 Your MCP Server (you already have this) - provides the Figma tools
 An AI client (you need to choose one) - the AI brain that decides when to use the tools
 Best Options for AI + MCP:
-Option 1: VS Code with Continue ⭐ Recommended
+Option 1: VS Code with Continue  Recommended
 
 Full AI assistant in your editor
 Supports Claude, GPT-4, local models
@@ -1357,7 +1357,7 @@ More autonomous than Continue
 Can make multiple changes without asking
 Good for larger tasks
 Setup: Install Cline extension, add MCP config
-Option 3: Claude Desktop ⭐ Easiest
+Option 3: Claude Desktop  Easiest
 
 Official Anthropic app
 Easiest MCP setup
@@ -1371,10 +1371,10 @@ Setup: Configure MCP in Zed settings
 My Recommendation
 Start with Continue in VS Code because:
 
-✅ AI brain (Claude, GPT-4, etc.)
-✅ Works right in your editor
-✅ Free tier available
-✅ Good balance of power and ease
+ AI brain (Claude, GPT-4, etc.)
+ Works right in your editor
+ Free tier available
+ Good balance of power and ease
 Want me to help you set up Continue with your MCP server?
 
 will VS Code with Continue allows me to create A GUI and a terminal version?
@@ -1384,10 +1384,10 @@ Yes! VS Code with Continue can help you build both:
 What Continue Does
 Continue is an AI coding assistant that lives in VS Code. It can:
 
-✅ Write code for a GUI app (React, web interface)
-✅ Write code for a terminal CLI tool
-✅ Use your MCP server's Figma tools while building either
-✅ Help you build both versions simultaneously
+ Write code for a GUI app (React, web interface)
+ Write code for a terminal CLI tool
+ Use your MCP server's Figma tools while building either
+ Help you build both versions simultaneously
 For Your Figma-to-React Project
 GUI Version (Web Interface)
 
@@ -1431,21 +1431,21 @@ ok, first can you confirm that this project is a MCP-server that would allowed V
 
 Let me check your project structure to confirm what you have.
 
-✅ YES - Confirmed!
+ YES - Confirmed!
 This project is an MCP server, but let me clarify exactly what it does:
 
 What You Have:
 An MCP Server that:
 
-✅ Takes a Figma URL as input
-✅ Analyzes the Figma design
-✅ Matches Figma components to existing Lumiere Design System components
-✅ Generates implementation guides with code examples
-✅ Works with AI clients (Claude Desktop, VS Code with Continue, etc.)
+ Takes a Figma URL as input
+ Analyzes the Figma design
+ Matches Figma components to existing Lumiere Design System components
+ Generates implementation guides with code examples
+ Works with AI clients (Claude Desktop, VS Code with Continue, etc.)
 What It Does NOT Do (Yet):
-❌ Automatically convert Figma → full React build
-❌ Generate brand-new React components from scratch
-❌ Create a complete production app
+ Automatically convert Figma → full React build
+ Generate brand-new React components from scratch
+ Create a complete production app
 
 How It Actually Works:
 
@@ -1479,7 +1479,7 @@ Is there a way to Automatically convert Figma → full React build and Generate 
 
 Yes - but it's MUCH harder and requires different tools. Here are your options:
 
-Option 1: Extend Your Current MCP Server ⭐ Best Path Forward
+Option 1: Extend Your Current MCP Server  Best Path Forward
 Add AI-powered code generation to your existing server:
 
 What You'd Add:
@@ -1497,14 +1497,14 @@ Figma URL
   ↓
 4. Output working code + file structure
 Pros:
-✅ Builds on what you have
-✅ Full control over output
-✅ Can use AI (Claude API) to generate quality code
-✅ Works with your MCP workflow
+ Builds on what you have
+ Full control over output
+ Can use AI (Claude API) to generate quality code
+ Works with your MCP workflow
 Cons:
-⚠️ Complex (layout conversion is hard)
-⚠️ Requires AI API (costs money)
-⚠️ Won't be 100% perfect
+ Complex (layout conversion is hard)
+ Requires AI API (costs money)
+ Won't be 100% perfect
 Option 2: Use Existing Tools + Your MCP
 Combine commercial tools with your server:
 
@@ -1531,7 +1531,7 @@ This Is:
 🔴 6-12 months of work
 🔴 Very complex (layout algorithms, edge cases)
 🔴 Hard to get 100% right
-✅ But... could be amazing if done well
+ But... could be amazing if done well
 My Recommendation
 Extend your current MCP server with AI-powered generation:
 
@@ -1565,7 +1565,7 @@ Can YOU build Build a Complete Solution ?
 Yes, I can build it - but let me be transparent about what's realistic:
 
 What I Can Build For You
-✅ Version 1: AI-Powered Figma → React Generator
+ Version 1: AI-Powered Figma → React Generator
 A system that:
 
 Takes Figma URL
@@ -1585,9 +1585,9 @@ Your Existing MCP Server - Build on what you have
 Smart Algorithms - Convert Figma properties → CSS/Tailwind
 Bolt Database - Store designs, components, generation history
 What I Won't Try:
-❌ Pixel-perfect conversion (unrealistic)
-❌ Handle every edge case (infinite complexity)
-❌ Replace human developers (augment them)
+ Pixel-perfect conversion (unrealistic)
+ Handle every edge case (infinite complexity)
+ Replace human developers (augment them)
 The Plan
 Phase 1: Enhanced Figma Extraction
 Extract complete node tree
@@ -1650,15 +1650,15 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
 }
 Honest Expectations
 What It Will Do Well:
-✅ Basic layouts (forms, cards, grids)
-✅ Common components (buttons, inputs, navigation)
-✅ Clean, maintainable code
-✅ Fast iteration (generate → refine → regenerate)
+ Basic layouts (forms, cards, grids)
+ Common components (buttons, inputs, navigation)
+ Clean, maintainable code
+ Fast iteration (generate → refine → regenerate)
 What Will Need Refinement:
-⚠️ Complex animations
-⚠️ Intricate custom designs
-⚠️ Exact spacing/positioning
-⚠️ Interactive behaviors
+ Complex animations
+ Intricate custom designs
+ Exact spacing/positioning
+ Interactive behaviors
 The Goal:
 Turn 10 hours of work into 1-2 hours
 
@@ -1715,10 +1715,10 @@ Perfect! Everything is compiled. Let me create one final verification checklist:
 
 Perfect! Let me create one final summary of what was accomplished:
 
-✅ Complete Figma to React MCP Server Built Successfully!
+ Complete Figma to React MCP Server Built Successfully!
 I've built a complete system that automatically converts Figma designs into production-ready React components using AI. Here's what you now have:
 
-🎯 Core Functionality
+ Core Functionality
 NEW: generate_react_from_figma Tool
 
 Takes any Figma URL
@@ -1726,7 +1726,7 @@ Extracts complete design (layout, styles, colors, typography)
 Converts to Tailwind CSS classes
 Uses Claude AI to generate React component
 Outputs production-ready TypeScript code
-📦 What Was Created
+ What Was Created
 New Services (5 files):
 
 figma-extractor.ts - Extracts complete design data
@@ -1744,7 +1744,7 @@ README.md - Complete project overview
 SETUP.md - Detailed setup instructions
 IMPLEMENTATION_SUMMARY.md - Technical architecture
 CHECKLIST.md - Pre-launch verification
-🚀 How It Works
+ How It Works
 
 Figma URL → Extract Design → Analyze Layout/Styles → 
 Convert to Tailwind → AI Generates React → Store in DB → 
@@ -1760,24 +1760,24 @@ Props interfaces
 Usage examples
 Design tokens
 Dependencies list
-📊 Expected Quality
+ Expected Quality
 70-85% code ready to use as-is
 15-30% needs minor refinement
 Saves 8+ hours per component
-⚙️ Requirements
+ Requirements
 To use this system, you'll need:
 
 Figma Access Token (free)
 Anthropic API Key (~$0.01 per generation)
 Bolt Database (already configured)
 Claude Desktop or VS Code with Continue
-📝 Next Steps
+ Next Steps
 Follow CHECKLIST.md to verify setup
 Read SETUP.md for configuration
 Add your API keys to Claude Desktop config
 Test with a simple Figma design
 Start generating components!
-🎉 Result
+ Result
 You now have a complete Figma-to-React code generation system that turns 10 hours of manual work into 1-2 hours of AI-assisted development.
 
 The project has been built successfully and is ready to use!
@@ -1805,9 +1805,9 @@ Applied database migration
 Open
 Perfect! I can see the new tables were created:
 
-✅ figma_designs
-✅ generated_components
-✅ generation_history (note: there are two, one old and one new - this is fine)
+ figma_designs
+ generated_components
+ generation_history (note: there are two, one old and one new - this is fine)
 Now let me create a simple test script to verify the system works without needing Claude Desktop:
 
 
@@ -1821,14 +1821,14 @@ TEST_GUIDE.md
 Open
 Perfect! Now let me create one final summary of everything:
 
-🎉 Complete! Here's How to Test Your System
+ Complete! Here's How to Test Your System
 I've built the complete Figma-to-React code generator and created comprehensive testing guides.
 
-✅ What's Ready
+ What's Ready
 Database: ✓ Migration applied, tables created
 MCP Server: ✓ Built and ready to run
 Documentation: ✓ Complete guides created
-🧪 Choose Your Testing Method
+ Choose Your Testing Method
 Option 1: Claude Desktop (Easiest - 5 minutes)
 Quick Setup:
 
@@ -1848,14 +1848,14 @@ Verification checklists
 Example Figma URLs to test with
 Expected output examples
 Troubleshooting guide
-📁 Documentation Files Created
+ Documentation Files Created
 QUICK_START.md - 5-minute setup guide
 TEST_GUIDE.md - Comprehensive testing instructions
 SETUP.md - Detailed configuration guide
 CHECKLIST.md - Pre-launch verification
 IMPLEMENTATION_SUMMARY.md - Technical architecture
 README.md - Complete project overview
-🎯 Simplest Test Right Now
+ Simplest Test Right Now
 Without any setup, you can verify the database is ready:
 
 
@@ -1865,7 +1865,7 @@ WHERE table_schema = 'public'
 AND table_name IN ('figma_designs', 'generated_components', 'generation_history');
 Result: All 3 tables should be listed ✓
 
-🚀 To Actually Generate Components
+ To Actually Generate Components
 You need:
 
 Figma Token (free from figma.com)
@@ -1877,7 +1877,7 @@ Then it's as simple as:
 
 Claude, generate a React component from this Figma design:
 [your Figma URL]
-💡 What You'll Get
+ What You'll Get
 From any Figma design:
 
 Complete React component (TypeScript)
@@ -1886,7 +1886,7 @@ Props interfaces
 Usage examples
 Design tokens
 ~70-85% production-ready code
-📞 Next Step
+ Next Step
 Read QUICK_START.md for the fastest path to your first generated component!
 
 The entire system is built and ready - you just need to add your API keys and test it! 🎊
@@ -1894,16 +1894,16 @@ The entire system is built and ready - you just need to add your API keys and te
 
 0123456789
  actions taken
-Perfect! ✅ The project builds successfully.
+Perfect!  The project builds successfully.
 
-✅ Project Built Successfully!
+ Project Built Successfully!
 The main project and MCP server are both compiled and ready to use.
 
-📦 What's Built
+ What's Built
 Main Project - Vite React app built ✓
 MCP Server - TypeScript compiled ✓
 Database - Migration applied ✓
-🧪 How to Test
+ How to Test
 Follow these steps:
 
 Read QUICK_START.md - 5-minute setup guide
@@ -1916,13 +1916,13 @@ Test:
 
 Generate a React component from this Figma design:
 [your Figma URL]
-📚 Documentation
+ Documentation
 QUICK_START.md - Start here! (5-minute setup)
 TEST_GUIDE.md - Comprehensive testing guide
 CHECKLIST.md - Verification checklist
 SETUP.md - Detailed configuration
 README.md - Full project documentation
-The system is 100% ready - you just need to add your API keys and test it! 🚀
+The system is 100% ready - you just need to add your API keys and test it! 
 
 Build Figma-to-React system
 
@@ -1948,7 +1948,7 @@ Great! Now I need to know where you want to push this to GitHub. Do you have a G
 
 Since I can't create a GitHub repository for you, let me provide the instructions:
 
-🚀 To Push to GitHub:
+ To Push to GitHub:
 Option 1: Create New Repository on GitHub
 Go to GitHub: https://github.com/new
 
@@ -1973,7 +1973,7 @@ If you already have a repository, tell me the URL and I'll push to it:
 # Just provide me with your GitHub repo URL and I'll run:
 git remote add origin YOUR_REPO_URL
 git push -u origin main
-✅ What's Committed
+ What's Committed
 59 files including:
 
 Complete MCP server with 5 services and 5 tools
@@ -1989,7 +1989,7 @@ Note: Sensitive files are excluded:
 .env (API keys)
 node_modules (dependencies)
 dist folders (build artifacts)
-Provide me with your GitHub repository URL and I'll push the code! 🚀
+Provide me with your GitHub repository URL and I'll push the code! 
 
 
 Built the project to ensure everything compiles correctly
@@ -2040,10 +2040,10 @@ Perfect! Now let me run the final build:
 
 Excellent! Now let me create a final summary:
 
-✅ Yes! It Works Without Claude Desktop
+ Yes! It Works Without Claude Desktop
 I've set up TWO ways to use the system without Claude Desktop:
 
-🎯 Option 1: VS Code + Continue Extension (Best Experience)
+ Option 1: VS Code + Continue Extension (Best Experience)
 Setup: 5 minutes
 
 Install Continue extension in VS Code
@@ -2071,7 +2071,7 @@ Saves to ./generated/ComponentName.tsx
 Stores in database
 No AI assistant needed - direct generation!
 
-📋 Quick Start (CLI Method)
+ Quick Start (CLI Method)
 Add API keys to .env:
 
 
@@ -2087,7 +2087,7 @@ Get your React component!
 Printed to terminal
 Saved to ./generated/ folder
 Stored in database
-📚 Documentation
+ Documentation
 NO_CLAUDE_DESKTOP.md - Complete guide for both options
 VSCODE_SETUP.md - VS Code + Continue setup
 generate-component.js - CLI script (ready to use)
@@ -2097,17 +2097,17 @@ The CLI script can be:
 Automated - Run in CI/CD pipelines
 Batch processed - Generate multiple components
 Scripted - Integrate into your workflow
-💰 Cost (Same for All Options)
+ Cost (Same for All Options)
 Script/Tools: Free
 Anthropic API: ~$0.01-0.02 per component
 Figma API: Free
-🚀 Next Steps
+ Next Steps
 Choose your method:
 
 For VS Code users: Read VSCODE_SETUP.md
 For CLI users: Read NO_CLAUDE_DESKTOP.md
 Then: Add your API keys and generate your first component!
-The system is 100% ready to use without Claude Desktop! 🎉
+The system is 100% ready to use without Claude Desktop! 
 
 
 Final build to ensure everything works
@@ -2133,8 +2133,8 @@ The MCP server needs to be built. Let me do that:
  commands executed
 Perfect! Everything is built. Now here's how to test:
 
-🧪 Testing Options
-✅ Option 1: Test with Claude Desktop (Recommended - 5 minutes)
+ Testing Options
+ Option 1: Test with Claude Desktop (Recommended - 5 minutes)
 You'll need:
 
 Claude Desktop installed
@@ -2179,24 +2179,24 @@ Generate a component:
 
 Generate a React component from this Figma design:
 https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=4-38
-✅ Option 2: Test Database Connection
+ Option 2: Test Database Connection
 Let me verify the database is working:
 
-✅ Database is ready! All 3 tables exist.
+ Database is ready! All 3 tables exist.
 
-📋 Testing Summary
+ Testing Summary
 Status:
 
-✅ Main project built
-✅ MCP server built
-✅ Database tables created
-✅ Ready to test with Claude Desktop
+ Main project built
+ MCP server built
+ Database tables created
+ Ready to test with Claude Desktop
 What do you have?
 
 Claude Desktop installed?
 Figma Access Token?
 Anthropic API Key?
-Let me know what you have, and I'll help you with the next step! If you have Claude Desktop and the API keys, you can test it right now using the config above. 🚀
+Let me know what you have, and I'll help you with the next step! If you have Claude Desktop and the API keys, you can test it right now using the config above. 
 
 
 Executed SQL
@@ -2219,7 +2219,7 @@ Windows:
 
 
 %APPDATA%\Claude\claude_desktop_config.json
-📝 What to Add
+ What to Add
 Open that file and add this configuration (replace YOUR_TOKEN_HERE with your actual Figma token):
 
 
@@ -2239,18 +2239,18 @@ Open that file and add this configuration (replace YOUR_TOKEN_HERE with your act
     }
   }
 }
-🔑 How to Get Your Figma Token
+ How to Get Your Figma Token
 Go to: https://www.figma.com/developers/api#access-tokens
 Click "Get personal access token"
 Copy the token (starts with figd_)
 Paste it in the config where it says figd_YOUR_TOKEN_HERE
-🔑 How to Get Your Anthropic API Key
+ How to Get Your Anthropic API Key
 Go to: https://console.anthropic.com/
 Go to API Keys section
 Create a new key
 Copy it (starts with sk-ant-)
 Paste it where it says sk-ant-YOUR_KEY_HERE
-✅ After Adding
+ After Adding
 Save the config file
 Fully quit Claude Desktop (not just close the window)
 Reopen Claude Desktop
@@ -2261,7 +2261,7 @@ why do I add the Figma Token to my Claude Desktop if I want to test WITHOUT Clau
 
 Great question! You're absolutely right - if you want to test WITHOUT Claude Desktop, you don't need to add it there.
 
-🧪 Testing WITHOUT Claude Desktop
+ Testing WITHOUT Claude Desktop
 You can test the MCP server directly using the command line. Here's how:
 
 Option 1: Direct Node.js Test
@@ -2273,7 +2273,7 @@ Created test script for MCP server
 Open
 Perfect! Now here's how to test WITHOUT Claude Desktop:
 
-🧪 Testing WITHOUT Claude Desktop
+ Testing WITHOUT Claude Desktop
 Step 1: Add Your Credentials
 Edit the test file I just created:
 
@@ -2297,16 +2297,16 @@ Show where to add credentials
 Open
 Perfect! The test script is working. Now you just need to:
 
-✅ To Test WITHOUT Claude Desktop:
+ To Test WITHOUT Claude Desktop:
 Edit test-mcp-standalone.js (line 14-17)
 Add your Figma token (get from https://www.figma.com/developers/api#access-tokens)
 Add your Anthropic API key (get from https://console.anthropic.com/)
 Run: node test-mcp-standalone.js
 This will verify:
 
-✅ Database connection works
-✅ Figma API access works
-✅ Anthropic API key is valid
+ Database connection works
+ Figma API access works
+ Anthropic API key is valid
 After this passes, you'll know the MCP server is working correctly, even without Claude Desktop!
 
 Want me to help you test it once you add your credentials?
@@ -2314,7 +2314,7 @@ Want me to help you test it once you add your credentials?
 
 0123456789
  commands executed
-✅ Build successful!
+ Build successful!
 
 To test WITHOUT Claude Desktop:
 
@@ -2340,20 +2340,20 @@ Good! The MCP server already has Anthropic API key as optional. Now let me updat
  actions taken
 Perfect! I've updated the test script to work without requiring an Anthropic API key.
 
-✅ What Changed:
+ What Changed:
 Removed Anthropic API key requirement from the test
 Made it clear that Anthropic is only needed for React generation
 All other features work without it: scanning Lumiere, analyzing Figma, matching components, generating guides
-🧪 To Test Now:
+ To Test Now:
 Edit test-mcp-standalone.js
 Add ONLY your Figma token on line 17 (replace figd_YOUR_TOKEN_HERE)
 Run: node test-mcp-standalone.js
 The MCP server will work for:
 
-✅ Scanning Lumiere repository
-✅ Analyzing Figma designs
-✅ Matching components
-✅ Generating implementation guides
+ Scanning Lumiere repository
+ Analyzing Figma designs
+ Matching components
+ Generating implementation guides
 Only React generation needs the Anthropic API key, and that can be added later when you actually need it!
 
 Make Anthropic API key optional for MCP
@@ -2388,7 +2388,7 @@ show me how to use this with VS Code Continue extension
 
 Perfect! Here's how to use it with VS Code Continue:
 
-📝 Quick Setup (5 minutes)
+ Quick Setup (5 minutes)
 1. Install Continue Extension
 Open VS Code Extensions (Cmd+Shift+X)
 Search for "Continue"
@@ -2436,7 +2436,7 @@ Then try:
 
 Analyze this Figma design and match it to Lumiere components:
 https://www.figma.com/design/YOUR_FILE/Design?node-id=1-2
-✅ Benefits
+ Benefits
 Integrated into your IDE
 Can insert code directly into files
 Full context of your project
@@ -2454,7 +2454,7 @@ The MCP server should live in your actual project repository where you're buildi
 
 Here's the recommended structure:
 
-📁 Recommended Setup
+ Recommended Setup
 
 your-react-project/
 ├── src/
@@ -2469,7 +2469,7 @@ your-react-project/
     │   └── tools/
     ├── package.json
     └── tsconfig.json
-🚀 How to Move It
+ How to Move It
 Copy the mcp-server folder to your actual React project:
 
 
@@ -2492,7 +2492,7 @@ Update VS Code Continue config to point to your project:
     }
   }
 }
-💡 Why This Structure?
+ Why This Structure?
 Co-located: MCP server lives with the code it generates
 Version controlled: Part of your project's git repo
 Easy access: Can reference your project's components

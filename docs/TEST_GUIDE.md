@@ -1,6 +1,6 @@
 # Testing Guide: Figma to React Generator
 
-## ✅ Current Status
+##  Current Status
 
 **Database:** Ready ✓
 - Migration applied successfully
@@ -11,7 +11,7 @@
 - Dependencies installed
 - Ready to run
 
-## 🧪 Three Ways to Test
+##  Three Ways to Test
 
 ### Option 1: Test with Claude Desktop (Recommended)
 
@@ -122,7 +122,7 @@ If you use VS Code:
 
 ---
 
-## 🔍 Verification Checklist
+##  Verification Checklist
 
 After testing, verify:
 
@@ -159,7 +159,7 @@ Expected:
 
 ---
 
-## 🎯 Simple Test URLs
+##  Simple Test URLs
 
 Use these simple Figma designs for testing:
 
@@ -178,7 +178,7 @@ Use these simple Figma designs for testing:
 
 ---
 
-## 📊 Expected Output
+##  Expected Output
 
 When generation succeeds, you should get:
 
@@ -258,7 +258,7 @@ export function ButtonComponent({ onClick, children }: ButtonComponentProps) {
 
 ---
 
-## 💡 Testing Tips
+##  Testing Tips
 
 ### Start Simple:
 1. Test with a single button first
@@ -267,11 +267,11 @@ export function ButtonComponent({ onClick, children }: ButtonComponentProps) {
 4. Finally try complex layouts
 
 ### Good Test Designs:
-- ✅ Single button
-- ✅ Simple card with text
-- ✅ Login form (2-3 inputs + button)
-- ✅ Navigation bar
-- ⚠️ Complex dashboard (may need adjustment)
+-  Single button
+-  Simple card with text
+-  Login form (2-3 inputs + button)
+-  Navigation bar
+-  Complex dashboard (may need adjustment)
 
 ### What to Check:
 1. **Layout:** Does flex/grid match Figma?
@@ -282,19 +282,19 @@ export function ButtonComponent({ onClick, children }: ButtonComponentProps) {
 
 ---
 
-## 🎉 Success Metrics
+##  Success Metrics
 
 You'll know it's working when:
-- ✅ Generates component in <30 seconds
-- ✅ React code is valid TypeScript
-- ✅ Tailwind classes are appropriate
-- ✅ Component structure is logical
-- ✅ Can copy-paste code and it works
-- ✅ Only need minor tweaks (15-30%)
+-  Generates component in <30 seconds
+-  React code is valid TypeScript
+-  Tailwind classes are appropriate
+-  Component structure is logical
+-  Can copy-paste code and it works
+-  Only need minor tweaks (15-30%)
 
 ---
 
-## 📝 Next Steps After Successful Test
+##  Next Steps After Successful Test
 
 1. **Try Your Real Designs:**
    - Use your actual Figma files
@@ -336,7 +336,7 @@ If you get stuck:
 
 ---
 
-## ✨ What You Can Do Now
+##  What You Can Do Now
 
 With a working system, you can:
 
@@ -346,4 +346,4 @@ With a working system, you can:
 - Build component libraries 10x faster
 - Reduce design-to-code time by 80-90%
 
-**Ready to test? Start with Option 1 (Claude Desktop)!** 🚀
+**Ready to test? Start with Option 1 (Claude Desktop)!** 

@@ -4,7 +4,7 @@ This guide shows exactly what to type and what you should see.
 
 ---
 
-## 🔧 Setup (One Time)
+##  Setup (One Time)
 
 ### Step 1: Build
 
@@ -51,7 +51,7 @@ npm run build
 
 ---
 
-## 🧪 Test 1: Component Mapping Only
+##  Test 1: Component Mapping Only
 
 ### What You Type
 
@@ -176,11 +176,11 @@ To use AI code generation, add one of the following to your MCP server configura
 See the README for setup instructions.
 ```
 
-**✅ This error means Mode 1 is working correctly!**
+** This error means Mode 1 is working correctly!**
 
 ---
 
-## 🤖 Test 2: Add Anthropic AI
+##  Test 2: Add Anthropic AI
 
 ### Update Configuration
 
@@ -331,7 +331,7 @@ function App() {
 
 ---
 
-## 🔄 Test 3: Switch to OpenAI
+##  Test 3: Switch to OpenAI
 
 ### Update Configuration
 
@@ -378,7 +378,7 @@ Similar output to Anthropic, but metadata shows:
 
 ---
 
-## 📊 Comparison of Outputs
+##  Comparison of Outputs
 
 ### Mode 1: Component Mapping
 
@@ -405,25 +405,25 @@ Similar output to Anthropic, but metadata shows:
 
 ---
 
-## ✅ Success Indicators
+##  Success Indicators
 
 ### Mode 1 Working
-- ✅ Repository scan completes
-- ✅ Shows matched EUI components
-- ✅ Provides import statements
-- ✅ AI generation shows error message
+-  Repository scan completes
+-  Shows matched EUI components
+-  Provides import statements
+-  AI generation shows error message
 
 ### Mode 2 Working
-- ✅ Everything from Mode 1
-- ✅ Generates valid TypeScript/React
-- ✅ Uses Tailwind CSS
-- ✅ Shows "Anthropic Claude" in metadata
+-  Everything from Mode 1
+-  Generates valid TypeScript/React
+-  Uses Tailwind CSS
+-  Shows "Anthropic Claude" in metadata
 
 ### Mode 3 Working
-- ✅ Everything from Mode 1
-- ✅ Generates valid TypeScript/React
-- ✅ Uses Tailwind CSS
-- ✅ Shows "OpenAI" in metadata
+-  Everything from Mode 1
+-  Generates valid TypeScript/React
+-  Uses Tailwind CSS
+-  Shows "OpenAI" in metadata
 
 ---
 
@@ -454,7 +454,7 @@ Similar output to Anthropic, but metadata shows:
 
 ---
 
-## 🎯 Quick Test Commands
+##  Quick Test Commands
 
 ### All Modes
 ```
@@ -470,7 +470,7 @@ Generate a React component from this Figma design: [URL]
 
 ---
 
-## 📝 Notes
+##  Notes
 
 - Start with simple designs (1-5 elements)
 - Component mapping is instant
@@ -480,12 +480,12 @@ Generate a React component from this Figma design: [URL]
 
 ---
 
-## 🎓 What's Next?
+##  What's Next?
 
-1. ✅ Test all three modes
-2. ✅ Choose which mode fits your needs
-3. ✅ Test with real Figma designs
-4. ✅ Share with your team
-5. ✅ Document your workflows
+1.  Test all three modes
+2.  Choose which mode fits your needs
+3.  Test with real Figma designs
+4.  Share with your team
+5.  Document your workflows
 
 See `docs/TEAM_SETUP_GUIDE.md` for team rollout!

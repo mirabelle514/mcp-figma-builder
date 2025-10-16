@@ -1,6 +1,6 @@
 # How To Test: Complete Guide
 
-## 🎯 Overview
+##  Overview
 
 You now have an MCP server with **3 modes**:
 1. **Component Mapping Only** (Free, no AI)
@@ -11,7 +11,7 @@ This guide shows you how to test all three.
 
 ---
 
-## 📚 Testing Resources
+##  Testing Resources
 
 We've created multiple guides for you:
 
@@ -74,7 +74,7 @@ Scan the EUI repository
 
 ---
 
-## 🧪 Testing Each Mode
+##  Testing Each Mode
 
 ### Mode 1: Component Mapping Only
 
@@ -92,7 +92,7 @@ Analyze this Figma design: https://www.figma.com/design/...
 Generate a React component from this Figma design: [URL]
 ```
 
-**Expected:** Error message saying AI key is needed ✅
+**Expected:** Error message saying AI key is needed 
 
 ---
 
@@ -132,7 +132,7 @@ Generate a React component from this Figma design: [URL]
 
 ---
 
-## 📋 Test Checklist
+##  Test Checklist
 
 Copy this to track your testing:
 
@@ -169,7 +169,7 @@ Mode 3 Tests (OpenAI):
 
 ---
 
-## 🎯 Success Criteria
+##  Success Criteria
 
 ### Mode 1 Success
 - Repository scan completes in 30-60 seconds
@@ -214,7 +214,7 @@ Mode 3 Tests (OpenAI):
 
 ---
 
-## 📖 Detailed Guides
+##  Detailed Guides
 
 ### For Your First Test
 → Read `docs/VISUAL_TEST_GUIDE.md`
@@ -242,7 +242,7 @@ Mode 3 Tests (OpenAI):
 
 ---
 
-## 🚀 After Testing
+##  After Testing
 
 ### If Mode 1 Works:
 - You can use component mapping immediately
@@ -262,7 +262,7 @@ Mode 3 Tests (OpenAI):
 
 ---
 
-## 💡 Testing Tips
+##  Testing Tips
 
 ### Start Simple
 - Test with 1-2 element designs first
@@ -286,7 +286,7 @@ Mode 3 Tests (OpenAI):
 
 ---
 
-## 📊 Expected Performance
+##  Expected Performance
 
 ### Component Mapping (All Modes)
 - Initial scan: 30-60 seconds
@@ -300,7 +300,7 @@ Mode 3 Tests (OpenAI):
 
 ---
 
-## 🎓 Next Steps
+##  Next Steps
 
 1. **Test Mode 1** - Verify component mapping works
 2. **Try AI mode** - Choose Anthropic or OpenAI
@@ -310,7 +310,7 @@ Mode 3 Tests (OpenAI):
 
 ---
 
-## 📞 Need Help?
+##  Need Help?
 
 1. Check troubleshooting section above
 2. Review detailed guides in `docs/`
@@ -320,21 +320,21 @@ Mode 3 Tests (OpenAI):
 
 ---
 
-## ✅ You're Ready!
+##  You're Ready!
 
 All the code changes are complete. You have:
-- ✅ 3 configuration modes
-- ✅ OpenAI support added
-- ✅ No-AI mode working
-- ✅ Complete documentation
-- ✅ Testing guides
-- ✅ Team onboarding materials
+-  3 configuration modes
+-  OpenAI support added
+-  No-AI mode working
+-  Complete documentation
+-  Testing guides
+-  Team onboarding materials
 
 **Just run the tests and start using it!**
 
 ---
 
-## 📁 Quick Reference
+##  Quick Reference
 
 ```bash
 # Build
@@ -350,4 +350,4 @@ Generate a React component from this Figma design: [URL]
 Get details about the EuiButton component
 ```
 
-**Happy testing! 🎉**
+**Happy testing! **

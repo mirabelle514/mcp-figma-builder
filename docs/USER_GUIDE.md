@@ -4,7 +4,7 @@ Complete guide to using the Figma-to-Component tool from start to finish.
 
 ---
 
-## 📚 Table of Contents
+##  Table of Contents
 
 1. [Quick Start](#quick-start)
 2. [Understanding Modes](#understanding-modes)
@@ -16,7 +16,7 @@ Complete guide to using the Figma-to-Component tool from start to finish.
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 5-Minute Setup
 
@@ -45,11 +45,11 @@ Open http://localhost:5173 in your browser.
 - Restart Claude Desktop
 - Try: `Scan the eui repository`
 
-**Done!** 🎉
+**Done!** 
 
 ---
 
-## 🎯 Understanding Modes
+##  Understanding Modes
 
 ### Mode 1: Component Mapping Only (Free)
 
@@ -180,7 +180,7 @@ You: [Copy and use code directly]
 
 ---
 
-## 🎬 First-Time Setup
+##  First-Time Setup
 
 ### Step 1: Gather Credentials
 
@@ -331,7 +331,7 @@ Right-click taskbar icon → Exit
 
 ---
 
-## 💼 Daily Workflow
+##  Daily Workflow
 
 ### Typical Component Generation Flow
 
@@ -448,7 +448,7 @@ Regenerate but:
 
 ---
 
-## 🎓 Advanced Usage
+##  Advanced Usage
 
 ### Custom Component Requests
 
@@ -544,42 +544,42 @@ npm run dev
 
 ---
 
-## 💡 Tips & Best Practices
+##  Tips & Best Practices
 
 ### For Best Results
 
 **1. Scan first, generate second**
 ```
-✅ Good:
+ Good:
 1. Scan the eui repository
 2. [Wait for completion]
 3. Generate component from [URL]
 
-❌ Bad:
+ Bad:
 1. Generate component from [URL]
    (Without scanning first)
 ```
 
 **2. Use specific Figma URLs**
 ```
-✅ Good:
+ Good:
 https://www.figma.com/file/ABC/Name?node-id=1-2
 (Specific component/frame)
 
-❌ Less good:
+ Less good:
 https://www.figma.com/file/ABC/Name
 (Entire file - may be too large)
 ```
 
 **3. Be specific in requests**
 ```
-✅ Good:
+ Good:
 Generate from [URL]
 Use EuiButton for the primary action
 Make it responsive for mobile
 Add loading states
 
-❌ Less good:
+ Less good:
 Generate from [URL]
 (No specific requirements)
 ```
@@ -659,7 +659,7 @@ Generate from [URL]
 
 ---
 
-## 📖 Examples
+##  Examples
 
 ### Example 1: Simple Button
 
@@ -845,7 +845,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
 ---
 
-## 🎯 Common Scenarios
+##  Common Scenarios
 
 ### Scenario 1: New Team Member Onboarding
 
@@ -899,7 +899,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
 ---
 
-## 📚 Related Documentation
+##  Related Documentation
 
 - **Troubleshooting:** `docs/TROUBLESHOOTING.md` - Fix issues
 - **Setup Wizard:** `docs/SETUP_WIZARD.md` - Detailed setup
@@ -909,7 +909,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
 ---
 
-## 🎓 Learning Resources
+##  Learning Resources
 
 ### For Beginners
 
@@ -937,4 +937,4 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
 ---
 
-**Happy component generating! 🚀**
+**Happy component generating! **

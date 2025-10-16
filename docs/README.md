@@ -4,7 +4,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 **New to the tool?** Start here:
 
@@ -14,11 +14,11 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-## 📚 Complete Documentation
+##  Complete Documentation
 
 ### Essential Guides
 
-#### **[📖 User Guide](USER_GUIDE.md)** ⭐ START HERE
+#### **[ User Guide](USER_GUIDE.md)**  START HERE
 *Complete user documentation from start to finish*
 
 **What's included:**
@@ -39,7 +39,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-#### **[🔧 Troubleshooting Guide](TROUBLESHOOTING.md)** ⭐ BOOKMARK THIS
+#### **[ Troubleshooting Guide](TROUBLESHOOTING.md)**  BOOKMARK THIS
 *Problem-solving for all common issues*
 
 **What's included:**
@@ -61,7 +61,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ### Setup & Configuration
 
-#### **[⚙️ Setup Wizard](SETUP_WIZARD.md)**
+#### **[ Setup Wizard](SETUP_WIZARD.md)**
 *Interactive setup walkthrough*
 
 **What's included:**
@@ -78,7 +78,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-#### **[🔧 Configuration Guide](CONFIGURATION.md)**
+#### **[ Configuration Guide](CONFIGURATION.md)**
 *Manual configuration reference*
 
 **What's included:**
@@ -98,7 +98,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ### Advanced Topics
 
-#### **[🤖 Custom AI Provider](CUSTOM_AI_PROVIDER.md)** ⭐ MODE 4 USERS
+#### **[ Custom AI Provider](CUSTOM_AI_PROVIDER.md)**  MODE 4 USERS
 *Connect internal AI tools (LibertyGPT, Azure, etc.)*
 
 **What's included:**
@@ -125,7 +125,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ### Implementation Details
 
-#### **[📋 Implementation Summary](IMPLEMENTATION_SUMMARY.md)**
+#### **[ Implementation Summary](IMPLEMENTATION_SUMMARY.md)**
 *Technical overview of the system*
 
 **What's included:**
@@ -143,7 +143,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-#### **[🎨 Figma Analysis](figma-analysis.md)**
+#### **[ Figma Analysis](figma-analysis.md)**
 *How Figma designs are analyzed*
 
 **What's included:**
@@ -160,7 +160,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ### Testing & Development
 
-#### **[🧪 Test Guide](TEST_GUIDE.md)**
+#### **[ Test Guide](TEST_GUIDE.md)**
 *How to test the tool*
 
 **What's included:**
@@ -175,7 +175,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-#### **[✅ Testing Guide](TESTING_GUIDE.md)**
+#### **[ Testing Guide](TESTING_GUIDE.md)**
 *Comprehensive testing documentation*
 
 **What's included:**
@@ -190,7 +190,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-## 🎯 Documentation by Use Case
+##  Documentation by Use Case
 
 ### I want to...
 
@@ -235,7 +235,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-## 📖 Reading Order
+##  Reading Order
 
 ### For New Users
 
@@ -273,7 +273,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-## 🔍 Quick Links
+##  Quick Links
 
 ### Most Common Pages
 
@@ -293,7 +293,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-## 📊 Documentation Statistics
+##  Documentation Statistics
 
 | Guide | Length | Topics | Examples |
 |-------|--------|--------|----------|
@@ -306,7 +306,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-## 💡 Tips
+##  Tips
 
 ### Finding Information
 
@@ -329,22 +329,22 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 
 ---
 
-## 🎓 Documentation Quality
+##  Documentation Quality
 
 All documentation is:
 
-✅ **Complete** - All features covered
-✅ **Accurate** - Tested and verified
-✅ **Clear** - Easy to understand
-✅ **Practical** - Real examples
-✅ **Organized** - Logical structure
-✅ **Searchable** - Easy to find
-✅ **Professional** - Production-ready
-✅ **Maintained** - Kept up-to-date
+ **Complete** - All features covered
+ **Accurate** - Tested and verified
+ **Clear** - Easy to understand
+ **Practical** - Real examples
+ **Organized** - Logical structure
+ **Searchable** - Easy to find
+ **Professional** - Production-ready
+ **Maintained** - Kept up-to-date
 
 ---
 
-## 🚀 Get Started
+##  Get Started
 
 **Ready to begin?**
 
@@ -355,7 +355,7 @@ All documentation is:
 
 ---
 
-## 📞 Need Help?
+##  Need Help?
 
 **Can't find what you need?**
 
@@ -367,7 +367,7 @@ All documentation is:
 
 ---
 
-## 📝 Contributing
+##  Contributing
 
 Noticed a typo or want to improve documentation?
 
@@ -379,4 +379,4 @@ Noticed a typo or want to improve documentation?
 
 ---
 
-**Welcome to the tool! 🎉 Let's generate some amazing components!**
+**Welcome to the tool!  Let's generate some amazing components!**

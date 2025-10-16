@@ -101,7 +101,7 @@ Plus:
 - Design tokens
 - Tailwind classes
 
-## ✅ Success Indicators
+##  Success Indicators
 
 - Tool shows up in Claude
 - Component generates without errors
@@ -109,7 +109,7 @@ Plus:
 - Tailwind classes look reasonable
 - Takes 10-30 seconds
 
-## ❌ Common Issues
+##  Common Issues
 
 ### "Tool not found"
 → Restart Claude Desktop completely
@@ -124,7 +124,7 @@ Plus:
 → Check absolute path in config
 → Verify `mcp-server/dist/index.js` exists
 
-## 🎯 What to Do Next
+##  What to Do Next
 
 ### Immediate:
 1. Copy generated code
@@ -138,7 +138,7 @@ Plus:
 3. Build your component library
 4. Iterate and refine
 
-## 💡 Pro Tips
+##  Pro Tips
 
 - Start with simple designs (buttons, cards)
 - Use Figma auto-layout for best results
@@ -146,13 +146,13 @@ Plus:
 - Generate individual components, not whole pages
 - Expect to refine 15-30% of generated code
 
-## 📊 Time Savings
+##  Time Savings
 
 - **Manual:** 10+ hours per component
 - **With This:** 1-2 hours per component
 - **Savings:** 80-90%
 
-## 🚀 You're Ready!
+##  You're Ready!
 
 Database is configured ✓
 MCP Server is built ✓

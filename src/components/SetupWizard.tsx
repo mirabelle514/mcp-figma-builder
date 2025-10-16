@@ -761,7 +761,7 @@ export function SetupWizard() {
                     rel="noopener noreferrer"
                     className="px-3 py-1 bg-blue-50 text-blue-700 rounded hover:bg-blue-100 transition-colors"
                   >
-                    📚 User Guide
+                     User Guide
                   </a>
                   <a
                     href="https://github.com/yourusername/yourrepo/blob/main/docs/TROUBLESHOOTING.md"
@@ -769,7 +769,7 @@ export function SetupWizard() {
                     rel="noopener noreferrer"
                     className="px-3 py-1 bg-amber-50 text-amber-700 rounded hover:bg-amber-100 transition-colors"
                   >
-                    🔧 Troubleshooting
+                     Troubleshooting
                   </a>
                   <a
                     href="https://github.com/yourusername/yourrepo/blob/main/docs/SETUP_WIZARD.md"
@@ -777,7 +777,7 @@ export function SetupWizard() {
                     rel="noopener noreferrer"
                     className="px-3 py-1 bg-slate-50 text-slate-700 rounded hover:bg-slate-100 transition-colors"
                   >
-                    ⚙️ Setup Details
+                     Setup Details
                   </a>
                 </div>
               </div>
@@ -824,7 +824,7 @@ export function SetupWizard() {
               rel="noopener noreferrer"
               className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded hover:bg-blue-100 transition-colors inline-flex items-center gap-1"
             >
-              📚 User Guide
+               User Guide
             </a>
             <a
               href="https://github.com/yourusername/yourrepo/blob/main/docs/TROUBLESHOOTING.md"
@@ -832,7 +832,7 @@ export function SetupWizard() {
               rel="noopener noreferrer"
               className="px-3 py-1.5 bg-amber-50 text-amber-700 rounded hover:bg-amber-100 transition-colors inline-flex items-center gap-1"
             >
-              🔧 Troubleshooting
+               Troubleshooting
             </a>
             <a
               href="https://github.com/yourusername/yourrepo/blob/main/docs/CUSTOM_AI_PROVIDER.md"
@@ -840,7 +840,7 @@ export function SetupWizard() {
               rel="noopener noreferrer"
               className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded hover:bg-purple-100 transition-colors inline-flex items-center gap-1"
             >
-              🤖 Custom AI Guide
+               Custom AI Guide
             </a>
           </div>
         </div>

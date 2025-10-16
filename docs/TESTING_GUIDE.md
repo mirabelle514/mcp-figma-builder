@@ -83,7 +83,7 @@ AI Mode: Component Mapping Only
 Lumiere-Figma MCP Server running on stdio
 ```
 
-**If you see:** `AI Mode: Component Mapping Only` ✅ Mode 1 is active!
+**If you see:** `AI Mode: Component Mapping Only`  Mode 1 is active!
 
 ### Step 4: Test Component Scanning
 
@@ -156,7 +156,7 @@ To use AI code generation, add one of the following to your MCP server configura
 See the README for setup instructions.
 ```
 
-**If you see this error ✅ Mode 1 is working correctly!**
+**If you see this error  Mode 1 is working correctly!**
 
 ---
 
@@ -204,7 +204,7 @@ Check logs for:
 AI Mode: AI Generation Enabled (Anthropic Claude)
 ```
 
-**If you see this ✅ Mode 2 is active!**
+**If you see this  Mode 2 is active!**
 
 ### Step 4: Test Component Mapping (Still Works)
 
@@ -276,7 +276,7 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
 [usage examples provided]
 ```
 
-**If you get generated code ✅ Mode 2 is working!**
+**If you get generated code  Mode 2 is working!**
 
 ---
 
@@ -330,7 +330,7 @@ Check logs for:
 AI Mode: AI Generation Enabled (OpenAI GPT-4)
 ```
 
-**If you see this ✅ Mode 3 is active!**
+**If you see this  Mode 3 is active!**
 
 ### Step 4: Test AI Generation
 
@@ -344,7 +344,7 @@ https://www.figma.com/design/[your-file-id]/[your-file-name]?node-id=X-Y
 - AI Model: OpenAI (gpt-4o)
 ```
 
-**If you get generated code ✅ Mode 3 is working!**
+**If you get generated code  Mode 3 is working!**
 
 ---
 
@@ -477,11 +477,11 @@ Create a Figma frame with:
 
 | Test | Mode 1 | Mode 2 | Mode 3 |
 |------|--------|--------|--------|
-| **Server Starts** | ✅ "Component Mapping Only" | ✅ "Anthropic Claude" | ✅ "OpenAI GPT-4" |
-| **Scan Repository** | ✅ Works | ✅ Works | ✅ Works |
-| **Analyze Figma** | ✅ Works | ✅ Works | ✅ Works |
-| **Generate Guide** | ✅ Works | ✅ Works | ✅ Works |
-| **AI Generation** | ❌ Error (expected) | ✅ Works (Claude) | ✅ Works (GPT-4) |
+| **Server Starts** |  "Component Mapping Only" |  "Anthropic Claude" |  "OpenAI GPT-4" |
+| **Scan Repository** |  Works |  Works |  Works |
+| **Analyze Figma** |  Works |  Works |  Works |
+| **Generate Guide** |  Works |  Works |  Works |
+| **AI Generation** |  Error (expected) |  Works (Claude) |  Works (GPT-4) |
 
 ---
 
@@ -502,22 +502,22 @@ Create a Figma frame with:
 ## Success Criteria
 
 ### Mode 1 Success
-- ✅ Server starts with "Component Mapping Only"
-- ✅ Repository scan completes
-- ✅ Figma analysis returns matched components
-- ✅ AI generation shows clear error message
+-  Server starts with "Component Mapping Only"
+-  Repository scan completes
+-  Figma analysis returns matched components
+-  AI generation shows clear error message
 
 ### Mode 2 Success
-- ✅ Server starts with "Anthropic Claude"
-- ✅ Everything from Mode 1 works
-- ✅ AI generation produces valid React code
-- ✅ Metadata shows "Anthropic Claude" model
+-  Server starts with "Anthropic Claude"
+-  Everything from Mode 1 works
+-  AI generation produces valid React code
+-  Metadata shows "Anthropic Claude" model
 
 ### Mode 3 Success
-- ✅ Server starts with "OpenAI GPT-4"
-- ✅ Everything from Mode 1 works
-- ✅ AI generation produces valid React code
-- ✅ Metadata shows "OpenAI" model
+-  Server starts with "OpenAI GPT-4"
+-  Everything from Mode 1 works
+-  AI generation produces valid React code
+-  Metadata shows "OpenAI" model
 
 ---
 
@@ -569,4 +569,4 @@ Mode 3 (OpenAI)
 4. Check Claude Desktop logs for errors
 5. Test with simple designs first
 
-Happy testing! 🚀
+Happy testing! 

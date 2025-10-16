@@ -2,7 +2,7 @@
 
 Yes! You can use this system **without Claude Desktop** in two ways:
 
-## Option 1: VS Code + Continue Extension ⭐ Recommended
+## Option 1: VS Code + Continue Extension  Recommended
 
 **Works exactly like Claude Desktop but inside VS Code.**
 
@@ -27,10 +27,10 @@ Yes! You can use this system **without Claude Desktop** in two ways:
    ```
 
 **Benefits:**
-- ✅ Integrated into VS Code
-- ✅ Can insert code directly
-- ✅ Full project context
-- ✅ Same AI-powered generation
+-  Integrated into VS Code
+-  Can insert code directly
+-  Full project context
+-  Same AI-powered generation
 
 **See:** `VSCODE_SETUP.md` for detailed setup
 
@@ -72,40 +72,40 @@ node generate-component.js "https://www.figma.com/design/ABC/Design?node-id=1-2"
 
 ### What It Does
 
-1. ✅ Fetches your Figma design
-2. ✅ Analyzes layout and styles
-3. ✅ Generates React component with AI
-4. ✅ Stores in database
-5. ✅ Prints code to terminal
-6. ✅ Saves to `./generated/ComponentName.tsx`
+1.  Fetches your Figma design
+2.  Analyzes layout and styles
+3.  Generates React component with AI
+4.  Stores in database
+5.  Prints code to terminal
+6.  Saves to `./generated/ComponentName.tsx`
 
 ### Example Output
 
 ```bash
 $ node generate-component.js "https://figma.com/..."
 
-🚀 Starting React component generation...
+ Starting React component generation...
 
 📥 Fetching Figma design...
 ✓ Fetched: Button Component
 
-💾 Storing design in database...
+ Storing design in database...
 ✓ Design stored (ID: abc-123)
 
-🔍 Analyzing design...
+ Analyzing design...
 ✓ Found 5 elements
 ✓ Complexity: simple
 ✓ Colors: 3
 ✓ Spacing values: 4
 
-🤖 Generating React component with AI...
+ Generating React component with AI...
 ✓ Generated: ButtonComponent
 
-💾 Storing generated component...
+ Storing generated component...
 ✓ Component stored (ID: def-456)
 
 ════════════════════════════════════════════════════════════
-✨ GENERATED COMPONENT
+ GENERATED COMPONENT
 ════════════════════════════════════════════════════════════
 
 import React from 'react';
@@ -127,7 +127,7 @@ export function ButtonComponent({ onClick, children }: ButtonComponentProps) {
 }
 
 ════════════════════════════════════════════════════════════
-📊 GENERATION SUMMARY
+ GENERATION SUMMARY
 ════════════════════════════════════════════════════════════
 Component Name: ButtonComponent
 Generation Time: 12345ms
@@ -135,22 +135,22 @@ AI Model: claude-3-5-sonnet-20241022
 Complexity: simple
 Dependencies: react, lucide-react
 
-💡 Next steps:
+ Next steps:
 1. Copy the code above
 2. Save to: src/components/ButtonComponent.tsx
 3. Install dependencies: npm install react lucide-react
 4. Import and use in your app!
 
-💾 Saved to: ./generated/ButtonComponent.tsx
+ Saved to: ./generated/ButtonComponent.tsx
 ```
 
 ### Benefits
 
-- ✅ No AI assistant needed
-- ✅ Works from command line
-- ✅ Saves to file automatically
-- ✅ Fast and direct
-- ✅ Can be automated/scripted
+-  No AI assistant needed
+-  Works from command line
+-  Saves to file automatically
+-  Fast and direct
+-  Can be automated/scripted
 
 ---
 
@@ -171,17 +171,17 @@ Dependencies: react, lucide-react
 ## Which Should You Choose?
 
 ### Choose **VS Code + Continue** if:
-- ✅ You use VS Code
-- ✅ Want IDE integration
-- ✅ Like chat-based workflow
-- ✅ Want to ask questions about code
+-  You use VS Code
+-  Want IDE integration
+-  Like chat-based workflow
+-  Want to ask questions about code
 
 ### Choose **CLI Script** if:
-- ✅ Want fastest/simplest solution
-- ✅ Don't want AI assistant overhead
-- ✅ Want to automate generation
-- ✅ Prefer command-line tools
-- ✅ Want to script batch operations
+-  Want fastest/simplest solution
+-  Don't want AI assistant overhead
+-  Want to automate generation
+-  Prefer command-line tools
+-  Want to script batch operations
 
 ---
 

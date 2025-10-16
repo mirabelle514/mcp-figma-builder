@@ -2,18 +2,18 @@
 
 An MCP (Model Context Protocol) server that transforms Figma designs into production-ready React components **using YOUR actual component library**. Works with Claude Desktop, VS Code Continue, and other MCP-compatible AI tools.
 
-## ✨ NEW: Visual Setup Wizard!
+##  NEW: Visual Setup Wizard!
 
 **No config file editing needed!** Just run `npm run dev` and follow the interactive setup wizard at `http://localhost:5173`
 
-- 🎯 Step-by-step guidance
-- ✅ Real-time validation
+-  Step-by-step guidance
+-  Real-time validation
 - 📥 Auto-generate Claude Desktop config
-- 🎨 Beautiful, modern interface
+-  Beautiful, modern interface
 
 **Get started in 5 minutes!** See [Quick Start](#-quick-start-two-options) below.
 
-## 🎯 Key Feature: Uses Your Actual Components!
+##  Key Feature: Uses Your Actual Components!
 
 Unlike generic tools that generate Tailwind CSS, this tool generates code that **imports and uses your actual design system components** (EUI, Material-UI, Ant Design, or your custom library).
 
@@ -46,14 +46,14 @@ import { EuiButton, EuiFieldText, EuiForm } from '@elastic/eui';
 
 **NOT generic code:**
 ```tsx
-// ❌ NOT this:
+//  NOT this:
 <button className="px-4 py-2 bg-blue-500">Click</button>
 
-// ✅ But this:
+//  But this:
 <EuiButton fill color="primary">Click</EuiButton>
 ```
 
-## 🚀 Quick Start (Two Options)
+##  Quick Start (Two Options)
 
 ### Option 1: Visual Setup Wizard (Recommended for First Time)
 
@@ -123,7 +123,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 }
 ```
 
-**🔧 Using Your Own Component Library?**
+** Using Your Own Component Library?**
 
 Change these two lines:
 ```json
@@ -136,7 +136,7 @@ Examples:
 - Ant Design: `"ant-design"` / `"ant-design"`
 - Your custom: `"your-company"` / `"your-repo"`
 
-**📖 See [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md) for complete setup!**
+** See [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md) for complete setup!**
 
 ### 4. Get API Keys
 

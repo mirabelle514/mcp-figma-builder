@@ -4,7 +4,7 @@ Complete guide to diagnosing and fixing common issues with the Figma-to-Componen
 
 ---
 
-## 🔍 Quick Diagnosis
+##  Quick Diagnosis
 
 ### Step 1: Identify the Problem Area
 
@@ -19,7 +19,7 @@ Complete guide to diagnosing and fixing common issues with the Figma-to-Componen
 
 ---
 
-## 🚀 Setup Issues
+##  Setup Issues
 
 ### Problem: Setup Wizard Won't Start
 
@@ -92,7 +92,7 @@ npm run build
 
 ---
 
-## 🔌 MCP Server Connection Issues
+##  MCP Server Connection Issues
 
 ### Problem: Claude Desktop Doesn't See the Tool
 
@@ -137,8 +137,8 @@ Your config should have:
 }
 ```
 
-❌ **Wrong:** `"./mcp-server/dist/index.js"` (relative)
-✅ **Right:** `"/Users/you/projects/tool/mcp-server/dist/index.js"` (absolute)
+ **Wrong:** `"./mcp-server/dist/index.js"` (relative)
+ **Right:** `"/Users/you/projects/tool/mcp-server/dist/index.js"` (absolute)
 
 **4. Verify MCP server is built:**
 ```bash
@@ -219,7 +219,7 @@ npm run build 2>&1 | grep error
 
 ---
 
-## 🔑 Authentication Issues
+##  Authentication Issues
 
 ### Problem: "Invalid Figma Access Token"
 
@@ -348,7 +348,7 @@ curl https://api.openai.com/v1/chat/completions \
 
 ---
 
-## 📊 Database Issues
+##  Database Issues
 
 ### Problem: "Cannot connect to Supabase"
 
@@ -418,7 +418,7 @@ In Supabase SQL Editor, run each file from `supabase/migrations/` in order:
 
 ---
 
-## 🔍 Repository Scanning Issues
+##  Repository Scanning Issues
 
 ### Problem: "Repository scan fails"
 
@@ -440,12 +440,12 @@ open https://github.com/OWNER/REPO
 
 **2. Check repository name format:**
 
-❌ **Wrong:**
+ **Wrong:**
 ```json
 "LUMIERE_REPO_OWNER": "elastic/eui"
 ```
 
-✅ **Right:**
+ **Right:**
 ```json
 "LUMIERE_REPO_OWNER": "elastic",
 "LUMIERE_REPO_NAME": "eui"
@@ -497,7 +497,7 @@ Should show scanned components.
 
 ---
 
-## 🎨 Figma Issues
+##  Figma Issues
 
 ### Problem: "Cannot access Figma file"
 
@@ -512,14 +512,14 @@ Cannot read design data
 
 **1. Verify URL format:**
 
-✅ **Correct formats:**
+ **Correct formats:**
 ```
 https://www.figma.com/file/ABC123/File-Name
 https://www.figma.com/design/ABC123/File-Name
 https://www.figma.com/file/ABC123/File-Name?node-id=1-2
 ```
 
-❌ **Wrong:**
+ **Wrong:**
 ```
 https://www.figma.com/proto/...  (prototype view)
 figma.com/file/...  (missing https://)
@@ -569,7 +569,7 @@ https://www.figma.com/file/ABC/Name
 
 ---
 
-## 🤖 AI Generation Issues
+##  AI Generation Issues
 
 ### Problem: "AI generation fails"
 
@@ -658,7 +658,7 @@ Make it responsive
 
 ---
 
-## 💻 Mode 4 (Custom AI) Issues
+##  Mode 4 (Custom AI) Issues
 
 ### Problem: "Custom AI connection fails"
 
@@ -682,12 +682,12 @@ Should return JSON with `choices` array.
 
 **2. Check URL format:**
 
-✅ **Correct:**
+ **Correct:**
 ```
 https://ai.company.com/v1/chat/completions
 ```
 
-❌ **Wrong:**
+ **Wrong:**
 ```
 https://ai.company.com  (missing path)
 https://ai.company.com/v1  (missing /chat/completions)
@@ -787,7 +787,7 @@ import('./dist/services/db-service.js').then(mod => {
 
 ---
 
-## 📞 Getting Help
+##  Getting Help
 
 ### Before Asking for Help
 
@@ -838,38 +838,38 @@ Collect this information:
 
 ---
 
-## ✅ Health Check Checklist
+##  Health Check Checklist
 
 Run through this checklist to verify everything is working:
 
 ```bash
 # 1. Project builds
 npm run build
-# ✅ Should complete without errors
+#  Should complete without errors
 
 # 2. MCP server builds
 cd mcp-server && npm run build
-# ✅ Should create dist/index.js
+#  Should create dist/index.js
 
 # 3. Config file exists
 ls ~/Library/Application\ Support/Claude/claude_desktop_config.json
-# ✅ Should exist
+#  Should exist
 
 # 4. Config is valid JSON
 cat ~/Library/Application\ Support/Claude/claude_desktop_config.json | jq .
-# ✅ Should parse without errors
+#  Should parse without errors
 
 # 5. All tokens are valid
 # Test each API as shown in Authentication section
-# ✅ All should return success
+#  All should return success
 
 # 6. Database accessible
 # Check in Supabase dashboard
-# ✅ Should connect
+#  Should connect
 
 # 7. Claude Desktop sees tool
 # Look for hammer icon
-# ✅ Should appear after restart
+#  Should appear after restart
 ```
 
 ---

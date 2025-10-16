@@ -109,7 +109,7 @@ This installs:
    - `analyze_figma_design`
    - `generate_implementation_guide`
    - `get_component_details`
-   - `generate_react_from_figma` ⭐ NEW
+   - `generate_react_from_figma`  NEW
 
 ### 6. Test the Generator
 
@@ -301,12 +301,12 @@ The `generate_react_from_figma` tool uses Claude API:
 
 ## Next Steps
 
-1. ✅ Complete setup following this guide
-2. ✅ Test with a simple Figma design
-3. ✅ Generate your first component
-4. ✅ Refine and customize the generated code
-5. ✅ Integrate into your project
-6. ✅ Generate more components as needed
+1.  Complete setup following this guide
+2.  Test with a simple Figma design
+3.  Generate your first component
+4.  Refine and customize the generated code
+5.  Integrate into your project
+6.  Generate more components as needed
 
 ## Support
 

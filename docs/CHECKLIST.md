@@ -2,14 +2,14 @@
 
 Use this checklist before using the Figma to React MCP Server.
 
-## ✅ Installation & Build
+##  Installation & Build
 
 - [x] Dependencies installed (`npm install` in `mcp-server/`)
 - [x] TypeScript compiled (`npm run build` in `mcp-server/`)
 - [x] Main project built (`npm run build` in root)
 - [x] No build errors
 
-## 📋 API Keys Required
+##  API Keys Required
 
 ### Must Have
 - [ ] **Figma Access Token**
@@ -46,7 +46,7 @@ Use this checklist before using the Figma to React MCP Server.
   - `lumiere_components`
   - `figma_component_mappings`
 
-## ⚙️ Configuration
+##  Configuration
 
 - [ ] Claude Desktop config file located:
   - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
@@ -78,13 +78,13 @@ Use this checklist before using the Figma to React MCP Server.
 - [ ] All API keys replaced with real values
 - [ ] No placeholder text remaining
 
-## 🔄 Claude Desktop
+##  Claude Desktop
 
 - [ ] Claude Desktop completely quit (not just minimized)
 - [ ] Claude Desktop reopened
 - [ ] New conversation started
 
-## ✨ Verification
+##  Verification
 
 Test each tool:
 
@@ -96,7 +96,7 @@ Expected response should include:
 - [ ] `analyze_figma_design`
 - [ ] `generate_implementation_guide`
 - [ ] `get_component_details`
-- [ ] `generate_react_from_figma` ⭐
+- [ ] `generate_react_from_figma` 
 
 ### 2. Test Simple Generation
 Prepare:
@@ -148,7 +148,7 @@ If generation fails:
 - [ ] Verify all API keys are working
 - [ ] Check Supabase connection
 
-## 📊 Success Indicators
+##  Success Indicators
 
 You'll know it's working when:
 - [x] All 5 MCP tools show up in Claude
@@ -157,7 +157,7 @@ You'll know it's working when:
 - [ ] Database entries created successfully
 - [ ] Generation takes 10-30 seconds (normal)
 
-## 🎯 Ready to Use
+##  Ready to Use
 
 Once all items checked:
 - [ ] System is fully operational
@@ -175,7 +175,7 @@ After successful setup:
 5. [ ] Adjust Tailwind classes for your design system
 6. [ ] Add business logic and interactivity
 
-## 💡 Pro Tips
+##  Pro Tips
 
 - Start with simple designs to test
 - Use clear, descriptive names in Figma
@@ -185,7 +185,7 @@ After successful setup:
 - Store good prompts for consistent results
 - Review generated code before using in production
 
-## 📞 Getting Help
+##  Getting Help
 
 If stuck:
 1. Review `SETUP.md` for detailed instructions
@@ -195,7 +195,7 @@ If stuck:
 5. Check MCP server console logs
 6. Ensure API keys are valid and have correct permissions
 
-## 🎉 You're Ready!
+##  You're Ready!
 
 When all checkboxes are complete, you have a working Figma to React code generation system!
 
@@ -211,4 +211,4 @@ When all checkboxes are complete, you have a working Figma to React code generat
 - With this tool: 1-2 hours per component
 - **Savings: 80-90% time reduction**
 
-Start generating! 🚀
+Start generating! 

@@ -1,6 +1,6 @@
 # Setup Wizard Guide
 
-## 🎯 Overview
+##  Overview
 
 The Setup Wizard is an interactive web interface that guides you through configuring the Figma-to-Component tool step by step.
 
@@ -12,7 +12,7 @@ The Setup Wizard is an interactive web interface that guides you through configu
 
 ---
 
-## 🚀 Starting the Wizard
+##  Starting the Wizard
 
 ### 1. Clone the Repository
 
@@ -43,7 +43,7 @@ The setup wizard will open automatically!
 
 ---
 
-## 📋 Wizard Steps
+##  Wizard Steps
 
 ### Step 1: Choose Your Mode
 
@@ -218,7 +218,7 @@ Generate a React component from https://www.figma.com/design/YOUR_URL
 
 ---
 
-## ✨ Features
+##  Features
 
 ### Visual Progress
 
@@ -247,7 +247,7 @@ Generate a React component from https://www.figma.com/design/YOUR_URL
 
 ---
 
-## 🎨 Design
+##  Design
 
 The wizard uses:
 - Clean, modern interface
@@ -259,7 +259,7 @@ The wizard uses:
 
 ---
 
-## 🔧 Under the Hood
+##  Under the Hood
 
 **Technology:**
 - React + TypeScript
@@ -307,7 +307,7 @@ The wizard uses:
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Save your config** - After downloading, keep a backup of your config file
 
@@ -321,7 +321,7 @@ The wizard uses:
 
 ---
 
-## 🎯 Comparison: Wizard vs Manual
+##  Comparison: Wizard vs Manual
 
 | Aspect | Setup Wizard | Manual Config |
 |--------|--------------|---------------|
@@ -334,7 +334,7 @@ The wizard uses:
 
 ---
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 Planned features:
 - [ ] Live API key testing
@@ -347,7 +347,7 @@ Planned features:
 
 ---
 
-## 📚 Related Documentation
+##  Related Documentation
 
 - [`README.md`](../README.md) - Project overview
 - [`docs/CONFIGURATION.md`](CONFIGURATION.md) - Manual configuration guide
@@ -356,10 +356,10 @@ Planned features:
 
 ---
 
-## 🎓 Video Walkthrough
+##  Video Walkthrough
 
 Coming soon: A video walkthrough of the setup wizard!
 
 ---
 
-**The setup wizard makes getting started easy!** Just clone, run `npm run dev`, and follow the steps. No config file editing required! 🎉
+**The setup wizard makes getting started easy!** Just clone, run `npm run dev`, and follow the steps. No config file editing required! 

@@ -1,14 +1,14 @@
 # Quick Reference Card
 
-## 🎯 What This Tool Does
+##  What This Tool Does
 
 Takes Figma designs → Generates React code using **YOUR actual component library** (EUI, Material-UI, etc.)
 
-**NOT generic Tailwind CSS** ✅ **Your design system components**
+**NOT generic Tailwind CSS**  **Your design system components**
 
 ---
 
-## ✨ NEW: Visual Setup Wizard!
+##  NEW: Visual Setup Wizard!
 
 **Easiest way to get started:**
 
@@ -29,7 +29,7 @@ npm run dev
 
 ---
 
-## 🔧 Manual Configuration (Alternative)
+##  Manual Configuration (Alternative)
 
 ### File Location
 - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
@@ -62,7 +62,7 @@ npm run dev
 
 ---
 
-## 🚀 Commands
+##  Commands
 
 ### In Claude Desktop
 
@@ -88,7 +88,7 @@ Get details about the EuiButton component
 
 ---
 
-## 📊 What You Get
+##  What You Get
 
 ### Input
 ```
@@ -109,11 +109,11 @@ export function LoginForm() {
 }
 ```
 
-**Uses YOUR components!** Not `<button className="...">` ✅
+**Uses YOUR components!** Not `<button className="...">` 
 
 ---
 
-## 🔑 Where to Get API Keys
+##  Where to Get API Keys
 
 | Key | Where | Required? |
 |-----|-------|-----------|
@@ -126,7 +126,7 @@ export function LoginForm() {
 
 ---
 
-## 🎨 Supported Component Libraries
+##  Supported Component Libraries
 
 - **Elastic EUI** (default)
 - **Material-UI** (`mui` / `material-ui`)
@@ -138,7 +138,7 @@ Just change `LUMIERE_REPO_OWNER` and `LUMIERE_REPO_NAME`!
 
 ---
 
-## 🛠️ Build & Start
+##  Build & Start
 
 ```bash
 # One-time build
@@ -153,7 +153,7 @@ npm run build
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 | Guide | Purpose |
 |-------|---------|
@@ -165,7 +165,7 @@ npm run build
 
 ---
 
-## ✅ Quick Test
+##  Quick Test
 
 1. Build: `cd mcp-server && npm run build`
 2. Configure Claude Desktop (see above)
@@ -189,7 +189,7 @@ npm run build
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Start simple** - Test with 2-3 element designs first
 2. **Clear naming** - Name Figma layers clearly ("Login Button", "Email Input")
@@ -199,7 +199,7 @@ npm run build
 
 ---
 
-## 🎯 Example: Switch to Material-UI
+##  Example: Switch to Material-UI
 
 1. Update config:
 ```json
@@ -237,7 +237,7 @@ import { Button, TextField } from '@mui/material';
 
 ---
 
-## 📞 Need Help?
+##  Need Help?
 
 1. Check `docs/CONFIGURATION.md` for repo setup
 2. Check `HOW_TO_TEST.md` for testing
@@ -249,4 +249,4 @@ import { Button, TextField } from '@mui/material';
 
 **Remember:** After ANY config change, **fully restart Claude Desktop** (Quit, not just close)!
 
-🚀 **Ready to generate components with YOUR design system!**
+ **Ready to generate components with YOUR design system!**

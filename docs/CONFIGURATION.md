@@ -4,7 +4,7 @@ This guide shows you **exactly where to make changes** when you want to use your
 
 ---
 
-## 🎯 What You Can Customize
+##  What You Can Customize
 
 1. **Component Repository** - The GitHub repo containing your design system components
 2. **Figma Library** - Your Figma design system file
@@ -13,7 +13,7 @@ This guide shows you **exactly where to make changes** when you want to use your
 
 ---
 
-## 📝 Configuration Locations
+##  Configuration Locations
 
 ### Location 1: Claude Desktop Config (Required)
 
@@ -27,7 +27,7 @@ This is where you configure:
 
 ---
 
-## 🔧 Step-by-Step Configuration
+##  Step-by-Step Configuration
 
 ### Step 1: Change Component Repository
 
@@ -125,7 +125,7 @@ Here's a complete example for switching to Material-UI:
 
 ---
 
-## 🏗️ Component Repository Structure
+##  Component Repository Structure
 
 Your repository should have one of these structures:
 
@@ -166,7 +166,7 @@ your-repo/
 
 ---
 
-## 🔍 Component Scanning Logic
+##  Component Scanning Logic
 
 ### Default Behavior
 
@@ -210,7 +210,7 @@ private isSvelteComponent(content: string, fileName: string): boolean {
 
 ---
 
-## 🎨 Figma-Specific Configuration
+##  Figma-Specific Configuration
 
 ### Using Your Figma Design System
 
@@ -257,7 +257,7 @@ For best component matching:
 
 ---
 
-## 🔄 Switching Between Configurations
+##  Switching Between Configurations
 
 You can have multiple configurations for different projects:
 
@@ -296,7 +296,7 @@ You can have multiple configurations for different projects:
 
 ---
 
-## ✅ Verification Checklist
+##  Verification Checklist
 
 After changing configuration:
 
@@ -312,7 +312,7 @@ After changing configuration:
 
 ---
 
-## 🧪 Testing Your Configuration
+##  Testing Your Configuration
 
 ### Test 1: Verify Repository Access
 
@@ -396,7 +396,7 @@ Get details about the [ComponentName] component
 
 ---
 
-## 📚 Quick Reference
+##  Quick Reference
 
 ### Required Environment Variables
 
@@ -424,7 +424,7 @@ Get details about the [ComponentName] component
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Start with public repos** - Test with public repos first, add private access later
 
@@ -438,7 +438,7 @@ Get details about the [ComponentName] component
 
 ---
 
-## 🎓 Examples for Popular Design Systems
+##  Examples for Popular Design Systems
 
 ### Material-UI
 
@@ -478,13 +478,13 @@ Components found: Whatever you've built!
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
-1. ✅ Update your Claude Desktop config
-2. ✅ Restart Claude Desktop
-3. ✅ Test repository scanning
-4. ✅ Test Figma analysis
-5. ✅ Generate your first component!
+1.  Update your Claude Desktop config
+2.  Restart Claude Desktop
+3.  Test repository scanning
+4.  Test Figma analysis
+5.  Generate your first component!
 
 **Remember:** After ANY config change, you MUST fully restart Claude Desktop (Quit, not just close window).
 

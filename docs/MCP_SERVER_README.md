@@ -486,4 +486,4 @@ export const analyzeFigmaTool = {
 
 ---
 
-**Ready to implement designs faster? Let's go! 🚀**
+**Ready to implement designs faster? Let's go! **
