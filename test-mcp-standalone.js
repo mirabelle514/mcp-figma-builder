@@ -12,12 +12,16 @@
 import { createClient } from '@supabase/supabase-js';
 
 // ============================================
-// TODO: ADD YOUR CREDENTIALS HERE
+// TODO: ADD YOUR FIGMA TOKEN HERE (Required)
 // ============================================
-const FIGMA_ACCESS_TOKEN = "figd__qTPrcGmrCnpzQRGU5dXGrpbj8gG5sk_XSFF1GIJ";
-const ANTHROPIC_API_KEY = "sk-ant-YOUR_KEY_HERE";
+const FIGMA_ACCESS_TOKEN = "figd_YOUR_TOKEN_HERE";
+
+// These are pre-configured and ready to use
 const SUPABASE_URL = "https://oejykyovgwfaxyirtyxv.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc";
+
+// NOTE: Anthropic API key is OPTIONAL - only needed for React generation
+// You can test everything else without it!
 
 async function testDatabaseConnection() {
   console.log("\n🔍 Testing database connection...");
@@ -70,15 +74,31 @@ async function testFigmaAPI() {
   }
 }
 
-async function testAnthropicAPI() {
-  console.log("\n🔍 Testing Anthropic API...");
+async function testMCPServerEnvironment() {
+  console.log("\n🔍 Testing MCP Server environment...");
 
-  if (!ANTHROPIC_API_KEY || ANTHROPIC_API_KEY === "sk-ant-YOUR_KEY_HERE") {
-    console.log("⚠️  Anthropic API key not set. Please add your key to this file.");
+  const env = {
+    FIGMA_ACCESS_TOKEN,
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY,
+    LUMIERE_REPO_OWNER: "mirabelle514",
+    LUMIERE_REPO_NAME: "Lumiere-Design-System"
+  };
+
+  const missing = [];
+  if (!env.FIGMA_ACCESS_TOKEN || env.FIGMA_ACCESS_TOKEN === "figd_YOUR_TOKEN_HERE") {
+    missing.push("FIGMA_ACCESS_TOKEN");
+  }
+  if (!env.SUPABASE_URL) missing.push("SUPABASE_URL");
+  if (!env.SUPABASE_ANON_KEY) missing.push("SUPABASE_ANON_KEY");
+
+  if (missing.length > 0) {
+    console.log(`❌ Missing required environment: ${missing.join(", ")}`);
     return false;
   }
 
-  console.log("✅ Anthropic API key is set (not testing actual API call to save credits)");
+  console.log("✅ MCP Server environment configured!");
+  console.log("   ℹ️  Note: Anthropic API key is optional (only for React generation)");
   return true;
 }
 
@@ -89,21 +109,26 @@ async function runTests() {
 
   const dbOk = await testDatabaseConnection();
   const figmaOk = await testFigmaAPI();
-  const anthropicOk = await testAnthropicAPI();
+  const envOk = await testMCPServerEnvironment();
 
   console.log("\n" + "=".repeat(42));
   console.log("📊 Test Results:");
   console.log("=".repeat(42));
-  console.log(`Database:  ${dbOk ? "✅ PASS" : "❌ FAIL"}`);
-  console.log(`Figma API: ${figmaOk ? "✅ PASS" : "❌ FAIL"}`);
-  console.log(`Anthropic: ${anthropicOk ? "✅ PASS" : "❌ FAIL"}`);
+  console.log(`Database:     ${dbOk ? "✅ PASS" : "❌ FAIL"}`);
+  console.log(`Figma API:    ${figmaOk ? "✅ PASS" : "❌ FAIL"}`);
+  console.log(`MCP Server:   ${envOk ? "✅ PASS" : "❌ FAIL"}`);
   console.log("=".repeat(42));
 
-  if (dbOk && figmaOk && anthropicOk) {
-    console.log("\n🎉 All tests passed! Your MCP server is ready to use.");
+  if (dbOk && figmaOk && envOk) {
+    console.log("\n🎉 Core functionality ready! You can now:");
+    console.log("\n  1. Scan Lumiere repository");
+    console.log("  2. Analyze Figma designs");
+    console.log("  3. Match components");
+    console.log("  4. Generate implementation guides");
+    console.log("\n  ℹ️  For React generation, add ANTHROPIC_API_KEY to Claude Desktop config");
     console.log("\nNext steps:");
-    console.log("  1. Use it with Claude Desktop (see QUICK_START.md)");
-    console.log("  2. Or use it with VS Code Continue extension");
+    console.log("  • Use with Claude Desktop (see QUICK_START.md)");
+    console.log("  • Or use with VS Code Continue extension");
   } else {
     console.log("\n⚠️  Some tests failed. Please fix the issues above.");
   }
