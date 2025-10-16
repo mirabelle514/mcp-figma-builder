@@ -14,7 +14,7 @@ import { createClient } from '@supabase/supabase-js';
 // ============================================
 // TODO: ADD YOUR CREDENTIALS HERE
 // ============================================
-const FIGMA_ACCESS_TOKEN = "figd_YOUR_TOKEN_HERE";
+const FIGMA_ACCESS_TOKEN = "figd__qTPrcGmrCnpzQRGU5dXGrpbj8gG5sk_XSFF1GIJ";
 const ANTHROPIC_API_KEY = "sk-ant-YOUR_KEY_HERE";
 const SUPABASE_URL = "https://oejykyovgwfaxyirtyxv.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc";
