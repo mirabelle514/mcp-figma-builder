@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 type Step = 'mode' | 'repo' | 'figma' | 'database' | 'ai' | 'generate' | 'complete';
-type AIMode = 'none' | 'anthropic' | 'openai';
+type AIMode = 'none' | 'anthropic' | 'openai' | 'custom';
 
 interface Config {
   mode: AIMode;
@@ -29,6 +29,10 @@ interface Config {
   githubToken: string;
   anthropicKey: string;
   openaiKey: string;
+  customAiUrl: string;
+  customAiKey: string;
+  customAiName: string;
+  customAiModel: string;
 }
 
 export function SetupWizard() {
@@ -43,6 +47,10 @@ export function SetupWizard() {
     githubToken: '',
     anthropicKey: '',
     openaiKey: '',
+    customAiUrl: '',
+    customAiKey: '',
+    customAiName: 'LibertyGPT',
+    customAiModel: 'gpt-4',
   });
   const [testing, setTesting] = useState<Record<string, boolean>>({});
   const [testResults, setTestResults] = useState<Record<string, 'success' | 'error' | null>>({});
@@ -86,6 +94,14 @@ export function SetupWizard() {
       env.OPENAI_API_KEY = config.openaiKey;
     }
 
+    if (config.mode === 'custom') {
+      env.CUSTOM_AI_PROVIDER = 'true';
+      if (config.customAiUrl) env.CUSTOM_AI_URL = config.customAiUrl;
+      if (config.customAiKey) env.CUSTOM_AI_KEY = config.customAiKey;
+      if (config.customAiName) env.CUSTOM_AI_NAME = config.customAiName;
+      if (config.customAiModel) env.CUSTOM_AI_MODEL = config.customAiModel;
+    }
+
     return JSON.stringify({
       mcpServers: {
         'component-figma': {
@@ -127,6 +143,7 @@ export function SetupWizard() {
         if (config.mode === 'none') return true;
         if (config.mode === 'anthropic') return config.anthropicKey.length > 0;
         if (config.mode === 'openai') return config.openaiKey.length > 0;
+        if (config.mode === 'custom') return config.customAiUrl.length > 0 && config.customAiKey.length > 0;
         return false;
       case 'generate':
         return true;
@@ -243,6 +260,20 @@ export function SetupWizard() {
                     'AI code generation',
                     'Uses YOUR components',
                     'GPT-4o'
+                  ]}
+                />
+
+                <ModeCard
+                  title="Mode 4: Custom AI Provider (e.g., LibertyGPT)"
+                  description="Connect to your company's internal AI tool. Ideal for enterprises with private AI infrastructure."
+                  cost="Your pricing"
+                  selected={config.mode === 'custom'}
+                  onClick={() => setConfig({ ...config, mode: 'custom' })}
+                  features={[
+                    'All Mode 1 features',
+                    'AI code generation',
+                    'Use private AI tools',
+                    'Full control & security'
                   ]}
                 />
               </div>
@@ -432,7 +463,9 @@ export function SetupWizard() {
                   ? 'No AI provider needed for Mode 1'
                   : config.mode === 'anthropic'
                   ? 'Configure Anthropic Claude for AI code generation'
-                  : 'Configure OpenAI GPT-4 for AI code generation'
+                  : config.mode === 'openai'
+                  ? 'Configure OpenAI GPT-4 for AI code generation'
+                  : 'Configure your custom AI provider (e.g., LibertyGPT)'
                 }
               </p>
 
@@ -479,7 +512,7 @@ export function SetupWizard() {
                     </p>
                   </div>
                 </div>
-              ) : (
+              ) : config.mode === 'openai' ? (
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -512,6 +545,95 @@ export function SetupWizard() {
                       GPT-4o: $2.50 per million input tokens, $10 per million output tokens.
                       Typical component generation: $0.15-0.60 per component.
                     </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Custom AI Name
+                    </label>
+                    <input
+                      type="text"
+                      value={config.customAiName}
+                      onChange={(e) => setConfig({ ...config, customAiName: e.target.value })}
+                      placeholder="LibertyGPT"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    <p className="text-sm text-slate-500 mt-2">
+                      The name of your internal AI tool (e.g., LibertyGPT, CompanyAI)
+                    </p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      API Endpoint URL
+                    </label>
+                    <input
+                      type="text"
+                      value={config.customAiUrl}
+                      onChange={(e) => setConfig({ ...config, customAiUrl: e.target.value })}
+                      placeholder="https://your-company-ai.internal/v1/chat/completions"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    <p className="text-sm text-slate-500 mt-2">
+                      The full URL to your AI's chat completions endpoint
+                    </p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      API Key / Token
+                    </label>
+                    <input
+                      type="password"
+                      value={config.customAiKey}
+                      onChange={(e) => setConfig({ ...config, customAiKey: e.target.value })}
+                      placeholder="your-api-key-here"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    <p className="text-sm text-slate-500 mt-2">
+                      Get this from your internal AI team or admin panel
+                    </p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Model Name (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      value={config.customAiModel}
+                      onChange={(e) => setConfig({ ...config, customAiModel: e.target.value })}
+                      placeholder="gpt-4"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    <p className="text-sm text-slate-500 mt-2">
+                      The model name to use (e.g., gpt-4, gpt-3.5-turbo). Leave as default if unsure.
+                    </p>
+                  </div>
+
+                  <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                    <div className="flex gap-3">
+                      <AlertCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-purple-900 mb-2">Custom AI Requirements:</p>
+                        <ul className="text-sm text-purple-700 space-y-1 list-disc list-inside">
+                          <li>API must be OpenAI-compatible (same request/response format)</li>
+                          <li>Endpoint should accept chat completion requests</li>
+                          <li>Contact your AI team for the correct endpoint and credentials</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <p className="text-sm font-medium text-blue-900 mb-2">Example Configuration:</p>
+                    <div className="space-y-1 text-sm text-blue-700">
+                      <p>• <strong>Name:</strong> LibertyGPT</p>
+                      <p>• <strong>URL:</strong> https://liberty-ai.yourcompany.com/v1/chat/completions</p>
+                      <p>• <strong>Model:</strong> gpt-4 (or whatever your internal model is called)</p>
+                    </div>
                   </div>
                 </div>
               )}

@@ -3,6 +3,7 @@ import { FigmaService } from '../services/figma-service.js';
 import { FigmaExtractor } from '../services/figma-extractor.js';
 import { ReactGenerator } from '../services/react-generator.js';
 import { DatabaseService } from '../services/db-service.js';
+import { createCustomAIProviderFromEnv } from '../services/custom-ai-provider.js';
 
 const GenerateReactInputSchema = z.object({
   figmaUrl: z.string().describe('Full Figma URL with optional node-id parameter'),
@@ -50,12 +51,15 @@ export async function handleGenerateReact(
   const startTime = Date.now();
 
   try {
-    if (!env.ANTHROPIC_API_KEY) {
+    // Check for AI provider (Custom AI or Anthropic)
+    const customAI = createCustomAIProviderFromEnv();
+
+    if (!customAI && !env.ANTHROPIC_API_KEY) {
       return {
         content: [
           {
             type: 'text' as const,
-            text: 'Error: ANTHROPIC_API_KEY environment variable is required for React code generation. Please add it to your MCP server configuration.',
+            text: 'Error: No AI provider configured. Please add ANTHROPIC_API_KEY or configure CUSTOM_AI_PROVIDER in your MCP server configuration.',
           },
         ],
         isError: true,
@@ -86,7 +90,10 @@ export async function handleGenerateReact(
     const extractor = new FigmaExtractor();
     const designData = extractor.extractDesignData(figmaNode as any);
 
-    const generator = new ReactGenerator(env.ANTHROPIC_API_KEY, db);
+    // Use custom AI if configured, otherwise use Anthropic
+    const generator = customAI
+      ? new ReactGenerator(customAI, db)
+      : new ReactGenerator(env.ANTHROPIC_API_KEY!, db);
     const generatedComponent = await generator.generateComponent(designData, {
       componentName: args.componentName,
       includeTypeScript: args.includeTypeScript ?? true,

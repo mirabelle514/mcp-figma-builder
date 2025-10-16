@@ -19,10 +19,12 @@ Unlike generic tools that generate Tailwind CSS, this tool generates code that *
 
 ## Features
 
-### Two Powerful Approaches
+### Four Powerful Modes
 
-1. **Component Mapping**: Intelligently matches Figma designs to existing design system components
-2. **AI Code Generation**: Generates React components that USE your actual component library (not generic Tailwind)
+1. **Mode 1 - Component Mapping Only**: Free - Matches Figma to your component library (no AI)
+2. **Mode 2 - AI with Anthropic Claude**: Generates code using your components with Claude 3.5 Sonnet
+3. **Mode 3 - AI with OpenAI GPT-4**: Generates code using your components with GPT-4o
+4. **Mode 4 - Custom AI Provider**: Connect your internal AI (e.g., LibertyGPT, Azure OpenAI)
 
 ### What It Does
 

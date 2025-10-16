@@ -4,6 +4,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { ExtractedDesignData, ComponentNode } from './figma-extractor.js';
 import { TailwindConverter } from './tailwind-converter.js';
 import { DatabaseService } from './db-service.js';
+import { CustomAIProvider } from './custom-ai-provider.js';
 
 export interface GeneratedComponent {
   componentName: string;
@@ -19,12 +20,23 @@ export interface GeneratedComponent {
 }
 
 export class ReactGenerator {
-  private anthropic: Anthropic;
+  private anthropic?: Anthropic;
+  private customAI?: CustomAIProvider;
   private tailwindConverter: TailwindConverter;
   private dbService?: DatabaseService;
+  private aiProvider: 'anthropic' | 'custom';
 
-  constructor(apiKey: string, dbService?: DatabaseService) {
-    this.anthropic = new Anthropic({ apiKey });
+  constructor(
+    apiKeyOrProvider: string | CustomAIProvider,
+    dbService?: DatabaseService
+  ) {
+    if (typeof apiKeyOrProvider === 'string') {
+      this.anthropic = new Anthropic({ apiKey: apiKeyOrProvider });
+      this.aiProvider = 'anthropic';
+    } else {
+      this.customAI = apiKeyOrProvider;
+      this.aiProvider = 'custom';
+    }
     this.tailwindConverter = new TailwindConverter();
     this.dbService = dbService;
   }
@@ -49,18 +61,31 @@ export class ReactGenerator {
       includeComments,
     }, availableComponents);
 
-    const response = await this.anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 4096,
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
-    });
+    let generatedText: string;
+    let aiModel: string;
 
-    const generatedText = response.content[0].type === 'text' ? response.content[0].text : '';
+    if (this.aiProvider === 'anthropic' && this.anthropic) {
+      const response = await this.anthropic.messages.create({
+        model: 'claude-3-5-sonnet-20241022',
+        max_tokens: 4096,
+        messages: [
+          {
+            role: 'user',
+            content: prompt,
+          },
+        ],
+      });
+      generatedText = response.content[0].type === 'text' ? response.content[0].text : '';
+      aiModel = 'claude-3-5-sonnet-20241022';
+    } else if (this.aiProvider === 'custom' && this.customAI) {
+      generatedText = await this.customAI.generateCompletion(prompt, {
+        maxTokens: 4096,
+      });
+      aiModel = process.env.CUSTOM_AI_NAME || 'Custom AI';
+    } else {
+      throw new Error('No AI provider configured');
+    }
+
     const parsed = this.parseGeneratedCode(generatedText, componentName);
 
     return {
@@ -70,7 +95,7 @@ export class ReactGenerator {
       imports: parsed.imports,
       dependencies: ['react', 'lucide-react'],
       metadata: {
-        aiModel: 'claude-3-5-sonnet-20241022',
+        aiModel,
         generationPrompt: prompt,
         estimatedComplexity: designData.metadata.complexity,
       },
