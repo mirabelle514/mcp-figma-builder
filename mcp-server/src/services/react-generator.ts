@@ -3,6 +3,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { ExtractedDesignData, ComponentNode } from './figma-extractor.js';
 import { TailwindConverter } from './tailwind-converter.js';
+import { DatabaseService } from './db-service.js';
 
 export interface GeneratedComponent {
   componentName: string;
@@ -20,10 +21,12 @@ export interface GeneratedComponent {
 export class ReactGenerator {
   private anthropic: Anthropic;
   private tailwindConverter: TailwindConverter;
+  private dbService?: DatabaseService;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, dbService?: DatabaseService) {
     this.anthropic = new Anthropic({ apiKey });
     this.tailwindConverter = new TailwindConverter();
+    this.dbService = dbService;
   }
 
   async generateComponent(
@@ -38,10 +41,13 @@ export class ReactGenerator {
     const includeTypeScript = options.includeTypeScript ?? true;
     const includeComments = options.includeComments ?? false;
 
+    // Fetch available components from database
+    const availableComponents = this.dbService ? await this.dbService.getLumiereComponents() : [];
+
     const prompt = this.buildGenerationPrompt(designData, componentName, {
       includeTypeScript,
       includeComments,
-    });
+    }, availableComponents);
 
     const response = await this.anthropic.messages.create({
       model: 'claude-3-5-sonnet-20241022',
@@ -74,14 +80,25 @@ export class ReactGenerator {
   private buildGenerationPrompt(
     designData: ExtractedDesignData,
     componentName: string,
-    options: { includeTypeScript: boolean; includeComments: boolean }
+    options: { includeTypeScript: boolean; includeComments: boolean },
+    availableComponents: any[] = []
   ): string {
     const { componentTree, designTokens, metadata } = designData;
 
     const componentDescription = this.describeComponents(componentTree);
     const designTokensDescription = this.describeDesignTokens(designTokens);
+    const componentLibraryDescription = this.describeComponentLibrary(availableComponents);
 
     return `You are an expert React developer. Generate a clean, production-ready React component based on this Figma design.
+
+${componentLibraryDescription ? `## Available Component Library
+You MUST use these components from the design system instead of creating custom elements:
+
+${componentLibraryDescription}
+
+IMPORTANT: Use these components directly. Do NOT create custom buttons, inputs, or other elements if a component library equivalent exists.
+
+` : ''}
 
 ## Component Name
 ${componentName}
@@ -101,23 +118,24 @@ ${designTokensDescription}
 
 ## Requirements
 1. Use React with ${options.includeTypeScript ? 'TypeScript' : 'JavaScript'}
-2. Use Tailwind CSS for all styling (no inline styles)
-3. Use lucide-react for icons where appropriate
+2. ${availableComponents.length > 0 ? 'PRIORITY: Use the component library listed above for all UI elements (buttons, inputs, cards, etc.)' : 'Use Tailwind CSS for all styling (no inline styles)'}
+3. ${availableComponents.length > 0 ? 'Only use custom styling for layout and spacing between components' : 'Use lucide-react for icons where appropriate'}
 4. Make the component responsive (mobile-first approach)
 5. Include proper TypeScript interfaces for props${options.includeTypeScript ? '' : ' (commented out)'}
-6. Use semantic HTML elements
+6. Use semantic HTML elements for layout containers
 7. Make interactive elements accessible (ARIA labels, keyboard navigation)
-8. ${options.includeComments ? 'Include helpful comments' : 'Do NOT include comments'}
+8. ${options.includeComments ? 'Include helpful comments explaining which design system component maps to which Figma element' : 'Do NOT include comments'}
 9. Use functional components with hooks
 10. Extract reusable parts into separate components if needed
+11. ${availableComponents.length > 0 ? 'Import components from the paths shown in the component library above' : 'Keep styling consistent with the design tokens'}
 
 ## Output Format
 Provide ONLY the code in this format:
 
 \`\`\`tsx
-// Imports
+// Imports from component library
+${availableComponents.length > 0 ? '// Import components from their respective paths shown above' : '// import { Icon } from \'lucide-react\';'}
 import React from 'react';
-import { Icon } from 'lucide-react';
 
 // Props interface
 interface ${componentName}Props {
@@ -127,14 +145,21 @@ interface ${componentName}Props {
 // Main component
 export function ${componentName}({ ...props }: ${componentName}Props) {
   return (
-    // JSX here
+    // JSX here using component library components
   );
 }
 
 // Child components (if any)
 \`\`\`
 
-Generate the component now. Be creative but faithful to the design structure.`;
+${availableComponents.length > 0 ? 'CRITICAL: You MUST use the component library components. Map each Figma element to the most appropriate component from the library above. For example:
+- Figma button → Use the Button component from the library
+- Figma text input → Use the FieldText/Input component from the library
+- Figma card → Use the Card/Panel component from the library
+
+Do NOT create custom HTML buttons, inputs, or styled divs when library components exist for those purposes.
+
+' : ''}Generate the component now. Be creative but faithful to the design structure.`;
   }
 
   private describeComponents(componentTree: ComponentNode[]): string {
@@ -191,6 +216,58 @@ Generate the component now. Be creative but faithful to the design structure.`;
     if (tokens.borderRadii.length > 0) {
       lines.push(`Border Radii: ${tokens.borderRadii.join(', ')}px`);
     }
+
+    return lines.join('\n');
+  }
+
+  private describeComponentLibrary(components: any[]): string {
+    if (!components || components.length === 0) {
+      return '';
+    }
+
+    const lines: string[] = [];
+
+    // Group components by category
+    const grouped: Record<string, any[]> = {};
+    components.forEach(comp => {
+      const category = comp.category || 'Other';
+      if (!grouped[category]) {
+        grouped[category] = [];
+      }
+      grouped[category].push(comp);
+    });
+
+    // Describe each category
+    Object.entries(grouped).forEach(([category, comps]) => {
+      lines.push(`\n### ${category}`);
+
+      comps.forEach(comp => {
+        lines.push(`\n**${comp.component_name}**`);
+        lines.push(`- Import: \`import { ${comp.component_name} } from '${comp.component_path}';\``);
+
+        if (comp.description) {
+          lines.push(`- Purpose: ${comp.description}`);
+        }
+
+        if (comp.props && Object.keys(comp.props).length > 0) {
+          const propsList = Object.entries(comp.props)
+            .map(([key, value]: [string, any]) => `${key}: ${value.type || 'any'}`)
+            .slice(0, 5);
+          lines.push(`- Key Props: ${propsList.join(', ')}`);
+        }
+
+        if (comp.variants && Object.keys(comp.variants).length > 0) {
+          const variantsList = Object.entries(comp.variants)
+            .map(([key, values]: [string, any]) => `${key} (${Array.isArray(values) ? values.slice(0, 3).join(', ') : values})`)
+            .slice(0, 3);
+          lines.push(`- Variants: ${variantsList.join(', ')}`);
+        }
+
+        if (comp.usage_example) {
+          lines.push(`- Example: \`${comp.usage_example}\``);
+        }
+      });
+    });
 
     return lines.join('\n');
   }

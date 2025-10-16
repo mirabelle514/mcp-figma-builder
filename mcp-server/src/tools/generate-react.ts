@@ -13,7 +13,7 @@ const GenerateReactInputSchema = z.object({
 
 export const generateReactTool = {
   name: 'generate_react_from_figma',
-  description: 'Generate a complete React component from a Figma design URL. This tool analyzes the Figma design, extracts all layout and styling information, and uses AI to generate production-ready React code with Tailwind CSS.',
+  description: 'Generate a complete React component from a Figma design URL. This tool analyzes the Figma design, extracts all layout and styling information, and uses AI to generate production-ready React code using your actual component library (e.g., EUI components).',
   inputSchema: {
     type: 'object' as const,
     properties: {
@@ -86,7 +86,7 @@ export async function handleGenerateReact(
     const extractor = new FigmaExtractor();
     const designData = extractor.extractDesignData(figmaNode as any);
 
-    const generator = new ReactGenerator(env.ANTHROPIC_API_KEY);
+    const generator = new ReactGenerator(env.ANTHROPIC_API_KEY, db);
     const generatedComponent = await generator.generateComponent(designData, {
       componentName: args.componentName,
       includeTypeScript: args.includeTypeScript ?? true,
@@ -193,14 +193,15 @@ function App() {
 ### Next Steps
 1. Copy the generated code to your project
 2. Install dependencies: \`npm install ${component.dependencies.join(' ')}\`
-3. Review and customize the component as needed
-4. Test the component in your application
-5. Adjust Tailwind classes for your design system
+3. Ensure your component library is installed and configured
+4. Review and customize the component as needed
+5. Test the component in your application
 
 ### Notes
-- The component uses Tailwind CSS for styling
+- The component uses your actual component library (e.g., EUI, MUI, etc.)
+- Components are mapped from Figma elements to design system equivalents
 - All spacing and colors are extracted from your Figma design
-- Interactive elements may need additional logic
+- Interactive elements may need additional logic for state management
 - Images will need actual image sources
 - Review accessibility attributes and enhance as needed
 

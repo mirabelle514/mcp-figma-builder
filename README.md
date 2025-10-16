@@ -1,22 +1,44 @@
 # Figma to React MCP Server
 
-An MCP (Model Context Protocol) server that transforms Figma designs into production-ready React components. Works with Claude Desktop, VS Code Continue, and other MCP-compatible AI tools.
+An MCP (Model Context Protocol) server that transforms Figma designs into production-ready React components **using YOUR actual component library**. Works with Claude Desktop, VS Code Continue, and other MCP-compatible AI tools.
+
+## 🎯 Key Feature: Uses Your Actual Components!
+
+Unlike generic tools that generate Tailwind CSS, this tool generates code that **imports and uses your actual design system components** (EUI, Material-UI, Ant Design, or your custom library).
 
 ## Features
 
 ### Two Powerful Approaches
 
 1. **Component Mapping**: Intelligently matches Figma designs to existing design system components
-2. **AI Code Generation**: Generates brand-new React components from scratch using Claude AI
+2. **AI Code Generation**: Generates React components that USE your actual component library (not generic Tailwind)
 
 ### What It Does
 
+- Scans YOUR component library repository (EUI, Material-UI, or your custom design system)
 - Analyzes complete Figma designs (layouts, styles, colors, typography)
-- Converts Figma auto-layout to Flexbox/Grid with Tailwind CSS
-- Generates production-ready React components with TypeScript
+- **Matches Figma elements to your actual components** (Button → EuiButton, Input → EuiFieldText)
+- **Generates code using your component library imports** (not generic HTML/Tailwind)
 - Extracts design tokens (colors, spacing, fonts, shadows)
 - Stores generation history in Supabase
 - Provides component usage examples and documentation
+
+### Example Output
+
+**What you get:**
+```tsx
+import { EuiButton, EuiFieldText, EuiForm } from '@elastic/eui';
+// Uses YOUR actual components
+```
+
+**NOT generic code:**
+```tsx
+// ❌ NOT this:
+<button className="px-4 py-2 bg-blue-500">Click</button>
+
+// ✅ But this:
+<EuiButton fill color="primary">Click</EuiButton>
+```
 
 ## Quick Start
 
@@ -43,22 +65,37 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "lumiere-figma": {
+    "component-figma": {
       "command": "node",
       "args": ["/absolute/path/to/mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "your_figma_token",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_supabase_anon_key",
-        "ANTHROPIC_API_KEY": "your_anthropic_api_key",
-        "LUMIERE_REPO_OWNER": "mirabelle514",
-        "LUMIERE_REPO_NAME": "Lumiere-Design-System",
+        "ANTHROPIC_API_KEY": "your_anthropic_api_key_optional",
+        "LUMIERE_REPO_OWNER": "elastic",
+        "LUMIERE_REPO_NAME": "eui",
         "GITHUB_TOKEN": "optional_github_token"
       }
     }
   }
 }
 ```
+
+**🔧 Using Your Own Component Library?**
+
+Change these two lines:
+```json
+"LUMIERE_REPO_OWNER": "your-org",
+"LUMIERE_REPO_NAME": "your-design-system"
+```
+
+Examples:
+- Material-UI: `"mui"` / `"material-ui"`
+- Ant Design: `"ant-design"` / `"ant-design"`
+- Your custom: `"your-company"` / `"your-repo"`
+
+**📖 See [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md) for complete setup!**
 
 ### 4. Get API Keys
 
@@ -70,12 +107,12 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 ### 6. Use It
 
-**Generate a new React component:**
+**Generate a new React component (uses YOUR components!):**
 ```
 User: Generate a React component from this Figma design:
 https://www.figma.com/design/ABC123/Design?node-id=4-38
 
-Claude: [Generates complete React component with Tailwind CSS]
+Claude: [Generates complete React component using EUI/your component library]
 ```
 
 **Or match to existing components:**
@@ -99,8 +136,9 @@ Generate a complete React component from Figma design.
 
 **Output:**
 - Complete React component code
+- **Uses your actual component library** (EUI, Material-UI, etc.)
 - TypeScript interfaces
-- Tailwind CSS classes
+- Proper component imports from your design system
 - Design tokens
 - Usage examples
 
@@ -147,10 +185,10 @@ Output (Production-ready React component)
 
 - **MCP SDK**: Model Context Protocol server
 - **Figma API**: Design extraction
-- **Anthropic Claude**: AI code generation
+- **Anthropic Claude** or **OpenAI GPT-4**: AI code generation
 - **Supabase**: Database storage
 - **TypeScript**: Type-safe development
-- **Tailwind CSS**: Generated styling
+- **Your Component Library**: EUI, Material-UI, Ant Design, or custom
 
 ## Database Schema
 
@@ -178,43 +216,72 @@ npm run build    # Build
 
 ## Example Output
 
-When you generate a component, you get:
+When you generate a component, you get code that **uses your actual component library**:
 
 ```tsx
-import React from 'react';
-import { Mail, Lock } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  EuiForm,
+  EuiFormRow,
+  EuiFieldText,
+  EuiFieldPassword,
+  EuiButton,
+  EuiPanel,
+  EuiTitle,
+  EuiSpacer
+} from '@elastic/eui';
 
 interface LoginFormProps {
   onSubmit?: (email: string, password: string) => void;
 }
 
 export function LoginForm({ onSubmit }: LoginFormProps) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit?.(email, password);
+  };
+
   return (
-    <div className="flex flex-col gap-6 p-8 bg-white rounded-lg shadow-lg max-w-md">
-      <h2 className="text-2xl font-bold text-gray-900">Welcome Back</h2>
+    <EuiPanel style={{ maxWidth: 400 }}>
+      <EuiTitle size="l">
+        <h2>Welcome Back</h2>
+      </EuiTitle>
 
-      <input
-        type="email"
-        placeholder="Email"
-        className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-      />
+      <EuiSpacer size="l" />
 
-      <input
-        type="password"
-        placeholder="Password"
-        className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-      />
+      <EuiForm component="form" onSubmit={handleSubmit}>
+        <EuiFormRow label="Email">
+          <EuiFieldText
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            icon="email"
+          />
+        </EuiFormRow>
 
-      <button
-        onClick={() => onSubmit?.('', '')}
-        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-      >
-        Sign In
-      </button>
-    </div>
+        <EuiFormRow label="Password">
+          <EuiFieldPassword
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </EuiFormRow>
+
+        <EuiSpacer size="l" />
+
+        <EuiButton type="submit" fill fullWidth>
+          Sign In
+        </EuiButton>
+      </EuiForm>
+    </EuiPanel>
   );
 }
 ```
+
+**Notice:** It uses `EuiButton`, `EuiFieldText`, etc. from your component library instead of generic HTML elements!
 
 ## What Works Well
 
