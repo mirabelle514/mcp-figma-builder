@@ -1,6 +1,9 @@
 # Lumiere-Figma MCP Server
 
-MCP server that helps developers implement Figma designs using existing Lumiere Design System components.
+MCP server that helps developers implement Figma designs. It offers two powerful approaches:
+
+1. **Component Mapping**: Matches Figma designs to existing Lumiere Design System components
+2. **AI Code Generation**: Generates brand-new React components from Figma designs using Claude AI
 
 ## Quick Start
 
@@ -32,7 +35,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
         "SUPABASE_ANON_KEY": "your_supabase_anon_key",
         "LUMIERE_REPO_OWNER": "mirabelle514",
         "LUMIERE_REPO_NAME": "Lumiere-Design-System",
-        "GITHUB_TOKEN": "your_github_token_optional"
+        "GITHUB_TOKEN": "your_github_token_optional",
+        "ANTHROPIC_API_KEY": "your_anthropic_api_key"
       }
     }
   }
@@ -43,6 +47,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 
 ### 5. Use in Claude
 
+**Approach 1: Match to Existing Components**
 ```
 User: Scan the Lumiere Design System repository
 
@@ -51,7 +56,15 @@ Claude: [Scans repo, finds components]
 User: Help me implement this Figma design:
 https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=4-38
 
-Claude: [Provides implementation guide with code]
+Claude: [Provides implementation guide with existing Lumiere components]
+```
+
+**Approach 2: Generate New React Component** (NEW)
+```
+User: Generate a React component from this Figma design:
+https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=4-38
+
+Claude: [Uses AI to generate complete React component with Tailwind CSS]
 ```
 
 ## Available Tools
@@ -79,14 +92,47 @@ Get details about a specific Lumiere component.
 **Parameters:**
 - `componentName`: Name of component (e.g., "Button")
 
+### `generate_react_from_figma` (NEW)
+Generates a complete React component from a Figma design using AI.
+
+**Parameters:**
+- `figmaUrl`: Full Figma URL (required)
+- `componentName`: Custom component name (optional)
+- `includeTypeScript`: Generate TypeScript code (optional, default: true)
+- `includeComments`: Include code comments (optional, default: false)
+
+**Features:**
+- Extracts complete layout, styles, and design tokens from Figma
+- Converts Figma auto-layout to Flexbox/Grid with Tailwind CSS
+- Generates production-ready React components
+- Uses Claude AI for intelligent code generation
+- Stores generation history in Supabase
+- Provides component usage examples
+
+**Example:**
+```
+User: generate_react_from_figma with figmaUrl="https://www.figma.com/design/ABC/Design?node-id=4-38"
+
+Output:
+- Complete React component code
+- TypeScript interfaces
+- Tailwind CSS classes
+- Required dependencies
+- Usage examples
+```
+
 ## Environment Variables
 
+### Required
 - `FIGMA_ACCESS_TOKEN`: Your Figma personal access token
 - `SUPABASE_URL`: Supabase project URL
 - `SUPABASE_ANON_KEY`: Supabase anonymous key
 - `LUMIERE_REPO_OWNER`: GitHub organization/user (e.g., "mirabelle514")
 - `LUMIERE_REPO_NAME`: GitHub repository name (e.g., "Lumiere-Design-System")
-- `GITHUB_TOKEN`: (Optional) GitHub token for private repos
+
+### Optional
+- `GITHUB_TOKEN`: GitHub token for private repos
+- `ANTHROPIC_API_KEY`: Anthropic API key (required for `generate_react_from_figma` tool)
 
 ## Development
 
@@ -115,6 +161,11 @@ Ensure all required env vars are set in Claude Desktop config.
 - Verify FIGMA_ACCESS_TOKEN is valid
 - Check Figma URL is correct
 - Ensure you have access to the Figma file
+
+### "ANTHROPIC_API_KEY is required"
+- Add your Anthropic API key to the MCP server config
+- Get an API key from: https://console.anthropic.com/
+- The key is only needed for the `generate_react_from_figma` tool
 
 ## License
 

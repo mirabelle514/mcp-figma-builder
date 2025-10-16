@@ -12,6 +12,7 @@ import { scanLumiereTool, handleScanLumiere } from './tools/scan-lumiere.js';
 import { analyzeFigmaTool, handleAnalyzeFigma } from './tools/analyze-figma.js';
 import { generateGuideTool, handleGenerateGuide } from './tools/generate-guide.js';
 import { getComponentTool, handleGetComponent } from './tools/get-component.js';
+import { generateReactTool, handleGenerateReact } from './tools/generate-react.js';
 
 interface Environment {
   FIGMA_ACCESS_TOKEN: string;
@@ -20,6 +21,7 @@ interface Environment {
   LUMIERE_REPO_OWNER: string;
   LUMIERE_REPO_NAME: string;
   GITHUB_TOKEN?: string;
+  ANTHROPIC_API_KEY?: string;
 }
 
 function getEnv(): Environment {
@@ -43,6 +45,7 @@ function getEnv(): Environment {
     LUMIERE_REPO_OWNER: process.env.LUMIERE_REPO_OWNER!,
     LUMIERE_REPO_NAME: process.env.LUMIERE_REPO_NAME!,
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+    ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
   };
 }
 
@@ -63,6 +66,7 @@ const tools: Tool[] = [
   analyzeFigmaTool as Tool,
   generateGuideTool as Tool,
   getComponentTool as Tool,
+  generateReactTool as Tool,
 ];
 
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
@@ -85,6 +89,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'get_component_details':
         return await handleGetComponent(request.params.arguments as any, env);
+
+      case 'generate_react_from_figma':
+        return await handleGenerateReact(request.params.arguments as any, env);
 
       default:
         return {
@@ -126,6 +133,7 @@ async function main() {
     console.error('  - analyze_figma_design: Analyze Figma design and match components');
     console.error('  - generate_implementation_guide: Generate complete implementation guide');
     console.error('  - get_component_details: Get details about a specific component');
+    console.error('  - generate_react_from_figma: Generate React component from Figma design (NEW)');
   } catch (error) {
     console.error('Failed to start MCP server:', error);
     process.exit(1);
