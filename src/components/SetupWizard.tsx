@@ -756,7 +756,7 @@ export function SetupWizard() {
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center text-xs">
                   <a
-                    href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/USER_GUIDE.md"
+                    href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/user-guide.md"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3 py-1 bg-blue-50 text-blue-700 rounded hover:bg-blue-100 transition-colors"
@@ -764,7 +764,7 @@ export function SetupWizard() {
                      User Guide
                   </a>
                   <a
-                    href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/TROUBLESHOOTING.md"
+                    href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/troubleshooting.md"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3 py-1 bg-amber-50 text-amber-700 rounded hover:bg-amber-100 transition-colors"
@@ -772,7 +772,7 @@ export function SetupWizard() {
                      Troubleshooting
                   </a>
                   <a
-                    href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/SETUP_WIZARD.md"
+                    href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/setup-wizard.md"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3 py-1 bg-slate-50 text-slate-700 rounded hover:bg-slate-100 transition-colors"
@@ -819,7 +819,7 @@ export function SetupWizard() {
           <p className="mb-2">Having trouble?</p>
           <div className="flex flex-wrap gap-3 justify-center text-xs">
             <a
-              href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/USER_GUIDE.md"
+              href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/user-guide.md"
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded hover:bg-blue-100 transition-colors inline-flex items-center gap-1"
@@ -827,7 +827,7 @@ export function SetupWizard() {
                User Guide
             </a>
             <a
-              href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/TROUBLESHOOTING.md"
+              href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/troubleshooting.md"
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 bg-amber-50 text-amber-700 rounded hover:bg-amber-100 transition-colors inline-flex items-center gap-1"
@@ -835,7 +835,7 @@ export function SetupWizard() {
                Troubleshooting
             </a>
             <a
-              href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/CUSTOM_AI_PROVIDER.md"
+              href="https://github.com/mirabelle514/mcp-figma-builder/blob/main/docs/custom-ai-provider.md"
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded hover:bg-purple-100 transition-colors inline-flex items-center gap-1"
