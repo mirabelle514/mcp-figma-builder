@@ -18,7 +18,7 @@ const FIGMA_ACCESS_TOKEN = "figd__qTPrcGmrCnpzQRGU5dXGrpbj8gG5sk_XSFF1GIJ";
 
 // These are pre-configured and ready to use
 const SUPABASE_URL = "https://oejykyovgwfaxyirtyxv.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los";
 
 // NOTE: Anthropic API key is OPTIONAL - only needed for React generation
 // You can test everything else without it!
