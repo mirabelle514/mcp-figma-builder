@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
-    "generate": "node generate-component.js"
+    "generate": "node scripts/generate-component.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
