@@ -2,6 +2,17 @@
 
 An MCP (Model Context Protocol) server that transforms Figma designs into production-ready React components **using YOUR actual component library**. Works with Claude Desktop, VS Code Continue, and other MCP-compatible AI tools.
 
+## ✨ NEW: Visual Setup Wizard!
+
+**No config file editing needed!** Just run `npm run dev` and follow the interactive setup wizard at `http://localhost:5173`
+
+- 🎯 Step-by-step guidance
+- ✅ Real-time validation
+- 📥 Auto-generate Claude Desktop config
+- 🎨 Beautiful, modern interface
+
+**Get started in 5 minutes!** See [Quick Start](#-quick-start-two-options) below.
+
 ## 🎯 Key Feature: Uses Your Actual Components!
 
 Unlike generic tools that generate Tailwind CSS, this tool generates code that **imports and uses your actual design system components** (EUI, Material-UI, Ant Design, or your custom library).
@@ -40,7 +51,35 @@ import { EuiButton, EuiFieldText, EuiForm } from '@elastic/eui';
 <EuiButton fill color="primary">Click</EuiButton>
 ```
 
-## Quick Start
+## 🚀 Quick Start (Two Options)
+
+### Option 1: Visual Setup Wizard (Recommended for First Time)
+
+**1. Clone and start the setup wizard:**
+```bash
+git clone <your-repo-url>
+cd <project-directory>
+npm install
+npm run dev
+```
+
+**2. Open your browser:**
+```
+http://localhost:5173
+```
+
+**3. Follow the interactive setup wizard:**
+- Choose your mode (No AI, Anthropic, or OpenAI)
+- Configure your component repository
+- Add API keys
+- Generate Claude Desktop config
+- Download and install
+
+**That's it!** The wizard walks you through everything step-by-step.
+
+---
+
+### Option 2: Manual Configuration
 
 ### 1. Setup Supabase Database
 

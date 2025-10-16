@@ -8,7 +8,28 @@ Takes Figma designs → Generates React code using **YOUR actual component libra
 
 ---
 
-## 🔧 Configuration (One-Time Setup)
+## ✨ NEW: Visual Setup Wizard!
+
+**Easiest way to get started:**
+
+```bash
+git clone <repo-url>
+npm install
+npm run dev
+# Open http://localhost:5173
+```
+
+**Interactive wizard walks you through:**
+- Choosing AI mode
+- Configuring repository
+- Adding API keys
+- Generating Claude Desktop config
+
+**No config file editing needed!** See [`docs/SETUP_WIZARD.md`](docs/SETUP_WIZARD.md)
+
+---
+
+## 🔧 Manual Configuration (Alternative)
 
 ### File Location
 - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
