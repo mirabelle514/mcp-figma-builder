@@ -8,7 +8,7 @@ An MCP (Model Context Protocol) server that transforms Figma designs into produc
 
 -  Step-by-step guidance
 -  Real-time validation
-- 📥 Auto-generate Claude Desktop config
+-  Auto-generate Claude Desktop config
 -  Beautiful, modern interface
 
 **Get started in 5 minutes!** See [Quick Start](#-quick-start-two-options) below.
