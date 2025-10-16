@@ -22,8 +22,8 @@ Complete guide to using the Figma-to-Component tool from start to finish.
 
 **1. Clone and install:**
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/mirabelle514/mcp-figma-builder
+cd mcp-figma-builder
 npm install
 ```
 

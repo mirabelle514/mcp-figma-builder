@@ -17,8 +17,8 @@ The Setup Wizard is an interactive web interface that guides you through configu
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/mirabelle514/mcp-figma-builder
+cd mcp-figma-builder
 ```
 
 ### 2. Install Dependencies
