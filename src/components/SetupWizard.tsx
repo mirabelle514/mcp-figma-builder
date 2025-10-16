@@ -751,10 +751,35 @@ export function SetupWizard() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-slate-200">
-                <p className="text-sm text-slate-600">
-                  Need help? Check out the documentation in the{' '}
-                  <code className="bg-slate-100 px-2 py-1 rounded text-xs">docs/</code> folder
+                <p className="text-sm text-slate-600 mb-3">
+                  Need help? Check out the documentation:
                 </p>
+                <div className="flex flex-wrap gap-3 justify-center text-xs">
+                  <a
+                    href="https://github.com/yourusername/yourrepo/blob/main/docs/USER_GUIDE.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 bg-blue-50 text-blue-700 rounded hover:bg-blue-100 transition-colors"
+                  >
+                    📚 User Guide
+                  </a>
+                  <a
+                    href="https://github.com/yourusername/yourrepo/blob/main/docs/TROUBLESHOOTING.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 bg-amber-50 text-amber-700 rounded hover:bg-amber-100 transition-colors"
+                  >
+                    🔧 Troubleshooting
+                  </a>
+                  <a
+                    href="https://github.com/yourusername/yourrepo/blob/main/docs/SETUP_WIZARD.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 bg-slate-50 text-slate-700 rounded hover:bg-slate-100 transition-colors"
+                  >
+                    ⚙️ Setup Details
+                  </a>
+                </div>
               </div>
             </div>
           )}
@@ -791,16 +816,33 @@ export function SetupWizard() {
 
         {/* Help Footer */}
         <div className="text-center mt-8 text-sm text-slate-600">
-          <p>
-            Having trouble?{' '}
-            <a href="#" className="text-blue-600 hover:underline">
-              Read the documentation
+          <p className="mb-2">Having trouble?</p>
+          <div className="flex flex-wrap gap-3 justify-center text-xs">
+            <a
+              href="https://github.com/yourusername/yourrepo/blob/main/docs/USER_GUIDE.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded hover:bg-blue-100 transition-colors inline-flex items-center gap-1"
+            >
+              📚 User Guide
             </a>
-            {' '}or{' '}
-            <a href="#" className="text-blue-600 hover:underline">
-              check the troubleshooting guide
+            <a
+              href="https://github.com/yourusername/yourrepo/blob/main/docs/TROUBLESHOOTING.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 bg-amber-50 text-amber-700 rounded hover:bg-amber-100 transition-colors inline-flex items-center gap-1"
+            >
+              🔧 Troubleshooting
             </a>
-          </p>
+            <a
+              href="https://github.com/yourusername/yourrepo/blob/main/docs/CUSTOM_AI_PROVIDER.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded hover:bg-purple-100 transition-colors inline-flex items-center gap-1"
+            >
+              🤖 Custom AI Guide
+            </a>
+          </div>
         </div>
       </div>
     </div>
