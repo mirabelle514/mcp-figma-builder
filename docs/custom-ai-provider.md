@@ -5,7 +5,7 @@
 Mode 4 allows you to connect the tool to your company's **internal/private AI infrastructure** instead of using public AI services like Anthropic or OpenAI.
 
 **Perfect for:**
-- Companies with internal AI tools (e.g., LibertyGPT, CompanyAI)
+- Companies with internal AI tools (e.g., CompanyAI, InternalAI)
 - Enterprises requiring data sovereignty
 - Teams with private ChatGPT deployments
 - Organizations with security/compliance requirements
@@ -49,8 +49,8 @@ Mode 4 allows you to connect the tool to your company's **internal/private AI in
 1. Run `npm run dev` and open `http://localhost:5173`
 2. **Choose Mode 4** "Custom AI Provider"
 3. Enter your configuration:
-   - **AI Name**: `LibertyGPT` (or your AI's name)
-   - **API URL**: `https://liberty-ai.yourcompany.com/v1/chat/completions`
+   - **AI Name**: `CompanyAI` (or your AI's name)
+   - **API URL**: `https://ai.yourcompany.com/v1/chat/completions`
    - **API Key**: Your internal API key
    - **Model** (optional): `gpt-4` or your model name
 
@@ -70,13 +70,13 @@ Edit your Claude Desktop config:
         "FIGMA_ACCESS_TOKEN": "figd_...",
         "SUPABASE_URL": "https://...",
         "SUPABASE_ANON_KEY": "eyJ...",
-        "EUI_REPO_OWNER": "your-org",
-        "EUI_REPO_NAME": "your-repo",
+        "REPO_OWNER": "your-org",
+        "REPO_NAME": "your-repo",
 
         "CUSTOM_AI_PROVIDER": "true",
-        "CUSTOM_AI_URL": "https://liberty-ai.yourcompany.com/v1/chat/completions",
+        "CUSTOM_AI_URL": "https://ai.yourcompany.com/v1/chat/completions",
         "CUSTOM_AI_KEY": "your-internal-api-key",
-        "CUSTOM_AI_NAME": "LibertyGPT",
+        "CUSTOM_AI_NAME": "CompanyAI",
         "CUSTOM_AI_MODEL": "gpt-4"
       }
     }
@@ -93,7 +93,7 @@ Edit your Claude Desktop config:
 | `CUSTOM_AI_PROVIDER` |  Yes | Enable custom AI | `"true"` |
 | `CUSTOM_AI_URL` |  Yes | API endpoint URL | `https://ai.company.com/v1/chat/completions` |
 | `CUSTOM_AI_KEY` |  Yes | API authentication key | `your-api-key-here` |
-| `CUSTOM_AI_NAME` |  Optional | Display name for logs | `"LibertyGPT"` |
+| `CUSTOM_AI_NAME` |  Optional | Display name for logs | `"CompanyAI"` |
 | `CUSTOM_AI_MODEL` |  Optional | Default model name | `"gpt-4"` |
 
 ---
@@ -215,8 +215,8 @@ Generate a simple React button component from scratch
 The MCP server logs will show:
 
 ```
-[LibertyGPT] Generated 1234 characters
-[LibertyGPT] Tokens: 150 prompt + 800 completion = 950 total
+[CompanyAI] Generated 1234 characters
+[CompanyAI] Tokens: 150 prompt + 800 completion = 950 total
 ```
 
 ### Test 3: Validate Output
@@ -359,13 +359,13 @@ const content = data.your_custom_response_field;
 
 ---
 
-##  Example: LibertyGPT Setup
+##  Example: Custom AI Setup
 
 ### Scenario
-Your company has an internal AI tool called "LibertyGPT" powered by ChatGPT:
+Your company has an internal AI tool called "CompanyAI" powered by ChatGPT:
 
 ```
-URL: https://liberty-ai.yourcompany.com/v1/chat/completions
+URL: https://ai.yourcompany.com/v1/chat/completions
 Auth: Bearer token from IT team
 Model: gpt-4
 ```
@@ -380,13 +380,13 @@ Model: gpt-4
         "FIGMA_ACCESS_TOKEN": "figd_...",
         "SUPABASE_URL": "https://...",
         "SUPABASE_ANON_KEY": "eyJ...",
-        "EUI_REPO_OWNER": "your-company",
-        "EUI_REPO_NAME": "design-system",
+        "REPO_OWNER": "your-company",
+        "REPO_NAME": "design-system",
 
         "CUSTOM_AI_PROVIDER": "true",
-        "CUSTOM_AI_URL": "https://liberty-ai.yourcompany.com/v1/chat/completions",
-        "CUSTOM_AI_KEY": "liberty-api-key-from-it",
-        "CUSTOM_AI_NAME": "LibertyGPT",
+        "CUSTOM_AI_URL": "https://ai.yourcompany.com/v1/chat/completions",
+        "CUSTOM_AI_KEY": "your-api-key-from-it",
+        "CUSTOM_AI_NAME": "CompanyAI",
         "CUSTOM_AI_MODEL": "gpt-4"
       }
     }
@@ -398,7 +398,7 @@ Model: gpt-4
 
 1. Scan your component repo
 2. Generate from Figma
-3. Check logs for `[LibertyGPT]` messages
+3. Check logs for `[CompanyAI]` messages
 4. Verify generated code uses your components
 
 ---

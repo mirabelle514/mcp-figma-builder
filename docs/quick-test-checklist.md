@@ -46,15 +46,15 @@ Edit: `~/Library/Application Support/Claude/claude_desktop_config.json`
 ```json
 {
   "mcpServers": {
-    "eui-figma": {
+    "component-figma": {
       "command": "node",
       "args": ["/absolute/path/to/mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN",
         "SUPABASE_URL": "https://your-project.supabase.co",
         "SUPABASE_ANON_KEY": "YOUR_KEY",
-        "EUI_REPO_OWNER": "elastic",
-        "EUI_REPO_NAME": "eui"
+        "REPO_OWNER": "elastic",
+        "REPO_NAME": "design-system"
       }
     }
   }
@@ -67,10 +67,10 @@ Edit: `~/Library/Application Support/Claude/claude_desktop_config.json`
 
 - [ ] 1. Restart Claude Desktop (Quit completely, reopen)
 - [ ] 2. Open Claude Desktop
-- [ ] 3. Type: "Scan the EUI repository"
+- [ ] 3. Type: "Scan the repository"
 - [ ] 4. Wait for scan to complete (30-60 sec)
 - [ ] 5. Type: "Analyze this Figma design: [YOUR_URL]"
-- [ ] 6. Review matched EUI components
+- [ ] 6. Review matched components
 - [ ] 7. Type: "Generate a React component from this Figma design: [YOUR_URL]"
 - [ ] 8. Should see error: "AI generation requires an API key"
 
@@ -145,13 +145,13 @@ Add this line to your config:
 
 ### Component Mapping (All Modes)
 ```
-Scan the EUI repository
+Scan the repository
 
 Analyze this Figma design: [URL]
 
 Generate an implementation guide for this Figma design: [URL]
 
-Get details about the EuiButton component
+Get details about the Button component
 ```
 
 ### AI Generation (Modes 2 & 3)

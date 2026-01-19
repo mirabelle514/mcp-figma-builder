@@ -2,7 +2,7 @@
 
 ##  What Was Added
 
-**Mode 4** allows companies to connect their **internal/private AI tools** (like LibertyGPT, Azure OpenAI, or self-hosted LLMs) instead of using public AI services.
+**Mode 4** allows companies to connect their **internal/private AI tools** (like Azure OpenAI, self-hosted LLMs, or custom AI infrastructure) instead of using public AI services.
 
 ---
 
@@ -30,7 +30,7 @@
 
 2. **`docs/CUSTOM_AI_PROVIDER.md`** 
    - Complete setup guide
-   - Configuration examples (LibertyGPT, Azure, self-hosted)
+   - Configuration examples (CompanyAI, Azure, self-hosted)
    - API format requirements
    - Troubleshooting
    - Security best practices
@@ -71,8 +71,8 @@
 
 1. **User runs setup wizard** → Chooses Mode 4
 2. **Enters custom AI details:**
-   - AI Name: `LibertyGPT`
-   - API URL: `https://liberty-ai.company.com/v1/chat/completions`
+   - AI Name: `CompanyAI`
+   - API URL: `https://ai.company.com/v1/chat/completions`
    - API Key: `internal-api-key`
    - Model: `gpt-4`
 
@@ -82,7 +82,7 @@
   "CUSTOM_AI_PROVIDER": "true",
   "CUSTOM_AI_URL": "https://...",
   "CUSTOM_AI_KEY": "...",
-  "CUSTOM_AI_NAME": "LibertyGPT",
+  "CUSTOM_AI_NAME": "CompanyAI",
   "CUSTOM_AI_MODEL": "gpt-4"
 }
 ```
@@ -185,7 +185,7 @@ Added 4th card:
 
 ```tsx
 <ModeCard
-  title="Mode 4: Custom AI Provider (e.g., LibertyGPT)"
+  title="Mode 4: Custom AI Provider"
   description="Connect to your company's internal AI tool..."
   cost="Your pricing"
   selected={config.mode === 'custom'}
@@ -202,7 +202,7 @@ Added 4th card:
 
 New form fields for Mode 4:
 
-- **Custom AI Name** - Display name (e.g., "LibertyGPT")
+- **Custom AI Name** - Display name (e.g., "CompanyAI")
 - **API Endpoint URL** - Full URL to chat completions endpoint
 - **API Key/Token** - Authentication credential
 - **Model Name** - Default model to use
@@ -213,14 +213,14 @@ With helpful placeholders and examples!
 
 ##  Use Cases
 
-### Use Case 1: LibertyGPT (Internal ChatGPT)
+### Use Case 1: Internal ChatGPT
 
-**Scenario:** Company has internal ChatGPT deployment called "LibertyGPT"
+**Scenario:** Company has internal ChatGPT deployment
 
 **Configuration:**
 ```json
-"CUSTOM_AI_NAME": "LibertyGPT",
-"CUSTOM_AI_URL": "https://liberty-ai.company.com/v1/chat/completions",
+"CUSTOM_AI_NAME": "CompanyAI",
+"CUSTOM_AI_URL": "https://ai.company.com/v1/chat/completions",
 "CUSTOM_AI_KEY": "internal-key-from-it",
 "CUSTOM_AI_MODEL": "gpt-4"
 ```
@@ -356,7 +356,7 @@ docs/
     ├── Configuration (wizard & manual)
     ├── Environment variables
     ├── API format
-    ├── Common setups (LibertyGPT, Azure, self-hosted)
+    ├── Common setups (CompanyAI, Azure, self-hosted)
     ├── Security best practices
     ├── Testing guide
     ├── Troubleshooting

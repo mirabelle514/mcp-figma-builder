@@ -1,12 +1,12 @@
 import { z } from 'zod';
-import { EuiScanner } from '../services/eui-scanner.js';
+import { ComponentScanner } from '../services/eui-scanner.js';
 import { DatabaseService } from '../services/db-service.js';
 
 const ScanEuiInputSchema = z.object({});
 
 export const scanEuiTool = {
-  name: 'scan_eui_repository',
-  description: 'Scan the EUI Design System repository and store all component metadata in the database. This should be run once to initialize the component library.',
+  name: 'scan_repository',
+  description: 'Scan the design system repository and store all component metadata in the database. This should be run once to initialize the component library.',
   inputSchema: {
     type: 'object' as const,
     properties: {},
@@ -15,12 +15,12 @@ export const scanEuiTool = {
 
 export async function handleScanEui(
   _args: z.infer<typeof ScanEuiInputSchema>,
-  env: { EUI_REPO_OWNER: string; EUI_REPO_NAME: string; GITHUB_TOKEN?: string; SUPABASE_URL: string; SUPABASE_ANON_KEY: string }
+  env: { REPO_OWNER: string; REPO_NAME: string; GITHUB_TOKEN?: string; SUPABASE_URL: string; SUPABASE_ANON_KEY: string }
 ) {
   try {
-    const scanner = new EuiScanner(
-      env.EUI_REPO_OWNER,
-      env.EUI_REPO_NAME,
+    const scanner = new ComponentScanner(
+      env.REPO_OWNER,
+      env.REPO_NAME,
       env.GITHUB_TOKEN
     );
 
@@ -31,7 +31,7 @@ export async function handleScanEui(
         content: [
           {
             type: 'text' as const,
-            text: `No components found in the EUI repository at https://github.com/${env.EUI_REPO_OWNER}/${env.EUI_REPO_NAME}.
+            text: `No components found in the repository at https://github.com/${env.REPO_OWNER}/${env.REPO_NAME}.
 
 Please verify:
 - The repository URL is correct
@@ -43,7 +43,7 @@ Please verify:
     }
 
     const db = new DatabaseService(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
-    await db.storeEuiComponents(components);
+    await db.storeComponents(components);
 
     const componentList = components
       .map(c => `  - ${c.component_name} (${c.category})`)
@@ -53,7 +53,7 @@ Please verify:
       content: [
         {
           type: 'text' as const,
-          text: `Successfully scanned EUI Design System repository!
+          text: `Successfully scanned design system repository!
 
 Found and stored ${components.length} components:
 
@@ -71,7 +71,7 @@ You can now analyze Figma designs and get implementation guides using these comp
       content: [
         {
           type: 'text' as const,
-          text: `Error scanning EUI repository: ${error instanceof Error ? error.message : String(error)}`,
+          text: `Error scanning repository: ${error instanceof Error ? error.message : String(error)}`,
         },
       ],
       isError: true,

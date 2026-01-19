@@ -18,8 +18,8 @@ interface Environment {
   FIGMA_ACCESS_TOKEN: string;
   SUPABASE_URL: string;
   SUPABASE_ANON_KEY: string;
-  EUI_REPO_OWNER: string;
-  EUI_REPO_NAME: string;
+  REPO_OWNER: string;
+  REPO_NAME: string;
   GITHUB_TOKEN?: string;
   ANTHROPIC_API_KEY?: string;
 }
@@ -29,8 +29,8 @@ function getEnv(): Environment {
     'FIGMA_ACCESS_TOKEN',
     'SUPABASE_URL',
     'SUPABASE_ANON_KEY',
-    'EUI_REPO_OWNER',
-    'EUI_REPO_NAME',
+    'REPO_OWNER',
+    'REPO_NAME',
   ];
 
   const missing = required.filter(key => !process.env[key]);
@@ -42,8 +42,8 @@ function getEnv(): Environment {
     FIGMA_ACCESS_TOKEN: process.env.FIGMA_ACCESS_TOKEN!,
     SUPABASE_URL: process.env.SUPABASE_URL!,
     SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY!,
-    EUI_REPO_OWNER: process.env.EUI_REPO_OWNER!,
-    EUI_REPO_NAME: process.env.EUI_REPO_NAME!,
+    REPO_OWNER: process.env.REPO_OWNER!,
+    REPO_NAME: process.env.REPO_NAME!,
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
     ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
   };
@@ -51,7 +51,7 @@ function getEnv(): Environment {
 
 const server = new Server(
   {
-    name: 'eui-mcp-server',
+    name: 'component-mcp-server',
     version: '1.0.0',
   },
   {
@@ -78,7 +78,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request: any) => {
 
   try {
     switch (request.params.name) {
-      case 'scan_eui_repository':
+      case 'scan_repository':
         return await handleScanEui(request.params.arguments || {}, env);
 
       case 'analyze_figma_design':
@@ -120,16 +120,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request: any) => {
 async function main() {
   try {
     const env = getEnv();
-    console.error('EUI MCP Server starting...');
-    console.error(`Configured for repository: ${env.EUI_REPO_OWNER}/${env.EUI_REPO_NAME}`);
+    console.error('Component MCP Server starting...');
+    console.error(`Configured for repository: ${env.REPO_OWNER}/${env.REPO_NAME}`);
     console.error(`Using Supabase at: ${env.SUPABASE_URL}`);
 
     const transport = new StdioServerTransport();
     await server.connect(transport);
 
-    console.error('EUI MCP Server running on stdio');
+    console.error('Component MCP Server running on stdio');
     console.error('\nAvailable tools:');
-    console.error('  - scan_eui_repository: Scan and load EUI components');
+    console.error('  - scan_repository: Scan and load components');
     console.error('  - analyze_figma_design: Analyze Figma design and match components');
     console.error('  - generate_implementation_guide: Generate complete implementation guide');
     console.error('  - get_component_details: Get details about a specific component');

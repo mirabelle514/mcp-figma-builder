@@ -99,14 +99,14 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 ### Advanced Topics
 
 #### **[ Custom AI Provider](CUSTOM_AI_PROVIDER.md)**  MODE 4 USERS
-*Connect internal AI tools (LibertyGPT, Azure, etc.)*
+*Connect internal AI tools (CompanyAI, Azure, etc.)*
 
 **What's included:**
 - Mode 4 overview
 - Requirements
 - Complete setup guide
 - 3 detailed examples:
-  - LibertyGPT setup
+  - Custom AI setup
   - Azure OpenAI setup
   - Self-hosted LLM setup
 - Security best practices
@@ -203,7 +203,7 @@ Welcome to the complete documentation for the Figma-to-Component tool!
 **Fix an error**
 → [Troubleshooting Guide](TROUBLESHOOTING.md) → Quick Diagnosis
 
-**Use my internal AI (LibertyGPT)**
+**Use my internal AI (CompanyAI)**
 → [Custom AI Provider](CUSTOM_AI_PROVIDER.md)
 
 **Switch component libraries**

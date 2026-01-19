@@ -2,10 +2,10 @@
 
 MCP server that helps developers implement Figma designs using their **actual component library**. It offers two powerful approaches:
 
-1. **Component Mapping**: Matches Figma designs to your existing component library (EUI, Material-UI, your custom design system, etc.)
+1. **Component Mapping**: Matches Figma designs to your existing component library (Material-UI, Ant Design, your custom design system, etc.)
 2. **AI Code Generation**: Generates React components using your **actual component library components** (not generic Tailwind)
 
-** Works with ANY component library!** Default is Elastic EUI, but easily configurable for your own repo.
+** Works with ANY component library!** Easily configurable for your own repo.
 
 ## Quick Start
 
@@ -35,8 +35,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
         "FIGMA_ACCESS_TOKEN": "figd_your_figma_token",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_supabase_anon_key",
-        "EUI_REPO_OWNER": "elastic",
-        "EUI_REPO_NAME": "eui",
+        "REPO_OWNER": "your-org",
+        "REPO_NAME": "design-system",
         "GITHUB_TOKEN": "your_github_token_optional",
         "ANTHROPIC_API_KEY": "your_anthropic_api_key_optional"
       }
@@ -49,8 +49,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 
 Change these two lines to point to YOUR repository:
 ```json
-"EUI_REPO_OWNER": "your-company",
-"EUI_REPO_NAME": "your-design-system"
+"REPO_OWNER": "your-company",
+"REPO_NAME": "your-design-system"
 ```
 
 **Examples:**
@@ -66,14 +66,14 @@ Change these two lines to point to YOUR repository:
 
 **Approach 1: Match to Existing Components**
 ```
-User: Scan the EUI Design System repository
+User: Scan the design system repository
 
 Claude: [Scans repo, finds components]
 
 User: Help me implement this Figma design:
 https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=4-38
 
-Claude: [Provides implementation guide with existing EUI components]
+Claude: [Provides implementation guide with existing components]
 ```
 
 **Approach 2: Generate New React Component** (Uses Your Actual Components!)
@@ -81,25 +81,25 @@ Claude: [Provides implementation guide with existing EUI components]
 User: Generate a React component from this Figma design:
 https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=4-38
 
-Claude: [Uses AI to generate complete React component using EUI/your component library]
+Claude: [Uses AI to generate complete React component using your component library]
 ```
 
 **The AI generates code that imports and uses YOUR actual components:**
 ```tsx
-import { EuiButton, EuiFieldText, EuiForm } from '@elastic/eui';
+import { Button, FieldText, Form } from '@design-system/components';
 // NOT: <button className="px-4 py-2 bg-blue-500">
-// BUT: <EuiButton fill color="primary">
+// BUT: <Button fill color="primary">
 ```
 
 ## Available Tools
 
-### `scan_eui_repository`
-Scans the Lumiere repository and loads all components into the database.
+### `scan_repository`
+Scans the repository and loads all components into the database.
 
 **Usage:** Run once to initialize.
 
 ### `analyze_figma_design`
-Analyzes a Figma design and matches it to EUI components.
+Analyzes a Figma design and matches it to design system components.
 
 **Parameters:**
 - `figmaUrl`: Full Figma URL
@@ -111,7 +111,7 @@ Generates complete implementation guide with code examples.
 - `figmaUrl`: Full Figma URL
 
 ### `get_component_details`
-Get details about a specific EUI component.
+Get details about a specific component.
 
 **Parameters:**
 - `componentName`: Name of component (e.g., "Button")
@@ -151,8 +151,8 @@ Output:
 - `FIGMA_ACCESS_TOKEN`: Your Figma personal access token
 - `SUPABASE_URL`: Supabase project URL
 - `SUPABASE_ANON_KEY`: Supabase anonymous key
-- `EUI_REPO_OWNER`: GitHub organization/user (e.g., "mirabelle514")
-- `EUI_REPO_NAME`: GitHub repository name (e.g., "Lumiere-Design-System")
+- `REPO_OWNER`: GitHub organization/user (e.g., "your-org")
+- `REPO_NAME`: GitHub repository name (e.g., "design-system")
 
 ### Optional
 - `GITHUB_TOKEN`: GitHub token for private repos

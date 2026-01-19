@@ -36,8 +36,8 @@ npm run build
         "FIGMA_ACCESS_TOKEN": "figd_your_actual_token",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_actual_key",
-        "EUI_REPO_OWNER": "elastic",
-        "EUI_REPO_NAME": "eui"
+        "REPO_OWNER": "elastic",
+        "REPO_NAME": "eui"
       }
     }
   }

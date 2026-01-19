@@ -1,4 +1,4 @@
-# EUI MCP Server
+# Component MCP Server
 
 An MCP (Model Context Protocol) server that transforms Figma designs into production-ready React components **using YOUR actual component library**. Works with Claude Desktop, VS Code Continue, and other MCP-compatible AI tools.
 
@@ -15,7 +15,7 @@ An MCP (Model Context Protocol) server that transforms Figma designs into produc
 
 ##  Key Feature: Uses Your Actual Components!
 
-Unlike generic tools that generate Tailwind CSS, this tool generates code that **imports and uses your actual design system components** (EUI, Material-UI, Ant Design, or your custom library).
+Unlike generic tools that generate Tailwind CSS, this tool generates code that **imports and uses your actual design system components** (Material-UI, Ant Design, or your custom library).
 
 ## Features
 
@@ -24,13 +24,13 @@ Unlike generic tools that generate Tailwind CSS, this tool generates code that *
 1. **Mode 1 - Component Mapping Only**: Free - Matches Figma to your component library (no AI)
 2. **Mode 2 - AI with Anthropic Claude**: Generates code using your components with Claude 3.5 Sonnet
 3. **Mode 3 - AI with OpenAI GPT-4**: Generates code using your components with GPT-4o
-4. **Mode 4 - Custom AI Provider**: Connect your internal AI (e.g., LibertyGPT, Azure OpenAI)
+4. **Mode 4 - Custom AI Provider**: Connect your internal AI (e.g., Azure OpenAI, self-hosted LLMs)
 
 ### What It Does
 
-- Scans YOUR component library repository (EUI, Material-UI, or your custom design system)
+- Scans YOUR component library repository (Material-UI, Ant Design, or your custom design system)
 - Analyzes complete Figma designs (layouts, styles, colors, typography)
-- **Matches Figma elements to your actual components** (Button → EuiButton, Input → EuiFieldText)
+- **Matches Figma elements to your actual components** (Button → Button, Input → FieldText)
 - **Generates code using your component library imports** (not generic HTML/Tailwind)
 - Extracts design tokens (colors, spacing, fonts, shadows)
 - Stores generation history in Supabase
@@ -40,7 +40,7 @@ Unlike generic tools that generate Tailwind CSS, this tool generates code that *
 
 **What you get:**
 ```tsx
-import { EuiButton, EuiFieldText, EuiForm } from '@elastic/eui';
+import { Button, FieldText, Form } from '@design-system/components';
 // Uses YOUR actual components
 ```
 
@@ -50,7 +50,7 @@ import { EuiButton, EuiFieldText, EuiForm } from '@elastic/eui';
 <button className="px-4 py-2 bg-blue-500">Click</button>
 
 //  But this:
-<EuiButton fill color="primary">Click</EuiButton>
+<Button fill color="primary">Click</Button>
 ```
 
 ##  Quick Start (Two Options)
@@ -114,8 +114,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_supabase_anon_key",
         "ANTHROPIC_API_KEY": "your_anthropic_api_key_optional",
-        "EUI_REPO_OWNER": "elastic",
-        "EUI_REPO_NAME": "eui",
+        "REPO_OWNER": "your-org",
+        "REPO_NAME": "design-system",
         "GITHUB_TOKEN": "optional_github_token"
       }
     }
@@ -127,8 +127,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 Change these two lines:
 ```json
-"EUI_REPO_OWNER": "your-org",
-"EUI_REPO_NAME": "your-design-system"
+"REPO_OWNER": "your-org",
+"REPO_NAME": "your-design-system"
 ```
 
 Examples:
@@ -153,15 +153,15 @@ Examples:
 User: Generate a React component from this Figma design:
 https://www.figma.com/design/ABC123/Design?node-id=4-38
 
-Claude: [Generates complete React component using EUI/your component library]
+Claude: [Generates complete React component using your component library]
 ```
 
 **Or match to existing components:**
 ```
-User: Scan the EUI repository, then analyze this design:
+User: Scan the repository, then analyze this design:
 https://www.figma.com/design/ABC123/Design?node-id=4-38
 
-Claude: [Matches design to existing EUI components]
+Claude: [Matches design to existing components]
 ```
 
 ## Available MCP Tools
@@ -177,29 +177,29 @@ Generate a complete React component from Figma design.
 
 **Output:**
 - Complete React component code
-- **Uses your actual component library** (EUI, Material-UI, etc.)
+- **Uses your actual component library** (Material-UI, Ant Design, etc.)
 - TypeScript interfaces
 - Proper component imports from your design system
 - Design tokens
 - Usage examples
 
-### `scan_eui_repository`
-Scan EUI Design System and load components into database.
+### `scan_repository`
+Scan design system repository and load components into database.
 
 ### `analyze_figma_design`
-Analyze Figma design and match to existing EUI components.
+Analyze Figma design and match to existing components.
 
 **Parameters:**
 - `figmaUrl`: Full Figma URL
 
 ### `generate_implementation_guide`
-Generate implementation guide using EUI components.
+Generate implementation guide using design system components.
 
 **Parameters:**
 - `figmaUrl`: Full Figma URL
 
 ### `get_component_details`
-Get details about a specific EUI component.
+Get details about a specific component.
 
 **Parameters:**
 - `componentName`: Component name
@@ -229,7 +229,7 @@ Output (Production-ready React component)
 - **Anthropic Claude** or **OpenAI GPT-4**: AI code generation
 - **Supabase**: Database storage
 - **TypeScript**: Type-safe development
-- **Your Component Library**: EUI, Material-UI, Ant Design, or custom
+- **Your Component Library**: Material-UI, Ant Design, or custom
 
 ## Database Schema
 
@@ -238,7 +238,7 @@ Output (Production-ready React component)
 1. **figma_designs**: Stores Figma design data
 2. **generated_components**: Stores generated React components
 3. **generation_history**: Tracks all generation requests
-4. **eui_components**: EUI Design System components
+4. **components**: Design system components
 5. **figma_component_mappings**: Component matching rules
 
 ## Development
@@ -262,15 +262,15 @@ When you generate a component, you get code that **uses your actual component li
 ```tsx
 import React, { useState } from 'react';
 import {
-  EuiForm,
-  EuiFormRow,
-  EuiFieldText,
-  EuiFieldPassword,
-  EuiButton,
-  EuiPanel,
-  EuiTitle,
-  EuiSpacer
-} from '@elastic/eui';
+  Form,
+  FormRow,
+  FieldText,
+  FieldPassword,
+  Button,
+  Panel,
+  Title,
+  Spacer
+} from '@design-system/components';
 
 interface LoginFormProps {
   onSubmit?: (email: string, password: string) => void;
@@ -286,43 +286,43 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
   };
 
   return (
-    <EuiPanel style={{ maxWidth: 400 }}>
-      <EuiTitle size="l">
+    <Panel style={{ maxWidth: 400 }}>
+      <Title size="l">
         <h2>Welcome Back</h2>
-      </EuiTitle>
+      </Title>
 
-      <EuiSpacer size="l" />
+      <Spacer size="l" />
 
-      <EuiForm component="form" onSubmit={handleSubmit}>
-        <EuiFormRow label="Email">
-          <EuiFieldText
+      <Form component="form" onSubmit={handleSubmit}>
+        <FormRow label="Email">
+          <FieldText
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             icon="email"
           />
-        </EuiFormRow>
+        </FormRow>
 
-        <EuiFormRow label="Password">
-          <EuiFieldPassword
+        <FormRow label="Password">
+          <FieldPassword
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </EuiFormRow>
+        </FormRow>
 
-        <EuiSpacer size="l" />
+        <Spacer size="l" />
 
-        <EuiButton type="submit" fill fullWidth>
+        <Button type="submit" fill fullWidth>
           Sign In
-        </EuiButton>
-      </EuiForm>
-    </EuiPanel>
+        </Button>
+      </Form>
+    </Panel>
   );
 }
 ```
 
-**Notice:** It uses `EuiButton`, `EuiFieldText`, etc. from your component library instead of generic HTML elements!
+**Notice:** It uses `Button`, `FieldText`, etc. from your component library instead of generic HTML elements!
 
 ## What Works Well
 
@@ -367,7 +367,7 @@ Add to your Continue config:
 ```json
 {
   "mcpServers": {
-    "eui-mcp-server": {
+    "component-mcp-server": {
       "command": "node",
       "args": ["/absolute/path/to/mcp-server/dist/index.js"],
       "env": {

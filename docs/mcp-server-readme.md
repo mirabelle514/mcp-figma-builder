@@ -1,6 +1,6 @@
 # Figma-to-Lumiere Implementation Guide MCP Server
 
-A Model Context Protocol (MCP) server that helps developers implement Figma designs using existing EUI Design System components.
+A Model Context Protocol (MCP) server that helps developers implement Figma designs using existing design system components.
 
 ## Table of Contents
 
@@ -19,10 +19,10 @@ A Model Context Protocol (MCP) server that helps developers implement Figma desi
 
 ## Overview
 
-This MCP server bridges the gap between Figma designs and your existing EUI Design System components. Instead of generating new components from scratch, it:
+This MCP server bridges the gap between Figma designs and your existing design system components. Instead of generating new components from scratch, it:
 
 1. **Analyzes Figma designs** to understand visual patterns and structure
-2. **Maps designs to existing EUI components** with confidence scores
+2. **Maps designs to existing components** with confidence scores
 3. **Generates implementation guides** with code examples using your components
 4. **Provides fast customization prompts** to help developers adapt the components
 
@@ -98,7 +98,7 @@ Developer customizes with fast prompts:
       └─────────────┘   └─────────────────┘
               │
       ┌───────▼─────────────────────┐
-      │  EUI Design System      │
+      │  Design System          │
       │  GitHub Repository          │
       │  (existing components)      │
       └─────────────────────────────┘
@@ -110,7 +110,7 @@ Developer customizes with fast prompts:
 - **Figma API Token**: Personal access token from Figma
 - **Supabase Account**: For component mapping storage (provided)
 - **MCP-Compatible Client**: Claude Desktop or other MCP clients
-- **EUI Design System**: Access to the GitHub repository
+- **Design System**: Access to the GitHub repository
 
 ## Installation
 
@@ -172,9 +172,9 @@ FIGMA_ACCESS_TOKEN=figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2
 SUPABASE_URL=https://oejykyovgwfaxyirtyxv.supabase.co
 SUPABASE_ANON_KEY=your_supabase_anon_key
 
-# EUI Design System Repository
-EUI_REPO_OWNER=mirabelle514
-EUI_REPO_NAME=Lumiere-Design-System
+# Design System Repository
+REPO_OWNER=mirabelle514
+REPO_NAME=Lumiere-Design-System
 GITHUB_TOKEN=your_github_token_for_private_repos (optional)
 ```
 
@@ -192,8 +192,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_key",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -208,7 +208,7 @@ First time setup - scan the Lumiere repository:
 
 ```
 In Claude Desktop:
-"Scan the EUI Design System repository and load all available components"
+"Scan the design system repository and load all available components"
 ```
 
 This will:
@@ -232,7 +232,7 @@ https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=4-38"
 
 ## Matched Components
 
-Found 3 EUI components that match your design:
+Found 3 components that match your design:
 
 ### Hero Component (95% match)
 - Figma node: "Hero Section"
@@ -346,7 +346,7 @@ const guide = generator.generateGuide(matches, figmaData);
 
 ## MCP Tools Reference
 
-### `scan_eui_repository`
+### `scan_repository`
 Scans EUI Design System and stores component metadata.
 
 **Parameters:** None
@@ -450,7 +450,7 @@ export const analyzeFigmaTool = {
 ### "No components found in Lumiere repository"
 
 **Solution:**
-- Verify `EUI_REPO_OWNER` and `EUI_REPO_NAME` are correct
+- Verify `REPO_OWNER` and `REPO_NAME` are correct
 - Check if repo is private (need GitHub token)
 - Ensure component files are in standard locations (src/components, components, lib/components)
 

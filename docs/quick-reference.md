@@ -2,7 +2,7 @@
 
 ##  What This Tool Does
 
-Takes Figma designs → Generates React code using **YOUR actual component library** (EUI, Material-UI, etc.)
+Takes Figma designs → Generates React code using **YOUR actual component library** (Material-UI, Ant Design, etc.)
 
 **NOT generic Tailwind CSS**  **Your design system components**
 
@@ -46,8 +46,8 @@ npm run dev
         "FIGMA_ACCESS_TOKEN": "figd_...",
         "SUPABASE_URL": "https://...",
         "SUPABASE_ANON_KEY": "eyJ...",
-        "EUI_REPO_OWNER": "elastic",
-        "EUI_REPO_NAME": "eui"
+        "REPO_OWNER": "elastic",
+        "REPO_NAME": "design-system"
       }
     }
   }
@@ -56,8 +56,8 @@ npm run dev
 
 ### Change Repository (Your Own Component Library)
 ```json
-"EUI_REPO_OWNER": "your-company",
-"EUI_REPO_NAME": "your-design-system"
+"REPO_OWNER": "your-company",
+"REPO_NAME": "your-design-system"
 ```
 
 ---
@@ -68,7 +68,7 @@ npm run dev
 
 **Scan Repository (First Time):**
 ```
-Scan the eui repository
+Scan the repository
 ```
 
 **Analyze Design:**
@@ -83,7 +83,7 @@ Generate a React component from this Figma design: [URL]
 
 **Get Component Details:**
 ```
-Get details about the EuiButton component
+Get details about the Button component
 ```
 
 ---
@@ -97,14 +97,14 @@ Figma URL: https://www.figma.com/design/ABC123/Login?node-id=4-38
 
 ### Output
 ```tsx
-import { EuiButton, EuiFieldText, EuiForm } from '@elastic/eui';
+import { Button, FieldText, Form } from '@design-system/components';
 
 export function LoginForm() {
   return (
-    <EuiForm>
-      <EuiFieldText placeholder="Email" />
-      <EuiButton fill color="primary">Sign In</EuiButton>
-    </EuiForm>
+    <Form>
+      <FieldText placeholder="Email" />
+      <Button fill color="primary">Sign In</Button>
+    </Form>
   );
 }
 ```
@@ -128,13 +128,13 @@ export function LoginForm() {
 
 ##  Supported Component Libraries
 
-- **Elastic EUI** (default)
+- **Your Design System** (configurable)
 - **Material-UI** (`mui` / `material-ui`)
 - **Ant Design** (`ant-design` / `ant-design`)
 - **Chakra UI** (`chakra-ui` / `chakra-ui`)
 - **Your Custom Library** (any public/private repo)
 
-Just change `EUI_REPO_OWNER` and `EUI_REPO_NAME`!
+Just change `REPO_OWNER` and `REPO_NAME`!
 
 ---
 
@@ -170,10 +170,10 @@ npm run build
 1. Build: `cd mcp-server && npm run build`
 2. Configure Claude Desktop (see above)
 3. Restart Claude Desktop completely
-4. In Claude: `Scan the eui repository`
+4. In Claude: `Scan the repository`
 5. Wait 30-60 seconds
 6. In Claude: `Generate a React component from [YOUR_FIGMA_URL]`
-7. Check output uses `import { Eui... } from '@elastic/eui'`
+7. Check output uses your component library imports
 
 ---
 
@@ -203,8 +203,8 @@ npm run build
 
 1. Update config:
 ```json
-"EUI_REPO_OWNER": "mui",
-"EUI_REPO_NAME": "material-ui"
+"REPO_OWNER": "mui",
+"REPO_NAME": "material-ui"
 ```
 
 2. Restart Claude Desktop

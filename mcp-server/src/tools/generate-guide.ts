@@ -10,7 +10,7 @@ const GenerateGuideInputSchema = z.object({
 
 export const generateGuideTool = {
   name: 'generate_implementation_guide',
-  description: 'Generate a complete implementation guide with code examples for implementing a Figma design using EUI Design System components.',
+  description: 'Generate a complete implementation guide with code examples for implementing a Figma design using design system components.',
   inputSchema: {
     type: 'object' as const,
     properties: {
@@ -32,14 +32,14 @@ export async function handleGenerateGuide(
     const { fileKey, nodeId } = figmaService.parseFigmaUrl(args.figmaUrl);
 
     const db = new DatabaseService(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
-    const components = await db.getEuiComponents();
+    const components = await db.getComponents();
 
     if (components.length === 0) {
       return {
         content: [
           {
             type: 'text' as const,
-            text: `No EUI components found in database. Please run the 'scan_eui_repository' tool first.`,
+            text: `No components found in database. Please run the 'scan_repository' tool first.`,
           },
         ],
       };

@@ -45,8 +45,8 @@ SUPABASE_ANON_KEY=[your_key]
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "YOUR_KEY",
         "ANTHROPIC_API_KEY": "sk-ant-YOUR_KEY",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }

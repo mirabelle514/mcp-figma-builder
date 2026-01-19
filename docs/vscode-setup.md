@@ -34,8 +34,8 @@
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los",
         "ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_KEY",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -257,7 +257,7 @@ Key Sections:
 
 Complete architecture overview with diagrams
 Prerequisites and installation steps
-Database schema with Bolt Database integration
+Database schema with Supabase integration
 MCP tools reference for all operations
 Phase 1: Design system integration (component mapping, token extraction)
 Phase 2: AI-assisted component generation from Figma links
@@ -267,7 +267,7 @@ Core Features Documented:
 
 Fetch Figma designs and extract design tokens
 Map Figma components to your React library
-Store mappings in Bolt Database
+Store mappings in Supabase
 Use prompt templates for consistent generation
 Generate components, patterns, or full pages from Figma URLs
 The README includes practical examples, complete database schema, TypeScript implementations, and a quick-start checklist to get engineers building faster while maintaining design system alignment.
@@ -327,7 +327,7 @@ Accessibility (14 prompts): ARIA, semantic HTML, screen readers, WCAG compliance
 Performance (12 prompts): Memoization, lazy loading, virtualization, optimization strategies
 Testing (12 prompts): Unit tests, accessibility tests, interaction tests, edge cases
 3. Database Schema
-Created Bolt Database tables for:
+Created Supabase tables for:
 
 prompt_templates: Store all prompt templates
 prompt_categories: Organize prompts by category
@@ -391,13 +391,13 @@ Accessibility (14 prompts)
 Performance (12 prompts)
 Testing (12 prompts)
 5. Database Schema
-Created Bolt Database tables for:
+Created Supabase tables for:
 
 prompt_templates - Store all 68 prompt templates
 prompt_categories - 6 organized categories
 prompt_combinations - Common preset combinations
 generation_history - Track component generations
-Note: The database has RLS policies that require admin access for inserting prompts. For initial setup, you'll need to use the Bolt Database dashboard or a service role key to populate the prompt templates.
+Note: The database has RLS policies that require admin access for inserting prompts. For initial setup, you'll need to use the Supabase dashboard or a service role key to populate the prompt templates.
 
 Your project is now ready to use the MCP server for generating React components from your Figma designs using the curated prompt library!
 
@@ -415,7 +415,7 @@ Based on what I can see:
 
 .bolt folder: Doesn't exist in this project, so nothing to remove.
 
-Bolt Database folder: Keep it! Here's why:
+Supabase folder: Keep it! Here's why:
 
 The supabase/migrations/ folder contains your database schema migration:
 
@@ -436,7 +436,7 @@ store-figma-data.mjs - Script to populate database
 node_modules/ (add to .gitignore)
 dist/ (build output, add to .gitignore)
 .env (keep template, but don't commit actual keys)
-The supabase/migrations/ folder is essential because it defines your database schema. When you or others set up the project, these migrations will create the necessary tables in Bolt Database.
+The supabase/migrations/ folder is essential because it defines your database schema. When you or others set up the project, these migrations will create the necessary tables in Supabase.
 
 explain how to use this mcp server
 
@@ -449,7 +449,7 @@ Architecture Overview
 
 You → Claude Desktop → MCP Server → Figma API
                     ↓
-                  Bolt Database
+                  Supabase
                     ↓
               Generated React Code
 Setup Steps
@@ -465,7 +465,7 @@ cd figma-react-mcp-server
 npm init -y
 
 # Install dependencies
-npm install @modelcontextprotocol/sdk @supabase/Bolt Database-js axios
+npm install @modelcontextprotocol/sdk @supabase/Supabase-js axios
 2. Configure Claude Desktop
 Edit your Claude Desktop config file:
 
@@ -481,14 +481,14 @@ Add this configuration:
       "args": ["/path/to/figma-react-mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
-        "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Bolt Database_ANON_KEY": "your_Bolt Database_anon_key"
+        "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
+        "Supabase_ANON_KEY": "your_Supabase_anon_key"
       }
     }
   }
 }
 3. Run Database Migrations
-The migrations are already created in supabase/migrations/. They'll be automatically applied to your Bolt Database project.
+The migrations are already created in supabase/migrations/. They'll be automatically applied to your Supabase project.
 
 How to Use It
 Method 1: Generate Component from Figma URL
@@ -631,7 +631,7 @@ Maintainability - Clean, documented, type-safe code
 Learning - See best practices applied to your specific designs
 Next Steps
 Set up the actual MCP server implementation (the README provides the architecture)
-Populate the prompt_templates table in Bolt Database
+Populate the prompt_templates table in Supabase
 Start generating components from your Figma designs
 Build your component library in the EUI Design System repo
 The key advantage is that you get AI-generated components that follow your team's engineering standards through the curated prompt library, rather than generic AI-generated code.
@@ -768,10 +768,10 @@ Create a separate Node.js project that implements the MCP server:
 mkdir lumiere-figma-mcp-server
 cd lumiere-figma-mcp-server
 npm init -y
-npm install @modelcontextprotocol/sdk @supabase/Bolt Database-js zod
+npm install @modelcontextprotocol/sdk @supabase/Supabase-js zod
 Then copy the service files from this project and create the MCP server entry point that registers tools like:
 
-scan_eui_repository
+scan_repository
 analyze_figma_design
 generate_implementation_guide
 Step 2: User Setup (After you publish the MCP server)
@@ -794,10 +794,10 @@ Edit ~/Library/Application Support/Claude/claude_desktop_config.json:
       "args": ["/path/to/lumiere-figma-mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
-        "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Bolt Database_ANON_KEY": "their_key",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
+        "Supabase_ANON_KEY": "their_key",
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -811,7 +811,7 @@ User in Claude Desktop:
 "Scan the EUI Design System repository"
 
 Claude (via MCP):
-[Calls scan_eui_repository tool]
+[Calls scan_repository tool]
 "Found 25 components: Button, Hero, Card, Navbar..."
 
 User:
@@ -846,9 +846,9 @@ yes - Create the complete MCP server implementation here (the index.ts and tool 
 
 Plan
 Create MCP server entry point (index.ts)
-Create database service for Bolt Database operations
+Create database service for Supabase operations
 Create Figma API service
-Create MCP tool: scan_eui_repository
+Create MCP tool: scan_repository
 Create MCP tool: analyze_figma_design
 Create MCP tool: generate_implementation_guide
 Create MCP tool: get_component_details
@@ -866,13 +866,13 @@ mcp-server/
 ├── src/
 │   ├── index.ts                    # Main MCP server entry point
 │   ├── services/
-│   │   ├── db-service.ts           # Bolt Database operations
+│   │   ├── db-service.ts           # Supabase operations
 │   │   ├── figma-service.ts        # Figma API integration
 │   │   ├── lumiere-scanner.ts      # Scans Lumiere repo
 │   │   ├── figma-matcher.ts        # Matches Figma to components
 │   │   └── implementation-generator.ts # Generates guides
 │   └── tools/
-│       ├── scan-lumiere.ts         # scan_eui_repository tool
+│       ├── scan-lumiere.ts         # scan_repository tool
 │       ├── analyze-figma.ts        # analyze_figma_design tool
 │       ├── generate-guide.ts       # generate_implementation_guide tool
 │       └── get-component.ts        # get_component_details tool
@@ -897,10 +897,10 @@ Edit ~/Library/Application Support/Claude/claude_desktop_config.json:
       "args": ["/path/to/project/mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
-        "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Bolt Database_ANON_KEY": "your_key_here",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
+        "Supabase_ANON_KEY": "your_key_here",
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -931,7 +931,7 @@ import { Hero, Button } from '@lumiere/components';
   <Button variant="primary">Our projects</Button>
 </Hero>
 The 4 MCP Tools
-scan_eui_repository - Scans GitHub, stores components
+scan_repository - Scans GitHub, stores components
 analyze_figma_design - Matches Figma to components
 generate_implementation_guide - Creates full code guide
 get_component_details - Shows component documentation
@@ -985,7 +985,7 @@ Files to update:
 ✏️ MCP_SERVER_README.md - Lines 169, 192
 Action: Get your token from https://www.figma.com/settings (Personal Access Tokens section)
 
-2. Bolt Database URL
+2. Supabase URL
 Replace: https://oejykyovgwfaxyirtyxv.supabase.co
 
 Files to update:
@@ -994,16 +994,16 @@ Files to update:
 ✏️ mcp-server/README.md - Line 31
 ✏️ MCP_SERVER_README.md - Lines 172, 193
 ✏️ store-figma-data.mjs - Line 4 (if you use this script)
-Action: Keep as-is if using your existing Bolt Database, or update to your own project URL
+Action: Keep as-is if using your existing Supabase, or update to your own project URL
 
-3. Bolt Database Anonymous Key
-Look for: Bolt Database_ANON_KEY
+3. Supabase Anonymous Key
+Look for: Supabase_ANON_KEY
 
 Files to update:
 
-✏️ mcp-server/README.md - Line 32 (says "your_Bolt Database_anon_key")
-✏️ MCP_SERVER_README.md - Line 173, 194 (says "your_Bolt Database_anon_key" or "your_key")
-Action: Replace with your actual Bolt Database anon key from project settings
+✏️ mcp-server/README.md - Line 32 (says "your_Supabase_anon_key")
+✏️ MCP_SERVER_README.md - Line 173, 194 (says "your_Supabase_anon_key" or "your_key")
+Action: Replace with your actual Supabase anon key from project settings
 
 4. Lumiere Repo Owner
 Replace: mirabelle514
@@ -1037,7 +1037,7 @@ Action: Optional - update with your own Figma URL for examples
 Most Important (Required for MCP Server to work):
 
 mcp-server/README.md - Lines 30-34 (All tokens and repo info)
-.env - Line 2 (Bolt Database URL if different)
+.env - Line 2 (Supabase URL if different)
 Documentation (Optional but recommended):
 3. MCP_SERVER_README.md - Update example credentials and URLs
 4. Example Figma URLs - Use your own design files
@@ -1170,10 +1170,10 @@ Add to your MCP configuration (e.g., claude_desktop_config.json):
       "args": ["/absolute/path/to/this/project/mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
-        "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Bolt Database_ANON_KEY": "your_key_from_.env",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
+        "Supabase_ANON_KEY": "your_key_from_.env",
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -1310,9 +1310,9 @@ mcp-client-cli node /path/to/mcp-server/dist/index.js
 
 # In the interactive prompt:
 > list_tools
-# Shows: scan_eui_repository, analyze_figma_design, generate_implementation_guide, get_component_details
+# Shows: scan_repository, analyze_figma_design, generate_implementation_guide, get_component_details
 
-> call_tool scan_eui_repository {}
+> call_tool scan_repository {}
 # Returns: List of scanned components
 
 > call_tool analyze_figma_design {"figmaUrl": "https://www.figma.com/design/..."}
@@ -1583,7 +1583,7 @@ Figma REST API - Get design data (you already have token)
 AI Code Generation - Claude generates React from descriptions
 Your Existing MCP Server - Build on what you have
 Smart Algorithms - Convert Figma properties → CSS/Tailwind
-Bolt Database - Store designs, components, generation history
+Supabase - Store designs, components, generation history
 What I Won't Try:
  Pixel-perfect conversion (unrealistic)
  Handle every edge case (infinite complexity)
@@ -1609,7 +1609,7 @@ Code comments
 Phase 4: MCP Integration
 New tools: generate_react_from_figma
 Works in Claude Desktop, VS Code Continue
-Store generation history in Bolt Database
+Store generation history in Supabase
 Iterate and improve
 Example Output
 Input: Figma URL with a login form
@@ -1669,7 +1669,7 @@ Enhanced Figma analysis (extract everything)
 AI-powered React code generator
 New MCP tools for generation
 Integration with your existing server
-Bolt Database storage for designs/history
+Supabase storage for designs/history
 This will give you a working Figma → React generator that you can use with Claude Desktop or VS Code + Continue.
 
 Should I start building? If yes, I'll create a todo list and begin.
@@ -1681,7 +1681,7 @@ Enhanced Figma analysis (extract everything)
 AI-powered React code generator
 New MCP tools for generation
 Integration with your existing server
-Bolt Database storage for designs/history
+Supabase storage for designs/history
 This will give you a working Figma → React generator that you can use with Claude Desktop or VS Code + Continue.
 
 Let me start by understanding your current architecture:
@@ -1769,7 +1769,7 @@ To use this system, you'll need:
 
 Figma Access Token (free)
 Anthropic API Key (~$0.01 per generation)
-Bolt Database (already configured)
+Supabase (already configured)
 Claude Desktop or VS Code with Continue
  Next Steps
 Follow CHECKLIST.md to verify setup
@@ -1980,7 +1980,7 @@ Complete MCP server with 5 services and 5 tools
 AI-powered React code generation
 Tailwind CSS converter
 Figma extraction and analysis
-Bolt Database migrations
+Supabase migrations
 Comprehensive documentation (8 markdown files)
 TypeScript source code
 Package configurations
@@ -2077,7 +2077,7 @@ Add API keys to .env:
 
 FIGMA_ACCESS_TOKEN=figd_your_token_here
 ANTHROPIC_API_KEY=sk-ant-your_key_here
-# Bolt Database keys already there
+# Supabase keys already there
 Run:
 
 
@@ -2158,11 +2158,11 @@ Add this configuration:
       "args": ["/tmp/cc-agent/58675574/project/mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN_HERE",
-        "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Bolt Database_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc",
+        "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
+        "Supabase_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc",
         "ANTHROPIC_API_KEY": "sk-ant-YOUR_KEY_HERE",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -2230,11 +2230,11 @@ Open that file and add this configuration (replace YOUR_TOKEN_HERE with your act
       "args": ["/tmp/cc-agent/58675574/project/mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN_HERE",
-        "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Bolt Database_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc",
+        "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
+        "Supabase_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc",
         "ANTHROPIC_API_KEY": "sk-ant-YOUR_KEY_HERE",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }
@@ -2364,7 +2364,7 @@ Version 12
 why is the database failing?
 
 Let me check the database connection issue:
-I see the issue! The test script is using an old, outdated Bolt Database key while the .env file has the correct, current key. Let me test the database connection with the correct key:
+I see the issue! The test script is using an old, outdated Supabase key while the .env file has the correct, current key. Let me test the database connection with the correct key:
 
 
 Read
@@ -2375,7 +2375,7 @@ Perfect! The database is working fine. The issue is that the test script has an 
 
 0123456789
  actions taken
-Fixed! The database was failing because the test script had an outdated Bolt Database key. I've updated it with the current key from your .env file.
+Fixed! The database was failing because the test script had an outdated Supabase key. I've updated it with the current key from your .env file.
 
 Now the test script will pass the database check. The database is working perfectly - it just needed the correct API key!
 
@@ -2414,10 +2414,10 @@ Add this configuration:
       "args": ["/tmp/cc-agent/58675574/project/mcp-server/dist/index.js"],
       "env": {
         "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN",
-        "Bolt Database_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Bolt Database_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System"
+        "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
+        "Supabase_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los",
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System"
       }
     }
   }

@@ -65,8 +65,8 @@ Use this checklist before using the EUI MCP Server.
         "SUPABASE_URL": "https://...",
         "SUPABASE_ANON_KEY": "...",
         "ANTHROPIC_API_KEY": "sk-ant-...",
-        "EUI_REPO_OWNER": "mirabelle514",
-        "EUI_REPO_NAME": "Lumiere-Design-System",
+        "REPO_OWNER": "mirabelle514",
+        "REPO_NAME": "Lumiere-Design-System",
         "GITHUB_TOKEN": ""
       }
     }
@@ -92,7 +92,7 @@ Test each tool:
 Ask Claude: "What MCP tools do you have available?"
 
 Expected response should include:
-- [ ] `scan_eui_repository`
+- [ ] `scan_repository`
 - [ ] `analyze_figma_design`
 - [ ] `generate_implementation_guide`
 - [ ] `get_component_details`

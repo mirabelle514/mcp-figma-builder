@@ -13,7 +13,7 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-console.log('🔍 EUI-Figma MCP Server Setup Checker\n');
+console.log('🔍 Component-Figma MCP Server Setup Checker\n');
 
 // Check 1: Build output exists
 console.log('1️⃣  Checking build output...');
@@ -114,7 +114,7 @@ console.log('\n📋 Configuration Modes Available:\n');
 console.log('   1️⃣  Component Mapping Only (No AI)');
 console.log('      → No API keys needed');
 console.log('      → Free, instant results');
-console.log('      → Matches Figma to EUI components\n');
+console.log('      → Matches Figma to components\n');
 
 console.log('   2️⃣  Component Mapping + Anthropic');
 console.log('      → Requires: ANTHROPIC_API_KEY');

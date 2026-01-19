@@ -204,8 +204,8 @@ Check your config has all required vars:
     "FIGMA_ACCESS_TOKEN": "figd_...",
     "SUPABASE_URL": "https://...",
     "SUPABASE_ANON_KEY": "eyJ...",
-    "EUI_REPO_OWNER": "elastic",
-    "EUI_REPO_NAME": "eui"
+    "REPO_OWNER": "elastic",
+    "REPO_NAME": "eui"
   }
 }
 ```
@@ -442,13 +442,13 @@ open https://github.com/OWNER/REPO
 
  **Wrong:**
 ```json
-"EUI_REPO_OWNER": "elastic/eui"
+"REPO_OWNER": "elastic/eui"
 ```
 
  **Right:**
 ```json
-"EUI_REPO_OWNER": "elastic",
-"EUI_REPO_NAME": "eui"
+"REPO_OWNER": "elastic",
+"REPO_NAME": "eui"
 ```
 
 **3. For private repos:**
@@ -482,8 +482,8 @@ Tool looks for:
 
 Test with known-working repo:
 ```json
-"EUI_REPO_OWNER": "elastic",
-"EUI_REPO_NAME": "eui"
+"REPO_OWNER": "elastic",
+"REPO_NAME": "eui"
 ```
 
 **3. Check database manually:**

@@ -148,7 +148,7 @@ You: [Copy and use code directly]
 - Complete control
 
 **Best for:**
-- Enterprises with internal AI (LibertyGPT, etc.)
+- Enterprises with internal AI (CompanyAI, Azure, etc.)
 - Regulated industries (HIPAA, GDPR)
 - Companies requiring data sovereignty
 - Organizations with Azure OpenAI or self-hosted LLMs
@@ -501,8 +501,8 @@ From [URL], generate just the header section
 
 Edit config file:
 ```json
-"EUI_REPO_OWNER": "mui",
-"EUI_REPO_NAME": "material-ui"
+"REPO_OWNER": "mui",
+"REPO_NAME": "material-ui"
 ```
 
 Restart Claude Desktop, then:

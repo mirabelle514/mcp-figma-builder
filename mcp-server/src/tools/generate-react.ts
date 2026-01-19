@@ -14,7 +14,7 @@ const GenerateReactInputSchema = z.object({
 
 export const generateReactTool = {
   name: 'generate_react_from_figma',
-  description: 'Generate a complete React component from a Figma design URL. This tool analyzes the Figma design, extracts all layout and styling information, and uses AI to generate production-ready React code using your actual component library (e.g., EUI components).',
+  description: 'Generate a complete React component from a Figma design URL. This tool analyzes the Figma design, extracts all layout and styling information, and uses AI to generate production-ready React code using your actual component library.',
   inputSchema: {
     type: 'object' as const,
     properties: {
@@ -205,7 +205,7 @@ function App() {
 5. Test the component in your application
 
 ### Notes
-- The component uses your actual component library (e.g., EUI, MUI, etc.)
+- The component uses your actual component library
 - Components are mapped from Figma elements to design system equivalents
 - All spacing and colors are extracted from your Figma design
 - Interactive elements may need additional logic for state management

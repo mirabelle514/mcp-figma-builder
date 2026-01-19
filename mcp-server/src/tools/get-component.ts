@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { DatabaseService } from '../services/db-service.js';
 
 const GetComponentInputSchema = z.object({
-  componentName: z.string().describe('Name of the EUI component to get details for'),
+  componentName: z.string().describe('Name of the component to get details for'),
 });
 
 export const getComponentTool = {
   name: 'get_component_details',
-  description: 'Get detailed information about a specific EUI Design System component including props, variants, and usage examples.',
+  description: 'Get detailed information about a specific design system component including props, variants, and usage examples.',
   inputSchema: {
     type: 'object' as const,
     properties: {
@@ -26,10 +26,10 @@ export async function handleGetComponent(
 ) {
   try {
     const db = new DatabaseService(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
-    const component = await db.getEuiComponent(args.componentName);
+    const component = await db.getComponent(args.componentName);
 
     if (!component) {
-      const allComponents = await db.getEuiComponents();
+      const allComponents = await db.getComponents();
       const componentList = allComponents.map(c => `  - ${c.component_name}`).join('\n');
 
       return {

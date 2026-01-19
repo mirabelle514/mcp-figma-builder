@@ -1,9 +1,9 @@
 /**
- * EUI Component Scanner
- * Scans the EUI Design System repository and extracts component metadata
+ * Component Scanner
+ * Scans the design system repository and extracts component metadata
  */
 
-interface EuiComponent {
+interface Component {
   component_name: string;
   component_path: string;
   description: string;
@@ -23,7 +23,7 @@ interface GitHubFileContent {
   type: 'file' | 'dir';
 }
 
-export class EuiScanner {
+export class ComponentScanner {
   private repoOwner: string;
   private repoName: string;
   private githubToken?: string;
@@ -35,10 +35,10 @@ export class EuiScanner {
   }
 
   /**
-   * Scan the EUI repository and extract all components
+   * Scan the repository and extract all components
    */
-  async scanRepository(): Promise<EuiComponent[]> {
-    const components: EuiComponent[] = [];
+  async scanRepository(): Promise<Component[]> {
+    const components: Component[] = [];
 
     const componentFiles = await this.getComponentFiles();
 
@@ -90,7 +90,7 @@ export class EuiScanner {
   /**
    * Parse a component file and extract metadata
    */
-  private async parseComponent(file: GitHubFileContent): Promise<EuiComponent | null> {
+  private async parseComponent(file: GitHubFileContent): Promise<Component | null> {
     if (file.type !== 'file' || !file.name.match(/\.(tsx|jsx)$/)) {
       return null;
     }
@@ -150,7 +150,7 @@ export class EuiScanner {
     const match = filePath.match(/components\/(.+)\.(tsx|jsx)$/);
     if (match) {
       const componentPath = match[1].replace(/\/\w+$/, '');
-      return `@elastic/eui/${componentPath}`;
+      return `@design-system/${componentPath}`;
     }
     return filePath;
   }
@@ -279,6 +279,6 @@ export class EuiScanner {
       return exampleMatch[2].trim();
     }
 
-    return `import { ${componentName} } from '@elastic/eui';\n\n<${componentName} />`;
+    return `import { ${componentName} } from '@design-system/components';\n\n<${componentName} />`;
   }
 }

@@ -39,8 +39,8 @@ export function SetupWizard() {
   const [currentStep, setCurrentStep] = useState<Step>('mode');
   const [config, setConfig] = useState<Config>({
     mode: 'none',
-    repoOwner: 'elastic',
-    repoName: 'eui',
+    repoOwner: 'your-org',
+    repoName: 'design-system',
     figmaToken: '',
     supabaseUrl: import.meta.env.VITE_SUPABASE_URL || '',
     supabaseKey: import.meta.env.VITE_SUPABASE_ANON_KEY || '',
@@ -49,7 +49,7 @@ export function SetupWizard() {
     openaiKey: '',
     customAiUrl: '',
     customAiKey: '',
-    customAiName: 'LibertyGPT',
+    customAiName: 'CompanyAI',
     customAiModel: 'gpt-4',
   });
   const [testing, setTesting] = useState<Record<string, boolean>>({});
@@ -78,8 +78,8 @@ export function SetupWizard() {
       FIGMA_ACCESS_TOKEN: config.figmaToken,
       SUPABASE_URL: config.supabaseUrl,
       SUPABASE_ANON_KEY: config.supabaseKey,
-      EUI_REPO_OWNER: config.repoOwner,
-      EUI_REPO_NAME: config.repoName,
+      REPO_OWNER: config.repoOwner,
+      REPO_NAME: config.repoName,
     };
 
     if (config.githubToken) {
@@ -264,7 +264,7 @@ export function SetupWizard() {
                 />
 
                 <ModeCard
-                  title="Mode 4: Custom AI Provider (e.g., LibertyGPT)"
+                  title="Mode 4: Custom AI Provider"
                   description="Connect to your company's internal AI tool. Ideal for enterprises with private AI infrastructure."
                   cost="Your pricing"
                   selected={config.mode === 'custom'}
@@ -310,7 +310,7 @@ export function SetupWizard() {
                     type="text"
                     value={config.repoName}
                     onChange={(e) => setConfig({ ...config, repoName: e.target.value })}
-                    placeholder="eui"
+                    placeholder="design-system"
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -343,7 +343,7 @@ export function SetupWizard() {
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <p className="text-sm font-medium text-blue-900 mb-2">Popular Examples:</p>
                   <div className="space-y-1 text-sm text-blue-700">
-                    <p>• Elastic EUI: <code className="bg-blue-100 px-1 rounded">elastic / eui</code></p>
+                    <p>• Material-UI: <code className="bg-blue-100 px-1 rounded">mui / material-ui</code></p>
                     <p>• Material-UI: <code className="bg-blue-100 px-1 rounded">mui / material-ui</code></p>
                     <p>• Ant Design: <code className="bg-blue-100 px-1 rounded">ant-design / ant-design</code></p>
                   </div>
@@ -465,7 +465,7 @@ export function SetupWizard() {
                   ? 'Configure Anthropic Claude for AI code generation'
                   : config.mode === 'openai'
                   ? 'Configure OpenAI GPT-4 for AI code generation'
-                  : 'Configure your custom AI provider (e.g., LibertyGPT)'
+                  : 'Configure your custom AI provider'
                 }
               </p>
 
@@ -557,11 +557,11 @@ export function SetupWizard() {
                       type="text"
                       value={config.customAiName}
                       onChange={(e) => setConfig({ ...config, customAiName: e.target.value })}
-                      placeholder="LibertyGPT"
+                      placeholder="CompanyAI"
                       className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     <p className="text-sm text-slate-500 mt-2">
-                      The name of your internal AI tool (e.g., LibertyGPT, CompanyAI)
+                      The name of your internal AI tool (e.g., CompanyAI, InternalAI)
                     </p>
                   </div>
 
@@ -630,8 +630,8 @@ export function SetupWizard() {
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                     <p className="text-sm font-medium text-blue-900 mb-2">Example Configuration:</p>
                     <div className="space-y-1 text-sm text-blue-700">
-                      <p>• <strong>Name:</strong> LibertyGPT</p>
-                      <p>• <strong>URL:</strong> https://liberty-ai.yourcompany.com/v1/chat/completions</p>
+                      <p>• <strong>Name:</strong> CompanyAI</p>
+                      <p>• <strong>URL:</strong> https://ai.yourcompany.com/v1/chat/completions</p>
                       <p>• <strong>Model:</strong> gpt-4 (or whatever your internal model is called)</p>
                     </div>
                   </div>

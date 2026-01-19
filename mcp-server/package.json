@@ -1,11 +1,11 @@
 {
-  "name": "eui-mcp-server",
+  "name": "component-mcp-server",
   "version": "1.0.0",
-  "description": "MCP server for mapping Figma designs to EUI Design System components",
+  "description": "MCP server for mapping Figma designs to design system components",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "eui-mcp": "dist/index.js"
+    "component-mcp": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -16,7 +16,6 @@
     "mcp",
     "figma",
     "design-system",
-    "eui",
     "react"
   ],
   "author": "",

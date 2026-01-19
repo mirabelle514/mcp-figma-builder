@@ -1,7 +1,7 @@
 /**
  * Custom AI Provider
  *
- * Adapter for connecting to internal/private AI tools like LibertyGPT.
+ * Adapter for connecting to internal/private AI tools.
  * Supports any OpenAI-compatible API endpoint.
  *
  * CONFIGURATION:
@@ -9,7 +9,7 @@
  * - CUSTOM_AI_PROVIDER="true"
  * - CUSTOM_AI_URL="https://your-ai.internal/v1/chat/completions"
  * - CUSTOM_AI_KEY="your-api-key"
- * - CUSTOM_AI_NAME="LibertyGPT" (optional, for logging)
+ * - CUSTOM_AI_NAME="CompanyAI" (optional, for logging)
  * - CUSTOM_AI_MODEL="gpt-4" (optional, default model name)
  */
 

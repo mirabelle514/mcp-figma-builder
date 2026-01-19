@@ -54,7 +54,7 @@ export class ReactGenerator {
     const includeComments = options.includeComments ?? false;
 
     // Fetch available components from database
-    const availableComponents = this.dbService ? await this.dbService.getEuiComponents() : [];
+    const availableComponents = this.dbService ? await this.dbService.getComponents() : [];
 
     const prompt = this.buildGenerationPrompt(designData, componentName, {
       includeTypeScript,

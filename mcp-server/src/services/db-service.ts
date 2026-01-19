@@ -1,6 +1,6 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-interface EuiComponent {
+interface Component {
   id?: string;
   component_name: string;
   component_path: string;
@@ -65,9 +65,9 @@ export class DatabaseService {
     this.client = createClient(supabaseUrl, supabaseKey);
   }
 
-  async storeEuiComponent(component: EuiComponent): Promise<void> {
+  async storeComponent(component: Component): Promise<void> {
     const { error } = await this.client
-      .from('eui_components')
+      .from('components')
       .upsert(component, { onConflict: 'component_name' });
 
     if (error) {
@@ -75,9 +75,9 @@ export class DatabaseService {
     }
   }
 
-  async storeEuiComponents(components: EuiComponent[]): Promise<void> {
+  async storeComponents(components: Component[]): Promise<void> {
     const { error } = await this.client
-      .from('eui_components')
+      .from('components')
       .upsert(components, { onConflict: 'component_name' });
 
     if (error) {
@@ -85,9 +85,9 @@ export class DatabaseService {
     }
   }
 
-  async getEuiComponents(): Promise<EuiComponent[]> {
+  async getComponents(): Promise<Component[]> {
     const { data, error } = await this.client
-      .from('eui_components')
+      .from('components')
       .select('*')
       .order('component_name');
 
@@ -98,9 +98,9 @@ export class DatabaseService {
     return data || [];
   }
 
-  async getEuiComponent(componentName: string): Promise<EuiComponent | null> {
+  async getComponent(componentName: string): Promise<Component | null> {
     const { data, error } = await this.client
-      .from('eui_components')
+      .from('components')
       .select('*')
       .eq('component_name', componentName)
       .maybeSingle();
@@ -147,7 +147,7 @@ export class DatabaseService {
 
   async getComponentCount(): Promise<number> {
     const { count, error } = await this.client
-      .from('eui_components')
+      .from('components')
       .select('*', { count: 'exact', head: true });
 
     if (error) {

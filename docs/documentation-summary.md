@@ -114,7 +114,7 @@ All real, comprehensive documentation has been created and is now available!
  **FAQ** - Common questions
 
 **Example Setups:**
-1. Internal ChatGPT (LibertyGPT)
+1. Internal ChatGPT (CompanyAI)
 2. Azure OpenAI
 3. Self-hosted LLM (vLLM)
 
