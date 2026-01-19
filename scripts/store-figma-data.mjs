@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
-  'https://oejykyovgwfaxyirtyxv.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los'
+  'YOUR_SUPABASE_URL_HERE',
+  'YOUR_SUPABASE_ANON_KEY_HERE'
 );
 
 async function storeFigmaData() {

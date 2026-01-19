@@ -166,7 +166,7 @@ Create `.env`:
 
 ```bash
 # Figma API
-FIGMA_ACCESS_TOKEN=figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2
+FIGMA_ACCESS_TOKEN=your_figma_token_here
 
 # Supabase (from your project)
 SUPABASE_URL=https://oejykyovgwfaxyirtyxv.supabase.co
@@ -189,7 +189,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
       "command": "node",
       "args": ["/path/to/lumiere-figma-mcp-server/dist/index.js"],
       "env": {
-        "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
+        "FIGMA_ACCESS_TOKEN": "your_figma_token_here",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "SUPABASE_ANON_KEY": "your_key",
         "REPO_OWNER": "mirabelle514",

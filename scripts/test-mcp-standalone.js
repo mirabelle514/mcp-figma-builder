@@ -14,11 +14,11 @@ import { createClient } from '@supabase/supabase-js';
 // ============================================
 // TODO: ADD YOUR FIGMA TOKEN HERE (Required)
 // ============================================
-const FIGMA_ACCESS_TOKEN = "figd__qTPrcGmrCnpzQRGU5dXGrpbj8gG5sk_XSFF1GIJ";
+const FIGMA_ACCESS_TOKEN = "YOUR_FIGMA_TOKEN_HERE";
 
-// These are pre-configured and ready to use
-const SUPABASE_URL = "https://oejykyovgwfaxyirtyxv.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los";
+// These need to be configured with your actual values
+const SUPABASE_URL = "YOUR_SUPABASE_URL_HERE";
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY_HERE";
 
 // NOTE: Anthropic API key is OPTIONAL - only needed for React generation
 // You can test everything else without it!

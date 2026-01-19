@@ -32,7 +32,7 @@
       "env": {
         "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN",
         "SUPABASE_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los",
+        "SUPABASE_ANON_KEY": "YOUR_SUPABASE_ANON_KEY_HERE",
         "ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_KEY",
         "REPO_OWNER": "mirabelle514",
         "REPO_NAME": "Lumiere-Design-System"
@@ -346,7 +346,7 @@ Figma Design Link -
 https://www.figma.com/design/FhScFrbbi6hYCvubHQjI9T/MB-test?node-id=0-1&t=XPipEIw6t5SiNhl7-1
 
 Figma Token -
-figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2
+YOUR_FIGMA_TOKEN_HERE
 
 Repo link -
 https://github.com/mirabelle514/Lumiere-Design-System
@@ -364,7 +364,7 @@ Perfect! I've successfully completed all tasks. Here's what has been accomplishe
 Summary
 1. Updated MCP Server README
 
-Added your actual Figma token: figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2
+Added your actual Figma token: YOUR_FIGMA_TOKEN_HERE
 Added your EUI Design System repo: https://github.com/mirabelle514/Lumiere-Design-System
 Updated all example Figma URLs to your actual design file
 2. Analyzed Your Figma Design
@@ -480,7 +480,7 @@ Add this configuration:
       "command": "node",
       "args": ["/path/to/figma-react-mcp-server/dist/index.js"],
       "env": {
-        "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
+        "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN_HERE",
         "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Supabase_ANON_KEY": "your_Supabase_anon_key"
       }
@@ -793,7 +793,7 @@ Edit ~/Library/Application Support/Claude/claude_desktop_config.json:
       "command": "node",
       "args": ["/path/to/lumiere-figma-mcp-server/dist/index.js"],
       "env": {
-        "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
+        "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN_HERE",
         "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Supabase_ANON_KEY": "their_key",
         "REPO_OWNER": "mirabelle514",
@@ -896,7 +896,7 @@ Edit ~/Library/Application Support/Claude/claude_desktop_config.json:
       "command": "node",
       "args": ["/path/to/project/mcp-server/dist/index.js"],
       "env": {
-        "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
+        "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN_HERE",
         "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Supabase_ANON_KEY": "your_key_here",
         "REPO_OWNER": "mirabelle514",
@@ -977,7 +977,7 @@ Perfect! Here's the complete list of files and lines where you need to update to
 
  Configuration Checklist
 1. Figma Access Token
-Replace: figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2
+Replace: YOUR_FIGMA_TOKEN_HERE
 
 Files to update:
 
@@ -1050,7 +1050,7 @@ Would you like me to create a template .env file or a configuration script to he
 
 
 Searched
-figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2|mirabelle514|Lumiere-Design-System|oejykyovgwfaxyirtyxv|FhScFrbbi6hYCvubHQjI9T
+YOUR_FIGMA_TOKEN_HERE|mirabelle514|Lumiere-Design-System|oejykyovgwfaxyirtyxv|FhScFrbbi6hYCvubHQjI9T
 Open
 is it possible to zip file this whole folder?
 
@@ -1169,7 +1169,7 @@ Add to your MCP configuration (e.g., claude_desktop_config.json):
       "command": "node",
       "args": ["/absolute/path/to/this/project/mcp-server/dist/index.js"],
       "env": {
-        "FIGMA_ACCESS_TOKEN": "figd_7RbUp8RekLpw_EcpuVstTA0CbvarFt4Udpeqg8d2",
+        "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN_HERE",
         "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
         "Supabase_ANON_KEY": "your_key_from_.env",
         "REPO_OWNER": "mirabelle514",
@@ -2159,7 +2159,7 @@ Add this configuration:
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN_HERE",
         "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Supabase_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc",
+        "SUPABASE_ANON_KEY": "YOUR_SUPABASE_ANON_KEY_HERE",
         "ANTHROPIC_API_KEY": "sk-ant-YOUR_KEY_HERE",
         "REPO_OWNER": "mirabelle514",
         "REPO_NAME": "Lumiere-Design-System"
@@ -2231,7 +2231,7 @@ Open that file and add this configuration (replace YOUR_TOKEN_HERE with your act
       "env": {
         "FIGMA_ACCESS_TOKEN": "figd_YOUR_TOKEN_HERE",
         "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Supabase_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg5ODE0NTUsImV4cCI6MjA0NDU1NzQ1NX0.R07lFxIIb9T0Hnkm14RJkTIzz2CxW3MdMjqjLo0M1Kc",
+        "SUPABASE_ANON_KEY": "YOUR_SUPABASE_ANON_KEY_HERE",
         "ANTHROPIC_API_KEY": "sk-ant-YOUR_KEY_HERE",
         "REPO_OWNER": "mirabelle514",
         "REPO_NAME": "Lumiere-Design-System"
@@ -2415,7 +2415,7 @@ Add this configuration:
       "env": {
         "FIGMA_ACCESS_TOKEN": "YOUR_FIGMA_TOKEN",
         "Supabase_URL": "https://oejykyovgwfaxyirtyxv.supabase.co",
-        "Supabase_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9lanlreW92Z3dmYXh5aXJ0eXh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA0ODgwOTMsImV4cCI6MjA3NjA2NDA5M30.2QD9G1QKU4LX8IwUIssn8K0-BCWhfgTbEabVzV36Los",
+        "SUPABASE_ANON_KEY": "YOUR_SUPABASE_ANON_KEY_HERE",
         "REPO_OWNER": "mirabelle514",
         "REPO_NAME": "Lumiere-Design-System"
       }
