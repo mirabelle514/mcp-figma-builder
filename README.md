@@ -1,8 +1,8 @@
 # Component MCP Server
 
-An MCP (Model Context Protocol) server that transforms Figma designs into production-ready React components **using YOUR actual component library**. Works with Claude Desktop, VS Code Continue, and other MCP-compatible AI tools.
+An MCP (Model Context Protocol) server that speed up the connection between Figma designs to React components **using YOUR actual component library**. Works with Claude Desktop, VS Code Continue, and other MCP-compatible AI tools.
 
-##  NEW: Visual Setup Wizard!
+##  NEW: Visual Setup Wizard.
 
 **No config file editing needed!** Just run `npm run dev` and follow the interactive setup wizard at `http://localhost:5173`
 
