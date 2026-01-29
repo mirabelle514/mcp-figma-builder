@@ -223,6 +223,65 @@ https://www.figma.com/design/ABC123/Design?node-id=4-38
 Claude: [Matches design to existing components]
 ```
 
+## Development Process
+
+### Challenge
+Build a tool that translates Figma designs into production-ready React code using a team's actual component library, not generic Tailwind CSS. The system needed to work with any component library (Material-UI, Ant Design, custom design systems) and support multiple AI providers.
+
+### Technical Decisions
+
+**Multi-Mode Architecture**
+- Mode 1 (Component Mapping): Free matching without AI for teams exploring options
+- Mode 2-3 (AI Generation): Anthropic Claude and OpenAI GPT-4 for flexibility
+- Mode 4 (Custom AI): Enterprise support for internal AI tools and Azure OpenAI
+
+**Component Scanning Strategy**
+- GitHub API integration for reading component repositories without requiring local setup
+- AST parsing to extract component props and TypeScript interfaces
+- Confidence scoring algorithm for Figma-to-component matching
+
+**Database Design**
+- Supabase for storing generation history and component mappings
+- Efficient querying for real-time component lookups during AI generation
+- Version tracking for component library changes
+
+**Interactive Setup Wizard**
+- React-based configuration UI instead of manual JSON editing
+- Real-time validation and error handling
+- Auto-generation of Claude Desktop configuration files
+
+### My Contribution
+
+**What I Built:**
+- Designed the four-mode architecture supporting different AI providers and use cases
+- Implemented the GitHub repository scanner with TypeScript AST analysis
+- Created the component matching algorithm with confidence scoring
+- Built the interactive setup wizard for zero-config onboarding
+- Designed the MCP server protocol implementation for Claude Desktop integration
+- Implemented Supabase schema and data models
+
+**AI-Assisted Development:**
+- Used Claude to accelerate TypeScript interface definitions for MCP protocol
+- Iterated on AI-generated regex patterns for component prop extraction
+- Refined error handling and validation logic with AI suggestions
+- Debugged complex async flows in the GitHub API integration
+
+**Skills Demonstrated:**
+- Model Context Protocol (MCP) implementation
+- Abstract Syntax Tree (AST) parsing and code analysis
+- Multi-provider AI integration architecture
+- GitHub API usage and repository scanning
+- Real-time configuration UI design
+- Database schema design for version tracking
+
+### Real-World Application
+
+This tool demonstrates:
+- Understanding of design-to-code workflow challenges
+- Ability to integrate multiple AI providers with fallback strategies
+- Practical knowledge of component library structures
+- Production-ready error handling and validation
+
 ## Available MCP Tools
 
 ### `generate_react_from_figma`
