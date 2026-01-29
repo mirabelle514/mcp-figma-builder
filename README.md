@@ -440,3 +440,7 @@ Add to your Continue config:
 ## License
 
 MIT
+
+## Author
+
+Built by [Mirabelle](https://www.mirabelledoiron.com/) as part of [The Wednesday Collective](https://www.thewednesdaycollective.com/)
