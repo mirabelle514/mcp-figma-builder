@@ -1,0 +1,104 @@
+{
+  "category": "accessibility",
+  "description": "Prompts for WCAG compliance and inclusive design implementation",
+  "prompts": [
+    {
+      "id": "aria-compliant",
+      "name": "ARIA Labels and Roles",
+      "content": "Add appropriate ARIA attributes for screen readers. Use aria-label or aria-labelledby for interactive elements. Set correct ARIA roles (button, dialog, navigation, etc.). Include aria-describedby for additional context. Use aria-live for dynamic content updates.",
+      "tags": ["aria", "screen-readers", "wcag"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "semantic-html",
+      "name": "Semantic HTML Structure",
+      "content": "Use semantic HTML elements (nav, main, article, section, header, footer, button, a). Avoid div/span for interactive elements. Use proper heading hierarchy (h1-h6). Use ul/ol for lists. Semantic HTML improves accessibility and SEO.",
+      "tags": ["html", "semantics", "structure"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "keyboard-accessible",
+      "name": "Full Keyboard Accessibility",
+      "content": "Ensure all interactive elements are keyboard accessible. Use proper tabindex (0 for tabbable, -1 for programmatically focusable, avoid positive values). Support Enter and Space for activation. Implement arrow key navigation for menus and lists. Show visible focus indicators.",
+      "tags": ["keyboard", "focus", "navigation"],
+      "recommendedFor": ["interactive", "forms", "navigation"]
+    },
+    {
+      "id": "focus-indicators",
+      "name": "Visible Focus Indicators",
+      "content": "Provide clear, visible focus indicators for all interactive elements. Use outline or ring styles with sufficient contrast. Ensure focus indicators work in both light and dark modes. Never remove focus styles with outline: none without providing alternatives.",
+      "tags": ["focus", "visual", "contrast"],
+      "recommendedFor": ["all-interactive"]
+    },
+    {
+      "id": "color-contrast",
+      "name": "WCAG Color Contrast Compliance",
+      "content": "Ensure all text meets WCAG AA contrast ratios (4.5:1 for normal text, 3:1 for large text). Interactive elements need 3:1 contrast against background. Test with color contrast checkers. Provide additional visual cues beyond color alone.",
+      "tags": ["contrast", "color", "wcag"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "screen-reader-text",
+      "name": "Screen Reader Only Text",
+      "content": "Include screen-reader-only text for icon buttons and visual-only information. Use sr-only class (Tailwind) or visually-hidden styles. Provide context that sighted users get visually. Example: 'Delete' for trash icon button.",
+      "tags": ["screen-readers", "context", "icons"],
+      "recommendedFor": ["icons", "buttons", "visual-indicators"]
+    },
+    {
+      "id": "form-accessibility",
+      "name": "Accessible Form Fields",
+      "content": "Associate labels with inputs using htmlFor/id or nesting. Include helpful descriptions with aria-describedby. Mark required fields with required attribute and visual indicator. Group related fields with fieldset/legend. Announce validation errors to screen readers.",
+      "tags": ["forms", "labels", "validation"],
+      "recommendedFor": ["forms", "inputs"]
+    },
+    {
+      "id": "modal-accessibility",
+      "name": "Accessible Modal Dialogs",
+      "content": "Implement modals with role='dialog' and aria-modal='true'. Trap focus within modal while open. Return focus to trigger element on close. Close on Escape key. Provide aria-labelledby pointing to modal title. Prevent background scroll.",
+      "tags": ["modals", "dialogs", "focus-trap"],
+      "recommendedFor": ["modals", "dialogs", "overlays"]
+    },
+    {
+      "id": "alt-text",
+      "name": "Descriptive Alternative Text",
+      "content": "Provide descriptive alt text for all meaningful images. Use empty alt='' for decorative images. Describe image content and context, not just what it is. Keep alt text concise but informative (typically under 150 characters).",
+      "tags": ["images", "alt-text", "content"],
+      "recommendedFor": ["images", "avatars", "media"]
+    },
+    {
+      "id": "reduced-motion",
+      "name": "Respect Reduced Motion Preference",
+      "content": "Respect prefers-reduced-motion media query. Disable or reduce animations for users who prefer less motion. Use Tailwind's motion-safe and motion-reduce variants. Essential animations should be gentle; non-essential should be removed.",
+      "tags": ["animation", "accessibility", "preferences"],
+      "recommendedFor": ["animated", "transitions"]
+    },
+    {
+      "id": "error-identification",
+      "name": "Clear Error Identification",
+      "content": "Clearly identify form errors with visual indicators (color, icons, borders). Describe errors in text, not just color. Use aria-invalid and aria-errormessage. Link error summaries to specific fields. Suggest corrections when possible.",
+      "tags": ["errors", "forms", "validation"],
+      "recommendedFor": ["forms", "validation"]
+    },
+    {
+      "id": "skip-links",
+      "name": "Skip to Content Links",
+      "content": "Include skip links to bypass repetitive navigation. Make skip links visible on focus. Link to main content, navigation, footer, etc. Place skip links first in DOM order. Use descriptive link text.",
+      "tags": ["navigation", "skip-links", "efficiency"],
+      "recommendedFor": ["layouts", "pages"]
+    },
+    {
+      "id": "time-limits",
+      "name": "Adjustable Time Limits",
+      "content": "For time-sensitive content, allow users to extend or disable time limits. Warn before timeout occurs. Provide at least 20 seconds to respond to warnings. Consider session timeout dialogs with extend options.",
+      "tags": ["timing", "sessions", "flexibility"],
+      "recommendedFor": ["authentication", "forms", "sessions"]
+    },
+    {
+      "id": "accessible-tables",
+      "name": "Accessible Data Tables",
+      "content": "Use proper table structure (thead, tbody, th, td). Include caption or aria-label for table purpose. Use scope attribute on headers (scope='col' or scope='row'). For complex tables, use aria-describedby for additional context.",
+      "tags": ["tables", "data", "structure"],
+      "recommendedFor": ["tables", "data-grids"]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "name": "Design-to-React Engineering Prompts Library",
+  "version": "1.0.0",
+  "description": "Curated prompt templates for generating production-ready React components from Figma designs",
+  "categories": [
+    {
+      "id": "component-structure",
+      "name": "Component Structure",
+      "description": "Architectural patterns and code organization",
+      "file": "component-structure.json",
+      "promptCount": 8
+    },
+    {
+      "id": "styling-design",
+      "name": "Styling & Design",
+      "description": "Visual implementation and styling approaches",
+      "file": "styling-design.json",
+      "promptCount": 10
+    },
+    {
+      "id": "behavior-interaction",
+      "name": "Behavior & Interaction",
+      "description": "Component functionality and user interactions",
+      "file": "behavior-interaction.json",
+      "promptCount": 12
+    },
+    {
+      "id": "accessibility",
+      "name": "Accessibility",
+      "description": "WCAG compliance and inclusive design",
+      "file": "accessibility.json",
+      "promptCount": 14
+    },
+    {
+      "id": "performance",
+      "name": "Performance",
+      "description": "Optimization and efficient rendering",
+      "file": "performance.json",
+      "promptCount": 12
+    },
+    {
+      "id": "testing",
+      "name": "Testing",
+      "description": "Test coverage and quality assurance",
+      "file": "testing.json",
+      "promptCount": 12
+    }
+  ],
+  "totalPrompts": 68,
+  "commonCombinations": [
+    {
+      "name": "Production-Ready Component",
+      "prompts": [
+        "typescript-strict",
+        "functional-hooks",
+        "tailwind-utility-first",
+        "design-tokens",
+        "aria-compliant",
+        "keyboard-accessible",
+        "unit-tests"
+      ],
+      "description": "Essential prompts for any production component"
+    },
+    {
+      "name": "Accessible Form",
+      "prompts": [
+        "controlled-uncontrolled",
+        "form-validation",
+        "loading-states",
+        "error-handling",
+        "form-accessibility",
+        "error-identification",
+        "form-validation-tests"
+      ],
+      "description": "Complete accessible form implementation"
+    },
+    {
+      "name": "Performance-Optimized List",
+      "prompts": [
+        "small-focused-components",
+        "react-memo",
+        "use-callback-memo",
+        "virtualization",
+        "responsive-mobile-first",
+        "keyboard-navigation"
+      ],
+      "description": "High-performance list or table"
+    },
+    {
+      "name": "Modal Dialog",
+      "prompts": [
+        "compound-components",
+        "modal-accessibility",
+        "focus-management",
+        "keyboard-navigation",
+        "animation-transitions",
+        "reduced-motion"
+      ],
+      "description": "Fully accessible modal implementation"
+    },
+    {
+      "name": "Design System Component",
+      "prompts": [
+        "typescript-strict",
+        "prop-forwarding",
+        "component-variants",
+        "design-tokens",
+        "dark-mode-support",
+        "aria-compliant",
+        "unit-tests",
+        "accessibility-tests"
+      ],
+      "description": "Reusable design system component"
+    }
+  ],
+  "usage": {
+    "single": "Use individual prompts for specific requirements",
+    "combined": "Combine multiple prompts for comprehensive generation",
+    "preset": "Use common combinations for standard patterns",
+    "custom": "Mix and match based on your specific needs"
+  }
+}

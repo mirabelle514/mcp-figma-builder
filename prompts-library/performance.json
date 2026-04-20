@@ -1,0 +1,90 @@
+{
+  "category": "performance",
+  "description": "Prompts for optimization and efficient rendering",
+  "prompts": [
+    {
+      "id": "react-memo",
+      "name": "Memoization with React.memo",
+      "content": "Wrap components in React.memo to prevent unnecessary re-renders. Use custom comparison functions for complex props. Memoize child components that receive stable props. Balance memoization overhead with re-render cost.",
+      "tags": ["memoization", "optimization", "re-renders"],
+      "recommendedFor": ["lists", "complex-components", "frequent-updates"]
+    },
+    {
+      "id": "use-callback-memo",
+      "name": "useCallback and useMemo Hooks",
+      "content": "Use useCallback to memoize function references passed as props. Use useMemo for expensive calculations. Add appropriate dependencies to dependency arrays. Avoid premature optimization - measure first.",
+      "tags": ["hooks", "memoization", "optimization"],
+      "recommendedFor": ["callbacks", "computed-values", "lists"]
+    },
+    {
+      "id": "lazy-loading",
+      "name": "Code Splitting and Lazy Loading",
+      "content": "Use React.lazy() for route-based code splitting. Lazy load heavy components below the fold. Show loading fallbacks with Suspense. Split vendor bundles intelligently. Preload critical routes.",
+      "tags": ["lazy", "code-splitting", "bundles"],
+      "recommendedFor": ["routes", "modals", "tabs", "heavy-components"]
+    },
+    {
+      "id": "virtualization",
+      "name": "List Virtualization",
+      "content": "Implement virtualization for long lists using react-window or similar. Only render visible items. Handle dynamic item heights if needed. Maintain scroll position correctly. Essential for lists with 100+ items.",
+      "tags": ["lists", "virtualization", "performance"],
+      "recommendedFor": ["long-lists", "tables", "feeds"]
+    },
+    {
+      "id": "image-optimization",
+      "name": "Optimized Image Loading",
+      "content": "Use next/image or similar for automatic optimization. Implement lazy loading with loading='lazy'. Provide width and height to prevent layout shift. Use responsive images with srcset. Consider WebP format with fallbacks.",
+      "tags": ["images", "loading", "optimization"],
+      "recommendedFor": ["images", "galleries", "media"]
+    },
+    {
+      "id": "debounce-expensive",
+      "name": "Debounce Expensive Operations",
+      "content": "Debounce expensive operations like API calls, searches, and calculations. Use lodash.debounce or implement custom debounce. Typical delays: 300-500ms for search, 100-200ms for resize/scroll. Show loading indicators during debounce.",
+      "tags": ["debounce", "optimization", "api"],
+      "recommendedFor": ["search", "filters", "autocomplete"]
+    },
+    {
+      "id": "avoid-inline-functions",
+      "name": "Avoid Inline Functions in JSX",
+      "content": "Define event handlers outside JSX to prevent creating new function instances on each render. Use useCallback for handlers that depend on props/state. Extract static functions outside component scope.",
+      "tags": ["functions", "re-renders", "optimization"],
+      "recommendedFor": ["lists", "frequently-rendered"]
+    },
+    {
+      "id": "state-optimization",
+      "name": "Optimize State Updates",
+      "content": "Colocate state as close as possible to where it's used. Split complex state into multiple useState calls. Use useReducer for complex state logic. Avoid unnecessary state - derive from props when possible.",
+      "tags": ["state", "optimization", "architecture"],
+      "recommendedFor": ["complex-state", "forms", "interactive"]
+    },
+    {
+      "id": "web-vitals",
+      "name": "Core Web Vitals Optimization",
+      "content": "Optimize for Core Web Vitals: LCP (Largest Contentful Paint) under 2.5s, FID (First Input Delay) under 100ms, CLS (Cumulative Layout Shift) under 0.1. Prioritize above-the-fold content. Minimize layout shifts. Optimize JavaScript execution.",
+      "tags": ["web-vitals", "performance", "metrics"],
+      "recommendedFor": ["pages", "landing", "critical-paths"]
+    },
+    {
+      "id": "bundle-analysis",
+      "name": "Bundle Size Awareness",
+      "content": "Keep bundle sizes minimal. Tree-shake unused code. Use dynamic imports for large dependencies. Analyze with webpack-bundle-analyzer. Avoid heavy libraries when lighter alternatives exist. Consider library weight before adding.",
+      "tags": ["bundles", "size", "dependencies"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "render-optimization",
+      "name": "Minimize Render Work",
+      "content": "Avoid expensive operations during render. Move side effects to useEffect. Keep render functions pure. Use keys properly in lists. Avoid spreading large objects as props. Profile with React DevTools.",
+      "tags": ["rendering", "optimization", "profiling"],
+      "recommendedFor": ["complex-components", "lists"]
+    },
+    {
+      "id": "prefetch-data",
+      "name": "Data Prefetching",
+      "content": "Prefetch data for likely next steps. Use link prefetching for navigation. Implement predictive prefetching based on user behavior. Balance prefetching with bandwidth considerations. Cache prefetched data appropriately.",
+      "tags": ["prefetch", "data", "ux"],
+      "recommendedFor": ["navigation", "multi-step-flows", "pagination"]
+    }
+  ]
+}

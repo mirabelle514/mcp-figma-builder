@@ -1,0 +1,76 @@
+{
+  "category": "styling-design",
+  "description": "Prompts for implementing visual design with modern styling approaches",
+  "prompts": [
+    {
+      "id": "tailwind-utility-first",
+      "name": "Tailwind CSS Utility Classes",
+      "content": "Use Tailwind CSS utility classes for all styling. Follow utility-first principles. Use arbitrary values sparingly. Group related utilities (layout, spacing, colors, typography). Extract repeated patterns into custom classes or components when needed.",
+      "tags": ["tailwind", "css", "utility-first"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "css-modules",
+      "name": "CSS Modules for Scoped Styles",
+      "content": "Use CSS Modules for component styling. Name the file [ComponentName].module.css. Use camelCase for class names. Compose styles when sharing common patterns. Keep styles colocated with components.",
+      "tags": ["css-modules", "scoped", "isolation"],
+      "recommendedFor": ["complex-styling", "legacy-projects"]
+    },
+    {
+      "id": "design-tokens",
+      "name": "Design System Tokens",
+      "content": "Use design tokens from the design system for all colors, spacing, typography, and effects. Reference tokens using CSS variables or Tailwind theme values. Never hardcode values that exist in the design system. Maintain strict alignment with Figma design tokens.",
+      "tags": ["design-system", "tokens", "consistency"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "responsive-mobile-first",
+      "name": "Responsive Mobile-First Design",
+      "content": "Implement responsive design using a mobile-first approach. Start with mobile layout and progressively enhance for larger screens. Use Tailwind breakpoints (sm:, md:, lg:, xl:, 2xl:) or media queries. Test on multiple viewport sizes. Ensure touch-friendly targets on mobile.",
+      "tags": ["responsive", "mobile", "breakpoints"],
+      "recommendedFor": ["layouts", "pages", "navigation"]
+    },
+    {
+      "id": "dark-mode-support",
+      "name": "Dark Mode Support",
+      "content": "Implement dark mode using Tailwind's dark: variant or CSS variables. Ensure proper contrast ratios in both modes. Test all interactive states (hover, focus, active) in both themes. Use semantic color naming (bg-surface, text-primary) rather than specific colors.",
+      "tags": ["dark-mode", "themes", "accessibility"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "animation-transitions",
+      "name": "Smooth Animations and Transitions",
+      "content": "Add smooth transitions for state changes and interactions. Use Tailwind transition utilities or CSS transitions. Respect prefers-reduced-motion for accessibility. Keep animations subtle and purposeful (200-300ms for most transitions). Animate transform and opacity for performance.",
+      "tags": ["animations", "transitions", "ux"],
+      "recommendedFor": ["interactive", "modals", "dropdowns"]
+    },
+    {
+      "id": "spacing-consistency",
+      "name": "Consistent Spacing System",
+      "content": "Use the design system's spacing scale consistently. Apply spacing using margin and padding utilities (p-4, m-2, gap-6, etc.). Follow the 8px grid system if applicable. Maintain consistent spacing between related elements and generous spacing between sections.",
+      "tags": ["spacing", "layout", "consistency"],
+      "recommendedFor": ["all-components"]
+    },
+    {
+      "id": "typography-hierarchy",
+      "name": "Clear Typography Hierarchy",
+      "content": "Implement typography following the design system's type scale. Use semantic HTML (h1-h6, p, span) with appropriate styling. Maintain consistent line heights and letter spacing. Ensure readability with proper font sizes (minimum 16px for body text).",
+      "tags": ["typography", "hierarchy", "readability"],
+      "recommendedFor": ["content", "forms", "pages"]
+    },
+    {
+      "id": "component-variants",
+      "name": "Component Variant System",
+      "content": "Implement size variants (sm, md, lg), color variants (primary, secondary, danger), and state variants (default, hover, active, disabled). Use a variant prop with TypeScript union types. Consider using class-variance-authority (cva) or similar for managing variants.",
+      "tags": ["variants", "props", "flexibility"],
+      "recommendedFor": ["buttons", "inputs", "badges"]
+    },
+    {
+      "id": "icon-integration",
+      "name": "Proper Icon Integration",
+      "content": "Use lucide-react or the project's icon library. Size icons consistently with text (typically 1em or specific sizes from design system). Ensure icons have proper aria-labels when used without text. Support icon-only and icon-with-text layouts.",
+      "tags": ["icons", "visual", "accessibility"],
+      "recommendedFor": ["buttons", "navigation", "indicators"]
+    }
+  ]
+}

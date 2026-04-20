@@ -1,0 +1,90 @@
+{
+  "category": "behavior-interaction",
+  "description": "Prompts for component behavior, user interactions, and functionality",
+  "prompts": [
+    {
+      "id": "form-validation",
+      "name": "Comprehensive Form Validation",
+      "content": "Implement form validation with clear error messages. Show validation on blur or submit, not on every keystroke. Display field-level and form-level errors. Use HTML5 validation attributes (required, pattern, min, max). Provide helpful error messages that guide users to fix issues.",
+      "tags": ["forms", "validation", "ux"],
+      "recommendedFor": ["forms", "inputs", "authentication"]
+    },
+    {
+      "id": "loading-states",
+      "name": "Loading and Pending States",
+      "content": "Implement loading states for async operations. Show loading spinners or skeleton screens. Disable interactive elements during loading. Provide feedback for long-running operations. Handle loading errors gracefully with retry options.",
+      "tags": ["async", "loading", "ux"],
+      "recommendedFor": ["forms", "data-fetching", "buttons"]
+    },
+    {
+      "id": "error-handling",
+      "name": "Robust Error Handling",
+      "content": "Implement comprehensive error handling for all user actions and API calls. Display user-friendly error messages. Provide actionable recovery options (retry, cancel, contact support). Log errors for debugging. Use Error Boundaries for React component errors.",
+      "tags": ["errors", "resilience", "ux"],
+      "recommendedFor": ["forms", "api-integration", "complex-features"]
+    },
+    {
+      "id": "optimistic-updates",
+      "name": "Optimistic UI Updates",
+      "content": "Implement optimistic updates for better perceived performance. Update UI immediately on user action, then sync with server. Roll back on error with clear messaging. Works well for likes, saves, simple edits, etc.",
+      "tags": ["performance", "ux", "async"],
+      "recommendedFor": ["interactive", "social-features", "forms"]
+    },
+    {
+      "id": "keyboard-navigation",
+      "name": "Full Keyboard Navigation",
+      "content": "Implement complete keyboard navigation support. Handle Enter, Escape, Arrow keys, Tab appropriately. Support keyboard shortcuts where relevant. Manage focus states properly. Test navigation without a mouse.",
+      "tags": ["keyboard", "accessibility", "navigation"],
+      "recommendedFor": ["modals", "dropdowns", "forms", "navigation"]
+    },
+    {
+      "id": "focus-management",
+      "name": "Intelligent Focus Management",
+      "content": "Manage focus appropriately for modal interactions, form submissions, and dynamic content. Return focus to trigger element when closing modals. Move focus to first error on validation failure. Set focus to relevant elements on page navigation.",
+      "tags": ["focus", "accessibility", "ux"],
+      "recommendedFor": ["modals", "forms", "wizards"]
+    },
+    {
+      "id": "debounce-throttle",
+      "name": "Debounced and Throttled Events",
+      "content": "Debounce search inputs and text changes (300-500ms). Throttle scroll and resize handlers (100-200ms). Use useCallback to memoize event handlers. Prevent unnecessary re-renders and API calls.",
+      "tags": ["performance", "events", "optimization"],
+      "recommendedFor": ["search", "autocomplete", "infinite-scroll"]
+    },
+    {
+      "id": "confirmation-dialogs",
+      "name": "Confirmation for Destructive Actions",
+      "content": "Require confirmation for destructive actions (delete, remove, discard changes). Use modal dialogs or inline confirmations. Clearly explain consequences. Provide undo option when possible. Use appropriate visual indicators (red for danger).",
+      "tags": ["safety", "ux", "destructive"],
+      "recommendedFor": ["delete-actions", "forms", "data-management"]
+    },
+    {
+      "id": "disabled-states",
+      "name": "Proper Disabled States",
+      "content": "Implement disabled states with appropriate visual feedback (reduced opacity, cursor not-allowed). Disable form elements during submission. Prevent interaction with disabled elements. Consider using tooltips to explain why something is disabled.",
+      "tags": ["states", "forms", "ux"],
+      "recommendedFor": ["buttons", "inputs", "forms"]
+    },
+    {
+      "id": "empty-states",
+      "name": "Helpful Empty States",
+      "content": "Design informative empty states for lists, searches, and data views. Include helpful messaging and call-to-action. Use illustrations or icons when appropriate. Guide users on what to do next (create first item, adjust filters, etc.).",
+      "tags": ["empty-states", "ux", "messaging"],
+      "recommendedFor": ["lists", "tables", "dashboards"]
+    },
+    {
+      "id": "infinite-scroll",
+      "name": "Infinite Scroll Implementation",
+      "content": "Implement infinite scroll using Intersection Observer API. Show loading indicator while fetching. Handle end of list gracefully. Provide option to load more manually as fallback. Maintain scroll position on navigation back.",
+      "tags": ["scrolling", "pagination", "ux"],
+      "recommendedFor": ["feeds", "lists", "galleries"]
+    },
+    {
+      "id": "drag-drop",
+      "name": "Drag and Drop Interactions",
+      "content": "Implement drag and drop using native HTML5 API or a library like dnd-kit. Provide visual feedback during drag (preview, drop zones). Handle invalid drops gracefully. Support keyboard alternatives for accessibility.",
+      "tags": ["drag-drop", "interaction", "advanced"],
+      "recommendedFor": ["file-uploads", "reordering", "kanban"]
+    }
+  ]
+}
